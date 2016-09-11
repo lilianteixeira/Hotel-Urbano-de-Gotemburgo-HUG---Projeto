@@ -10,6 +10,8 @@ public class Hospede {
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		
+		//ver questao do hospede que tem uma lista de estadias
+		
 	}
 	
 	public String getNome() {
