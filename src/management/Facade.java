@@ -14,6 +14,9 @@ public class Facade {
 		controller.cadastraHospede(nome, email, dataNascimento);
 	}
 	
+	public boolean removeHospede(String email) {
+		return controller.removeHospede(email);
+	}
 	
 	public static void main(String[] args) {
 	    args = new String[] {"management.Facade", "resources/acceptance_test/testes_uc1.txt"}; //separe cada script de teste por virgula.

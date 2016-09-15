@@ -13,32 +13,6 @@ public class Estadia {
 	}
 
 	
-	public double totalPago(int qtdDias, String tipoQuarto) {
-		
-		double total;
-		
-		if(tipoQuarto.equalsIgnoreCase("simple")){
-			
-			total = qtdDias * 100;
-			return total ;
-			
-		}if (tipoQuarto.equalsIgnoreCase("luxo")) {
-			
-			total = qtdDias * 250;
-			return total;
-			
-			
-		} else {
-
-			total = qtdDias * 450;
-			return total;
-			
-		}
-		
-		
-		
-	}
-	
 	
 	//acessadores e modificadores
 	public int getQtdDias() {

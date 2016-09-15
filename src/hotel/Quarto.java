@@ -4,7 +4,7 @@ public class Quarto {
 
 	private String id;
 	private double valorDiaria;
-	
+	private TipoQuarto tipoQuarto; //rever
 	public Quarto(String id, double valorDiaria) {
 
 		this.id = id;

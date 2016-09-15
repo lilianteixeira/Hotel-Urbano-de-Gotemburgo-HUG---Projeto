@@ -10,8 +10,13 @@ public class Controller {
 		this.hotel = new Hotel();
 	}
 
-	public void cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
-
-		hotel.cadastraHospede(nome, email, dataNascimento);
+	public String cadastraHospede(String nome, String email,
+			String dataNascimento) throws Exception {
+		return hotel.cadastraHospede(nome, email, dataNascimento);
 	}
+
+	public boolean removeHospede(String email) {
+		return hotel.removeHospede(email);
+	}
+
 }
