@@ -5,8 +5,6 @@ package Restaurante;
 
 import java.util.ArrayList;
 
-import exceptions.StringInvalidaException;
-
 public class Refeicao {
 
 	private final double DESCONTO = 0.1;
@@ -14,14 +12,7 @@ public class Refeicao {
 	private String descricao;
 	private ArrayList<Prato> refeicoes;
 
-	public Refeicao(String nome, String descricao) throws StringInvalidaException {
-
-		if (nome == null || nome.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Nome nao pode ser nulo ou vazio");
-		}
-		if (descricao == null || descricao.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
-		}
+	public Refeicao(String nome, String descricao) {
 
 		this.nome = nome;
 		this.descricao = descricao;
@@ -45,13 +36,13 @@ public class Refeicao {
 	}
 
 	/**
-	 * Adiciona um prato a uma refeição completa, sendo que uma refeição nao
+	 * Adiciona um prato a uma refeicao completa, sendo que uma refeicao nao
 	 * pode ter mais de 4 pratos
 	 * 
 	 * @param novoPrato
-	 *            - prato a ser adicionado a refeição
-	 * @return - retorna se foi possível ou não adicionar um novo prato a
-	 *         refeiçao
+	 *            - prato a ser adicionado a refeicao
+	 * @return - retorna se foi possivel ou nao adicionar um novo prato a
+	 *         refeicao
 	 */
 	public boolean addPrato(Prato novoPrato) {
 		if (refeicoes.size() < 4) {
@@ -61,11 +52,11 @@ public class Refeicao {
 	}
 
 	/**
-	 * metodo que calcula o valor de um refeição completa, sabendo que para um
-	 * refeição completa o hospede recebe 10% de desconto no valor total da
-	 * refeição
+	 * metodo que calcula o valor de um refeicao completa, sabendo que para um
+	 * refeicao completa o hospede recebe 10% de desconto no valor total da
+	 * refeicao
 	 * 
-	 * @return - retorna o valor total da refeição
+	 * @return - retorna o valor total da refeicao
 	 */
 	public double valorRefeicao() {
 		double valorTotal = 0;
@@ -89,14 +80,13 @@ public class Refeicao {
 	}
 
 	/**
-	 * Equals de uma refeição onde uma refeiçao é igual a outra se sua
-	 * descrição, seu nome e sua lista de pratos são iguais
+	 * Equals de uma refeicao onde uma refeicao eh igual a outra se sua
+	 * descricao, seu nome e sua lista de pratos sao iguais
 	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Refeicao) {
 			Refeicao novaRefeicao = (Refeicao) obj;
-			boolean verdade = false;
 			return novaRefeicao.getNome().equals(this.getNome())
 					&& novaRefeicao.getDescricao().equals(this.getDescricao())
 					&& novaRefeicao.refeicoes.equals(this.refeicoes);

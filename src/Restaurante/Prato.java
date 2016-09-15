@@ -3,27 +3,13 @@
  */
 package Restaurante;
 
-import exceptions.NumeroInvalidoException;
-import exceptions.StringInvalidaException;
-
 public class Prato {
 
 	private String nome;
 	private double valor;
 	private String descricao;
 
-	public Prato(String nome, double preco, String descricao) throws StringInvalidaException, NumeroInvalidoException {
-
-		if (nome == null || nome.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Nome nao pode ser nulo ou vazio");
-		}
-		if (preco < 0) {
-			throw new NumeroInvalidoException("Preco nao pode ser negativo");
-		}
-		if (descricao == null || descricao.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
-		}
-
+	public Prato(String nome, double preco, String descricao)  {
 		this.nome = nome;
 		this.valor = preco;
 		this.descricao = descricao;
@@ -54,7 +40,7 @@ public class Prato {
 	}
 	
 	/**
-	 * Equals de um prato, onde um prato vai ser igual a outro se possuir mesmo nome, preço e mesma descrição
+	 * Equals de um prato, onde um prato vai ser igual a outro se possuir mesmo nome, preco e mesma descricao
 	 * */
 	@Override
 	public boolean equals(Object obj) {
