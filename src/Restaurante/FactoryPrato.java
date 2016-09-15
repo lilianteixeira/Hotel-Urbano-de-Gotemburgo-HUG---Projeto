@@ -1,14 +1,10 @@
-/**
- * @author Antonio Dartagnan S. C. Junior - 114210775 Turma 02
- */
-
 package Restaurante;
 
 import exceptions.NumeroInvalidoException;
 import exceptions.StringInvalidaException;
 
-/** 
- *Classe referente ao padrão Factory usado para instânciar um Prato
+/**
+ * Classe referente ao padrão Factory usado para instânciar um Prato
  *
  */
 public class FactoryPrato {
@@ -25,7 +21,7 @@ public class FactoryPrato {
 		if (descricao == null || descricao.trim().equalsIgnoreCase("")) {
 			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
 		}
-		
+
 		return new Prato(nome, preco, descricao);
 	}
 }

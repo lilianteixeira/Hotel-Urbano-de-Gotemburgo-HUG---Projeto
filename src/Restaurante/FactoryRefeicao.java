@@ -1,6 +1,4 @@
-/**
- * @author Antonio Dartagnan S. C. Junior - 114210775 Turma 02
- */
+
 package Restaurante;
 
 import exceptions.StringInvalidaException;
