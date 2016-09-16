@@ -1,12 +1,15 @@
 package Restaurante;
 
+import exceptions.NumeroInvalidoException;
+import exceptions.StringInvalidaException;
+
 public class Prato {
 
 	private String nome;
 	private double valor;
 	private String descricao;
 
-	public Prato(String nome, double preco, String descricao)  {
+	public Prato(String nome, double preco, String descricao) throws StringInvalidaException, NumeroInvalidoException {
 		this.nome = nome;
 		this.valor = preco;
 		this.descricao = descricao;
@@ -35,16 +38,16 @@ public class Prato {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 	/**
-	 * Equals de um prato, onde um prato vai ser igual a outro se possuir mesmo nome, preco e mesma descricao
-	 * */
+	 * Equals de um prato, onde um prato vai ser igual a outro se possuir mesmo
+	 * nome, preco e mesma descricao
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Prato) {
 			Prato novoPrato = (Prato) obj;
-			return novoPrato.getNome().equals(this.getNome())
-					&& novoPrato.getDescricao().equals(this.getDescricao())
+			return novoPrato.getNome().equals(this.getNome()) && novoPrato.getDescricao().equals(this.getDescricao())
 					&& novoPrato.getValor() == this.getValor();
 		}
 		return false;

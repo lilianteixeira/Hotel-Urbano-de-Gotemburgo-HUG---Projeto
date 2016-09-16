@@ -1,5 +1,6 @@
-package Restaurante;
+package factory;
 
+import Restaurante.Prato;
 import exceptions.NumeroInvalidoException;
 import exceptions.StringInvalidaException;
 
@@ -22,6 +23,7 @@ public class FactoryPrato {
 			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
 		}
 
-		return new Prato(nome, preco, descricao);
+		Prato prato = new Prato(nome, preco, descricao);
+		return prato;
 	}
 }

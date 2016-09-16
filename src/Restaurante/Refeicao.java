@@ -2,6 +2,8 @@ package Restaurante;
 
 import java.util.ArrayList;
 
+import exceptions.StringInvalidaException;
+
 public class Refeicao {
 
 	private final double DESCONTO = 0.1;
@@ -9,7 +11,7 @@ public class Refeicao {
 	private String descricao;
 	private ArrayList<Prato> refeicoes;
 
-	public Refeicao(String nome, String descricao) {
+	public Refeicao(String nome, String descricao) throws StringInvalidaException {
 
 		this.nome = nome;
 		this.descricao = descricao;

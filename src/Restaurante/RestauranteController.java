@@ -5,6 +5,8 @@ import java.util.HashSet;
 
 import exceptions.NumeroInvalidoException;
 import exceptions.StringInvalidaException;
+import factory.FactoryPrato;
+import factory.FactoryRefeicao;
 
 public class RestauranteController {
 
@@ -21,11 +23,11 @@ public class RestauranteController {
 		this.factoryRefeicao = new FactoryRefeicao();
 	}
 
-	public boolean cadastraPrato(String nome, double preco, String descricao)
+	public void cadastraPrato(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 
 		Prato prato = factoryPrato.criaPrato(nome, preco, descricao);
-		return menuPratos.add(prato);
+		menuPratos.add(prato);
 	}
 	
 	public Prato buscaPratoPorNome(String nome){

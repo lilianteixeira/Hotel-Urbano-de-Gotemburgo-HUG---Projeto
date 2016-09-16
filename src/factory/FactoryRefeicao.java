@@ -1,6 +1,7 @@
 
-package Restaurante;
+package factory;
 
+import Restaurante.Refeicao;
 import exceptions.StringInvalidaException;
 
 /** 

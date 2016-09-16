@@ -3,6 +3,8 @@ package hotel;
 import java.util.HashSet;
 import java.util.Map;
 
+import exceptions.EmailInvalidoException;
+import exceptions.StringInvalidaException;
 import factory.FactoryHospede;
 
 public class Hotel {
@@ -14,13 +16,13 @@ public class Hotel {
 	public Hotel() {
 
 		this.hospedesCadastrados = new HashSet<Hospede>();
-
+		this.factoryHospede = new FactoryHospede();
 	}
 
-	public String cadastraHospede(String nome, String email,
-			String dataNascimento) throws Exception {
-		Hospede hospede = factoryHospede.criaHospede(nome, email,
-				dataNascimento);
+	public String cadastraHospede(String nome, String email, String dataNascimento)
+			throws EmailInvalidoException, StringInvalidaException {
+		
+		Hospede hospede = factoryHospede.criaHospede(nome, email, dataNascimento);
 		hospedesCadastrados.add(hospede);
 		return hospede.getEmail();
 	}
@@ -39,7 +41,7 @@ public class Hotel {
 	}
 
 	public boolean checkIn(Estadia quarto, String email) {
-		if(apartamentos.put(quarto, buscaHospede(email)) != null){
+		if (apartamentos.put(quarto, buscaHospede(email)) != null) {
 			return true;
 		}
 		return false;
