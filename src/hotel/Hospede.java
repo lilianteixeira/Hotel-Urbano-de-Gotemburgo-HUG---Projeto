@@ -6,13 +6,12 @@ import exceptions.EmailInvalidoException;
 import exceptions.StringInvalidaException;
 
 public class Hospede {
+
 	private String nome;
 	private String email;
-	private LocalDate dataNascimento;
+	private String dataNascimento;
 
-	public Hospede(String nome, String email, LocalDate dataNascimento)
-			throws EmailInvalidoException, StringInvalidaException {
-
+	public Hospede(String nome, String email, String dataNascimento) {
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
@@ -35,11 +34,11 @@ public class Hospede {
 		this.email = email;
 	}
 
-	public LocalDate getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

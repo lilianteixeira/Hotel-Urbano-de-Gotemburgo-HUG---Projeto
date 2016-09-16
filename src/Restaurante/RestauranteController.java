@@ -41,12 +41,10 @@ public class RestauranteController {
 	
 	public boolean cadastraRefeicao(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException{
 		
-		Refeicao refeicao = factoryRefeicao.criaRefeicao(nome, descricao);
+		Refeicao refeicao = factoryRefeicao.criaRefeicao(nome, descricao, pratos);
 		
 		return menuRefeicoes.add(refeicao);
 		
 	}
 	
-
-
 }

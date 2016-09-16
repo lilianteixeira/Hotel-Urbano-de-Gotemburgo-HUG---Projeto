@@ -11,11 +11,11 @@ public class Refeicao {
 	private String descricao;
 	private ArrayList<Prato> refeicoes;
 
-	public Refeicao(String nome, String descricao) throws StringInvalidaException {
-
+	public Refeicao(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException {
+		
 		this.nome = nome;
 		this.descricao = descricao;
-		this.refeicoes = new ArrayList<Prato>();
+		this.refeicoes = pratos;
 	}
 
 	public String getNome() {

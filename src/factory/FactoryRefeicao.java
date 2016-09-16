@@ -4,13 +4,17 @@ package factory;
 import Restaurante.Refeicao;
 import exceptions.StringInvalidaException;
 
+import java.util.ArrayList;
+
+import Restaurante.Prato;
+
 /** 
- *Classe referente ao padrão Factory usado para instânciar uma Refeicao
+ *Classe referente ao padrï¿½o Factory usado para instï¿½nciar uma Refeicao
  *
  */
 public class FactoryRefeicao {
 
-	public Refeicao criaRefeicao(String nome, String descricao) throws StringInvalidaException {
+	public Refeicao criaRefeicao(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException {
 
 		if (nome == null || nome.trim().equalsIgnoreCase("")) {
 			throw new StringInvalidaException("Nome nao pode ser nulo ou vazio");
@@ -19,6 +23,6 @@ public class FactoryRefeicao {
 			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
 		}
 		
-		return new Refeicao(nome, descricao);
+		return new Refeicao(nome, descricao, pratos);
 	}
 }
