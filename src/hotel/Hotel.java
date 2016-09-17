@@ -7,15 +7,15 @@ import exceptions.ObjetoInvalidoException;
 import factory.FactoryHospede;
 
 public class Hotel {
-
 	private HashSet<Hospede> hospedesCadastrados;
 	private FactoryHospede factoryHospede;
 	private Map<Estadia, Hospede> apartamentos;
 
 	public Hotel() {
 
-		this.hospedesCadastrados = new HashSet<Hospede>();
+		this.hospedesCadastrados = new HashSet<>();
 		this.factoryHospede = new FactoryHospede();
+		
 	}
 
 	/**
