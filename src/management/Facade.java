@@ -1,6 +1,7 @@
 package management;
 
 import easyaccept.EasyAccept;
+import exceptions.*;
 
 public class Facade {
 
@@ -17,19 +18,21 @@ public class Facade {
 	public void fechaSistema() {
 	}
 
-	public boolean cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
+	public String cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
 		return controller.cadastraHospede(nome, email, dataNascimento);
 	}
 
-	public String getInfoHospede(String email, String atributo) throws Exception {
+	public String getInfoHospede(String email, String atributo)
+			throws ObjetoInvalidoException, StringInvalidaException {
 		return controller.getInfoHospede(email, atributo);
 	}
 
-	public void atualizaCadastro(String email, String atributo, String novoAtributo) {
+	public void atualizaCadastro(String email, String atributo, String novoAtributo)
+			throws ObjetoInvalidoException, StringInvalidaException {
 		controller.atualizaCadastro(email, atributo, novoAtributo);
 	}
 
-	public void removeHospede(String email) {
+	public void removeHospede(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		controller.removeHospede(email);
 	}
 

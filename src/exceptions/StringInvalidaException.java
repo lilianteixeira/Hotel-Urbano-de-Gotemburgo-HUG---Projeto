@@ -4,8 +4,12 @@
 package exceptions;
 
 public class StringInvalidaException extends Exception {
-	
-	public	StringInvalidaException (String mensagem){
+
+	public StringInvalidaException (String mensagem) {
 		super(mensagem);
+	}
+
+	public StringInvalidaException() {
+		super();
 	}
 }

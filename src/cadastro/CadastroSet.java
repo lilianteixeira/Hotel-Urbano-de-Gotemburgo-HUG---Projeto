@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import exceptions.ObjetoInvalidoException;
+import exceptions.StringInvalidaException;
+
 public class CadastroSet {
 	private Set<Cadastro> cadastroSet;
 
@@ -33,8 +36,10 @@ public class CadastroSet {
 		return true;
 	}
 
-	public Cadastro buscaCadastro(String email) {
-		// Primeiro deve ser feita a validação do argumento
+	public Cadastro buscaCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
+		if (email == null || email.trim().equals(""))
+			throw new StringInvalidaException();
+
 		Cadastro c = null;
 		Iterator<Cadastro> i = cadastroSet.iterator();
 
@@ -44,8 +49,7 @@ public class CadastroSet {
 				return c;
 		}
 
-		return null; // Na verdade, deve lançar uma checked exception, com uma
-						// mensagem avisando
-		// que não há nenhum cadastro com esse email.
+		throw new ObjetoInvalidoException(
+				"Erro na consulta de hospede. Hospede de email " + email + " nao foi cadastrado(a).");
 	}
 }

@@ -25,11 +25,11 @@ public class Hotel {
 		return true;
 	}
 
-	public boolean removeCadastro(String email) {
+	public boolean removeCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
 	}
 
-	public void checkIn(String email, String id, int dias) {
+	public void checkIn(String email, String id, int dias) throws ObjetoInvalidoException, StringInvalidaException {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		Quarto quarto = quartos.buscaQuarto(id);
 		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
@@ -37,7 +37,7 @@ public class Hotel {
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
 	}
 
-	public void checkOut(String email) {
+	public void checkOut(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		Set<Map.Entry<Estadia, Cadastro>> entradas = estadias.entrySet();
 		Iterator<Map.Entry<Estadia, Cadastro>> i = entradas.iterator();
@@ -70,7 +70,8 @@ public class Hotel {
 		}
 	}
 
-	public String getInfoHospede(String email, String atributo) throws ObjetoInvalidoException {
+	public String getInfoHospede(String email, String atributo)
+			throws ObjetoInvalidoException, StringInvalidaException {
 		/*
 		 * if (buscaHospede(email) == null) { throw new ObjetoInvalidoException(
 		 * "Erro na consulta de hospede. Hospede de email " + email +
@@ -96,7 +97,8 @@ public class Hotel {
 												// exception depois.
 	}
 
-	public void atualizaCadastro(String email, String atributo, String novoAtributo) {
+	public void atualizaCadastro(String email, String atributo, String novoAtributo)
+			throws ObjetoInvalidoException, StringInvalidaException {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		if (atributo.equalsIgnoreCase("Nome"))
 			hospede.setNome(novoAtributo);
