@@ -1,16 +1,16 @@
-package factory;
+package Restaurante;
 
-import Restaurante.Prato;
 import exceptions.NumeroInvalidoException;
 import exceptions.StringInvalidaException;
 
 /**
- * Classe referente ao padrão Factory usado para instânciar um Prato
+ * Classe referente ao padrï¿½o Factory usado para instï¿½nciar um Prato
  *
  */
-public class FactoryPrato {
-
-	public Prato criaPrato(String nome, double preco, String descricao)
+public enum PratoFactory {
+	INSTANCIA;
+	
+	public Prato create(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 
 		if (nome == null || nome.trim().equalsIgnoreCase("")) {

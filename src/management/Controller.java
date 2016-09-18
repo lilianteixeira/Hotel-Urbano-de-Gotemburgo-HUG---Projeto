@@ -1,36 +1,39 @@
 package management;
 
-import Restaurante.RestauranteController;
+import Restaurante.Restaurante;
+import exceptions.NumeroInvalidoException;
 import exceptions.ObjetoInvalidoException;
+import exceptions.StringInvalidaException;
 import hotel.Hotel;
 
 public class Controller {
 
 	private Hotel hotel;
-	private RestauranteController restaurante;
+	private Restaurante restaurante;
 
 	public Controller() {
 		this.hotel = new Hotel();
-		this.restaurante = new RestauranteController();
+		this.restaurante = new Restaurante();
 	}
 
-	public String cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
+	public boolean cadastraHospede(String nome, String email, String dataNascimento) {
 		return hotel.cadastraHospede(nome, email, dataNascimento);
 	}
-	
-	public String getInfoHospede(String email, String atributo) throws Exception{
+
+	public String getInfoHospede(String email, String atributo) throws ObjetoInvalidoException {
 		return hotel.getInfoHospede(email, atributo);
 	}
 
-	public void removeHospede(String email) {
-		hotel.removeHospede(email);
+	public boolean removeHospede(String email) {
+		return hotel.removeCadastro(email);
 	}
-	
-	public void atualizaCadastro(String email, String atributo, String novoAtributo){
+
+	public void atualizaCadastro(String email, String atributo, String novoAtributo) {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
 	}
-	
-	public void cadastraPrato(String nome, double preco, String descricao) throws Exception{
+
+	public void cadastraPrato(String nome, double preco, String descricao)
+			throws StringInvalidaException, NumeroInvalidoException {
 		restaurante.cadastraPrato(nome, preco, descricao);
 	}
 }

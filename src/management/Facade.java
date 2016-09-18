@@ -17,7 +17,7 @@ public class Facade {
 	public void fechaSistema() {
 	}
 
-	public String cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
+	public boolean cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
 		return controller.cadastraHospede(nome, email, dataNascimento);
 	}
 

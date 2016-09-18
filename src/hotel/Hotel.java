@@ -1,92 +1,111 @@
 package hotel;
 
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
-import exceptions.ObjetoInvalidoException;
-import factory.FactoryHospede;
+import cadastro.*;
+import exceptions.*;
 
 public class Hotel {
-	private HashSet<Hospede> hospedesCadastrados;
-	private FactoryHospede factoryHospede;
-	private Map<Estadia, Hospede> apartamentos;
+	private CadastroSet cadastros;
+	private EstadiaMap estadias;
+	private RegistroSet registros;
+	private QuartoSet quartos;
 
 	public Hotel() {
-
-		this.hospedesCadastrados = new HashSet<>();
-		this.factoryHospede = new FactoryHospede();
-		
+		this.cadastros = new CadastroSet();
+		this.estadias = new EstadiaMap();
+		this.registros = new RegistroSet();
+		this.quartos = new QuartoSet();
 	}
 
-	/**
-	 * Metodo que cadastra um hospede no hotel, armazenando o hospede na lista
-	 * de hospedeCadastrados
-	 * 
-	 * @param nome
-	 *            - nome do hospede
-	 * @param email
-	 *            - email o hospede
-	 * @param dataNascimento
-	 *            - data de nascimento do hospede
-	 * @return
-	 * @throws Exception
-	 */
-	public String cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
-
-		Hospede hospede = factoryHospede.criaHospede(nome, email, dataNascimento);
-		hospedesCadastrados.add(hospede);
-		return hospede.getEmail();
+	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) {
+		cadastros.addCadastro(CadastroFactory.INSTANCE.create(nome, email, dataDeNascimento));
+		return true;
 	}
 
-	public void removeHospede(String email) {
-		hospedesCadastrados.remove(buscaHospede(email));
+	public boolean removeCadastro(String email) {
+		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
 	}
 
-	private Hospede buscaHospede(String email) {
-		for (Hospede hospede : hospedesCadastrados) {
-			if (hospede.getEmail().equals(email)) {
-				return hospede;
+	public void checkIn(String email, String id, int dias) {
+		Cadastro hospede = cadastros.buscaCadastro(email);
+		Quarto quarto = quartos.buscaQuarto(id);
+		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
+		estadias.putEstadia(estadia, hospede);
+		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
+	}
+
+	public void checkOut(String email) {
+		Cadastro hospede = cadastros.buscaCadastro(email);
+		Set<Map.Entry<Estadia, Cadastro>> entradas = estadias.entrySet();
+		Iterator<Map.Entry<Estadia, Cadastro>> i = entradas.iterator();
+		Map.Entry<Estadia, Cadastro> entrada;
+
+		while (i.hasNext()) {// Varre todas as estadias
+			entrada = i.next();
+			if (entrada.getValue().equals(hospede)) {
+				// se a estadia estiver relacionada ao email que está fazendo
+				// checkout...
+				registros.addRegistro(RegistroFactory.INSTANCE.create(hospede.getNome(), entrada.getKey().getId(),
+						entrada.getKey().getPrecoTotal()));// esse trecho cria
+															// uma instância de
+															// RegistroCheckOut
+															// com as
+															// informações da
+															// estadia, e
+															// adiciona à lista
+															// de registros
+				quartos.buscaQuarto(entrada.getKey().getId()).setOcupadoState(); // Esse
+																					// trecho
+																					// muda
+																					// o
+																					// quarto
+																					// para
+																					// desocupado
+				entradas.remove(entrada);// Esse trecho remove a estadia da
+											// lista de estadias.
 			}
 		}
-		return null;
-	}
-
-	public boolean checkIn(Estadia quarto, String email) {
-		if (apartamentos.put(quarto, buscaHospede(email)) != null) {
-			return true;
-		}
-		return false;
 	}
 
 	public String getInfoHospede(String email, String atributo) throws ObjetoInvalidoException {
-		if (buscaHospede(email) == null) {
-			throw new ObjetoInvalidoException(
-					"Erro na consulta de hospede. Hospede de email " + email + " nao foi cadastrado(a).");
-		}
-		Hospede hospede = buscaHospede(email);
+		/*
+		 * if (buscaHospede(email) == null) { throw new ObjetoInvalidoException(
+		 * "Erro na consulta de hospede. Hospede de email " + email +
+		 * " nao foi cadastrado(a)."); }
+		 */
+
+		Cadastro hospede = cadastros.buscaCadastro(email);
+		// A checagem se o e-mail está cadastrado, foi passado para o método
+		// buscaCadastro.
 
 		if (atributo.equalsIgnoreCase("Nome")) {
 			return hospede.getNome();
 		}
 		if (atributo.equalsIgnoreCase("Data de nascimento")) {
-			return hospede.getDataNascimento();
+			return hospede.getDataDeNascimento();
 		}
 		if (atributo.equalsIgnoreCase("Email")) {
 			return hospede.getEmail();
 		}
-		return null;
+		/* return null; */// Não deveria retornar um null, e sim lançar uma
+							// exceção de argumento inválido
+		throw new IllegalArgumentException(); // Trocar por uma checked
+												// exception depois.
 	}
 
 	public void atualizaCadastro(String email, String atributo, String novoAtributo) {
-		Hospede hospede = buscaHospede(email);
-		if (atributo.equalsIgnoreCase("Nome")) {
+		Cadastro hospede = cadastros.buscaCadastro(email);
+		if (atributo.equalsIgnoreCase("Nome"))
 			hospede.setNome(novoAtributo);
-		}
-		if (atributo.equalsIgnoreCase("Data de nascimento")) {
-			hospede.setDataNascimento(novoAtributo);
-		}
-		if (atributo.equalsIgnoreCase("Email")) {
+		else if (atributo.equalsIgnoreCase("Data de nascimento"))
+			hospede.setDataDeNascimento(novoAtributo);
+		else if (atributo.equalsIgnoreCase("Email"))
 			hospede.setEmail(novoAtributo);
-		}
+		else
+			throw new IllegalArgumentException(); // trocar por uma
+													// checkedException
 	}
 }

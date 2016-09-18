@@ -1,20 +1,18 @@
 
-package factory;
+package Restaurante;
 
-import Restaurante.Refeicao;
 import exceptions.StringInvalidaException;
 
 import java.util.ArrayList;
-
-import Restaurante.Prato;
 
 /** 
  *Classe referente ao padr�o Factory usado para inst�nciar uma Refeicao
  *
  */
-public class FactoryRefeicao {
+public enum RefeicaoFactory {
+	INSTANCIA;
 
-	public Refeicao criaRefeicao(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException {
+	public Refeicao create(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException {
 
 		if (nome == null || nome.trim().equalsIgnoreCase("")) {
 			throw new StringInvalidaException("Nome nao pode ser nulo ou vazio");

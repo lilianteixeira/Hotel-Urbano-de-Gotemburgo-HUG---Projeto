@@ -1,54 +1,55 @@
 package hotel;
 
-public class Quarto {
-
+public class Quarto implements Comparable<Quarto> {
 	private String id;
-	private double valorDiaria;
-	private TipoQuarto tipoQuarto; //rever
-	public Quarto(String id, double valorDiaria) {
+	private TipoDeQuarto tipoDeQuarto;
+	private boolean isOcupado;
 
+	public Quarto(String id, TipoDeQuarto tipoDeQuarto) {
 		this.id = id;
-		this.valorDiaria = valorDiaria;
-	
+		this.tipoDeQuarto = tipoDeQuarto;
+		this.isOcupado = false;
 	}
 
-	
-	//modificadores e acessadores
-	
+	/**
+	 * @return the isOcupado
+	 */
+	public boolean isOcupado() {
+		return isOcupado;
+	}
+
+	/**
+	 *
+	 */
+	public void setOcupadoState() {
+		// A idéia é que o método mude o estado do quarto, a partir do seu
+		// estado atual.
+		isOcupado = !isOcupado;
+	}
+
+	/**
+	 * @return the id
+	 */
 	public String getId() {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public double getDiaria() {
+		return tipoDeQuarto.getDiaria();
 	}
-
-	public double getValorDiaria() {
-		return valorDiaria;
-	}
-
-	public void setValorDiaria(double valorDiaria) {
-		this.valorDiaria = valorDiaria;
-	}
-
 
 	@Override
-	public String toString() {
-		return "Quarto [id=" + id + ", valorDiaria=" + valorDiaria + "]";
+	public int compareTo(Quarto q) {
+		return this.id.compareToIgnoreCase(q.getId());
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(valorDiaria);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -64,12 +65,7 @@ public class Quarto {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (Double.doubleToLongBits(valorDiaria) != Double
-				.doubleToLongBits(other.valorDiaria))
-			return false;
 		return true;
 	}
-	
-	
-	
+
 }
