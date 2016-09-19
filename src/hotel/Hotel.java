@@ -110,7 +110,7 @@ public class Hotel {
 			throw new IllegalArgumentException(); // trocar por uma
 													// checkedException
 	}
-	
+
 	public Quarto buscaQuarto(String id) {
 		return quartos.buscaQuarto(id);
 	}

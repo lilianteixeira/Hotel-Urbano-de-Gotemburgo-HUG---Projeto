@@ -1,7 +1,6 @@
 package cadastro;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import exceptions.ObjetoInvalidoException;
@@ -39,15 +38,10 @@ public class CadastroSet {
 	public Cadastro buscaCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		if (email == null || email.trim().equals(""))
 			throw new StringInvalidaException();
-
-		Cadastro c = null;
-		Iterator<Cadastro> i = cadastroSet.iterator();
-
-		while (i.hasNext()) {
-			c = i.next();
-			if (c.getEmail().equals(email))
+		
+		for(Cadastro c : cadastroSet)
+			if(c.getEmail().equals(email))
 				return c;
-		}
 
 		throw new ObjetoInvalidoException(
 				"Erro na consulta de hospede. Hospede de email " + email + " nao foi cadastrado(a).");
