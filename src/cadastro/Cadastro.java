@@ -29,20 +29,11 @@ public class Cadastro {
 	 */
 	private String dataDeNascimento;
 
-	/**
-	 * Construtor
-	 * 
-	 * @param nome
-	 *            <code>String</code> a ser armazenada com a representação do
-	 *            nome da pessoa a qual o cadastro se refere.
-	 * @param email
-	 *            <code>String</code> a ser armazenada com a representação do
-	 *            email da pessoa a qual o cadastro se refere.
-	 * @param dataDeNascimento
-	 *            <code>String</code> a ser armazenada com a representação da
-	 *            data de nascimento da pessoa a qual o cadastro se refere.
-	 */
-	public Cadastro(String nome, String email, String dataDeNascimento) {
+	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
+		return new Cadastro(nome, email, dataDeNascimento);
+	}
+	
+	private Cadastro(String nome, String email, String dataDeNascimento) {
 		if (nome == null)
 			throw new IllegalArgumentException(new NullPointerException("nome não pode ser null"));
 		if (nome.trim().equals(""))
