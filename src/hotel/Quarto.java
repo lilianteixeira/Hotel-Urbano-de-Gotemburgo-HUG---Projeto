@@ -1,10 +1,26 @@
 package hotel;
 
+/**
+ * A classe Quarto e uma representacao do quarto do hotel.
+ * 
+ * Um objeto Quarto, encapsula informacoes que um quarto contem. 
+ * Tais informacoes sao:
+ * 
+ * Id
+ * Tipo do quarto 
+ * E se o quarto esta ocupado
+ * 
+ */
 public class Quarto implements Comparable<Quarto> {
 	private String id;
 	private TipoDeQuarto tipoDeQuarto;
 	private boolean isOcupado;
 
+	/**
+	 * Construtor da classe Quarto
+	 * @param id
+	 * @param tipoDeQuarto
+	 */
 	public Quarto(String id, TipoDeQuarto tipoDeQuarto) {
 		this.id = id;
 		this.tipoDeQuarto = tipoDeQuarto;
@@ -12,14 +28,14 @@ public class Quarto implements Comparable<Quarto> {
 	}
 
 	/**
-	 * @return the isOcupado
+	 * @return um boolean que informa se o quarto esta com um hospede ou nao 
 	 */
 	public boolean isOcupado() {
 		return isOcupado;
 	}
 
 	/**
-	 *
+	 * modifica se um quarto esta ocupado, passa a ser desocupado e vice-versa
 	 */
 	public void setOcupadoState() {
 		// A idéia é que o método mude o estado do quarto, a partir do seu
@@ -28,16 +44,23 @@ public class Quarto implements Comparable<Quarto> {
 	}
 
 	/**
-	 * @return the id
+	 * @return um id que representa o numero do quarto 
 	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * 
+	 * @return um double que informa o valor da diaria do quarto 
+	 */
 	public double getDiaria() {
 		return tipoDeQuarto.getDiaria();
 	}
 
+	/**
+	 * O metodo abaixo compara se os quartos sao do mesmo tipo
+	 */
 	@Override
 	public int compareTo(Quarto q) {
 		return this.id.compareToIgnoreCase(q.getId());
@@ -51,6 +74,9 @@ public class Quarto implements Comparable<Quarto> {
 		return result;
 	}
 
+	/**
+	 * O metodo abaixo compara se dois objetos sao iguais
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
