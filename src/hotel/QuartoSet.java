@@ -1,11 +1,12 @@
 package hotel;
 
 import java.util.Iterator;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class QuartoSet {
-	private SortedSet<Quarto> quartos;
+	private Set<Quarto> quartos;
 
 	public QuartoSet() {
 		quartos = new TreeSet<>();
