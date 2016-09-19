@@ -4,7 +4,7 @@ import Restaurante.Restaurante;
 import exceptions.NumeroInvalidoException;
 import exceptions.ObjetoInvalidoException;
 import exceptions.StringInvalidaException;
-import hotel.Hotel;
+import hotel.*;
 
 public class Controller {
 
@@ -38,5 +38,11 @@ public class Controller {
 	public void cadastraPrato(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 		restaurante.cadastraPrato(nome, preco, descricao);
+	}
+
+	public void realizaCheckin(String email, int dias, String id, String tipoQuarto)
+			throws ObjetoInvalidoException, StringInvalidaException {
+		hotel.buscaQuarto(id);
+		hotel.checkIn(email, id, dias);
 	}
 }
