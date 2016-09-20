@@ -49,9 +49,13 @@ public class CadastroSet {
 
 	// conferir se o cadastro existe antes de remover
 	/**
-	 * Remove uma instância c de <code>Cadastro</code>, desta coleção, se tal coleção a contiver. 
+	 * Remove uma instância c de <code>Cadastro</code>, desta coleção, se tal
+	 * coleção a contiver.
+	 * 
 	 * @param c
-	 * @return
+	 *            <code>Cadastro</code> a ser removido da coleção.
+	 * @return true se o elemento for removido como resultado da chamada deste
+	 *         método.
 	 */
 	public boolean removeCadastro(Cadastro c) {
 		cadastroSet.remove(c);
@@ -59,26 +63,36 @@ public class CadastroSet {
 	}
 
 	/**
-	 * O metodo buscaCadastro e responsavel por achar um cadastro atraves de um
-	 * e-mail .
+	 * Retorna uma instância de <code>Cadastro</code> que tenha o email igual a
+	 * <code>String</code> passada como referência.
 	 * 
 	 * @param email
-	 * @return um cadastro se ele for encontrado
+	 *            email que o <code>Cadastro</code> a ser buscado deve ter.
+	 * @return instância de <code>Cadastro</code> que tem um email igual ao
+	 *         passado como argumento.
+	 * @throws NullPointerException
+	 *             se <code>email</code> for null.
+	 * @throws CadastroNotFoundException
+	 *             se o objeto não for encontrado.
 	 */
-	public Cadastro buscaCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
-		if (email == null || email.trim().equals(""))
-			throw new StringInvalidaException();
-
+	public Cadastro buscaCadastro(String email) throws CadastroNotFoundException {
 		for (Cadastro c : cadastroSet)
 			if (c.getEmail().equals(email))
 				return c;
+		throw new CadastroNotFoundException();
 
-		throw new ObjetoInvalidoException(
-				"Erro na consulta de hospede. Hospede de email " + email + " nao foi cadastrado(a).");
+		/*
+		 * throw new ObjetoInvalidoException(
+		 * "Erro na consulta de hospede. Hospede de email " + email +
+		 * " nao foi cadastrado(a).");
+		 */
 	}
 
+	// Na documentação, deve deixar específico que o método só aceita um
+	// determinado conjunto de atributos, passar uma String atributo, que não é
+	// esperada, irá lançar uma exception
 	public String getInfoCadastro(String email, String atributo) throws Exception {
-		validateInfoArgument(email, atributo);
+		validateInfoArgument(atributo);
 
 		if (atributo.equalsIgnoreCase("Nome")) {
 			return buscaCadastro(email).getNome();
@@ -89,12 +103,11 @@ public class CadastroSet {
 		if (atributo.equalsIgnoreCase("Email")) {
 			return buscaCadastro(email).getEmail();
 		}
-		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é
-								// inválido
+		throw new IllegalArgumentException("atributo inválido");
 	}
 
 	public String setInfoCadastro(String email, String atributo, String valor) throws Exception {
-		validateInfoArgument(email, atributo);
+		validateInfoArgument(atributo);
 
 		if (atributo.equalsIgnoreCase("Nome")) {
 			buscaCadastro(email).setNome(valor);
@@ -105,18 +118,13 @@ public class CadastroSet {
 		if (atributo.equalsIgnoreCase("Email")) {
 			buscaCadastro(email).setEmail(valor);
 		}
-		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é
-								// inválido
+		throw new IllegalArgumentException("atributo inválido");
 	}
 
-	private void validateInfoArgument(String email, String atributo) throws Exception {
-		if (email == null)
-			throw new Exception();
-		if (email.trim().equals(""))
-			throw new Exception();
+	private void validateInfoArgument(String atributo) {
 		if (atributo == null)
-			throw new Exception();
+			throw new NullPointerException("atributo não pode ser null");
 		if (atributo.trim().equals(""))
-			throw new Exception();
+			throw new IllegalArgumentException("atributo não pode ser vazio");
 	}
 }

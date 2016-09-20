@@ -1,5 +1,6 @@
 package management;
 
+import cadastro.CadastroNotFoundException;
 import easyaccept.EasyAccept;
 import exceptions.*;
 
@@ -25,7 +26,7 @@ public class Facade {
 	public String getInfoHospede(String email, String atributo) throws Exception {
 		return controller.getInfoHospede(email, atributo);
 	}
-	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
 		return controller.getInfoHospedagem(email, atributo);
 	}
 
@@ -38,7 +39,7 @@ public class Facade {
 		controller.removeHospede(email);
 	}
 	
-	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto) throws ObjetoInvalidoException, StringInvalidaException{
+	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
 		controller.realizaCheckin(email, dias, idQuarto, tipoQuarto);
 	}
 	public String realizaCheckout(String email, String idQuarto) throws Exception{

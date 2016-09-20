@@ -1,6 +1,7 @@
 package management;
 
 import Restaurante.Restaurante;
+import cadastro.CadastroNotFoundException;
 import exceptions.NumeroInvalidoException;
 import exceptions.ObjetoInvalidoException;
 import exceptions.StringInvalidaException;
@@ -26,7 +27,7 @@ public class Controller {
 			throws Exception {
 		return hotel.getInfoHospede(email, atributo);
 	}
-	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
 		return hotel.getInfoHospedagem(email, atributo);
 	}
 
@@ -51,12 +52,12 @@ public class Controller {
 	}
 
 	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException {
 		//hotel.buscaQuarto(id);
 		hotel.checkIn(email, dias, idQuarto, tipoQuarto);
 	}
 	
-	public String realizaCheckout(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException{
+	public String realizaCheckout(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
 		return hotel.checkOut(email, idQuarto);
 	}
 
