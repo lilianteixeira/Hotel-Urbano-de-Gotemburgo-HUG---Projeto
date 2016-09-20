@@ -1,5 +1,7 @@
 package Restaurante;
-
+/**
+ * faltou esse pacote
+ */
 import exceptions.NumeroInvalidoException;
 import exceptions.StringInvalidaException;
 

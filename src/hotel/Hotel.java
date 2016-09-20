@@ -6,13 +6,20 @@ import java.util.Set;
 
 import cadastro.*;
 import exceptions.*;
-
+/**
+ *
+ * A classe hotel ela gerencia a parte de cadastro, estadia, registro e quartos
+ *
+ */
 public class Hotel {
 	private CadastroSet cadastros;
 	private EstadiaMap estadias;
 	private RegistroSet registros;
 	private QuartoSet quartos;
 
+	/**
+	 * Construtor da classe Hotel
+	 */
 	public Hotel() {
 		this.cadastros = new CadastroSet();
 		this.estadias = new EstadiaMap();
@@ -20,16 +27,42 @@ public class Hotel {
 		this.quartos = new QuartoSet();
 	}
 
+	/**
+	 * O metodo abaixo faz o cadastro de um hospede, adicionando o mesmo na lista de hospedes cadastrados 
+	 * retornando um boolean indicando se o hospede foi cadastrado ou nao 
+	 * 
+	 * @param nome
+	 * @param email
+	 * @param dataDeNascimento
+	 * @return um boolean
+	 */
 	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) {
 		cadastros.addCadastro(CadastroFactory.INSTANCE.create(nome, email, dataDeNascimento));
 		return true;
 	}
 
-	public boolean removeCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
+	/**
+	 * 
+	 * O metodo abaixo remove um hospede cadastrado, atraves do e-mail desse hospede
+	 * retorna um boolean indicando se foi removido ou nao 
+	 * 
+	 * @param email
+	 * @return um boolean
+	 * @throws Exception
+	 */
+	public boolean removeCadastro(String email) throws Exception {
 		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
 	}
 
-	public void checkIn(String email, String id, int dias) throws ObjetoInvalidoException, StringInvalidaException {
+	/**
+	 * O metodo abaixo faz o checkin do hospede
+	 * 
+	 * @param email
+	 * @param id
+	 * @param dias
+	 * @throws Exception
+	 */
+	public void checkIn(String email, String id, int dias) throws Exception {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		Quarto quarto = quartos.buscaQuarto(id);
 		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
@@ -37,7 +70,12 @@ public class Hotel {
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
 	}
 
-	public void checkOut(String email) throws ObjetoInvalidoException, StringInvalidaException {
+	/**
+	 * O metodo abaixo faz o checkout de um hospede que está no hotel 
+	 * @param email
+	 * @throws Exception
+	 */
+	public void checkOut(String email) throws Exception {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		Set<Map.Entry<Estadia, Cadastro>> entradas = estadias.entrySet();
 		Iterator<Map.Entry<Estadia, Cadastro>> i = entradas.iterator();
@@ -70,8 +108,17 @@ public class Hotel {
 		}
 	}
 
+	/**
+	 * O metodo abaixo pega as informacoes de um hospede
+	 * retorna uma String com a informacao desejada
+	 * 
+	 * @param email
+	 * @param atributo
+	 * @return uma String
+	 * @throws Exception
+	 */
 	public String getInfoHospede(String email, String atributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		/*
 		 * if (buscaHospede(email) == null) { throw new ObjetoInvalidoException(
 		 * "Erro na consulta de hospede. Hospede de email " + email +
@@ -97,8 +144,17 @@ public class Hotel {
 												// exception depois.
 	}
 
+	/**
+	 * 
+	 * O metodo atualiza o cadastro de um hospede
+	 * 
+	 * @param email
+	 * @param atributo
+	 * @param novoAtributo
+	 * @throws Exception
+	 */
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		if (atributo.equalsIgnoreCase("Nome"))
 			hospede.setNome(novoAtributo);
@@ -110,7 +166,16 @@ public class Hotel {
 			throw new IllegalArgumentException(); // trocar por uma
 													// checkedException
 	}
+<<<<<<< HEAD
 
+=======
+	
+	/**
+	 * O metodo busca um quarto atraves do seu id
+	 * @param id
+	 * @return um objeto quarto 
+	 */
+>>>>>>> javaDoc
 	public Quarto buscaQuarto(String id) {
 		return quartos.buscaQuarto(id);
 	}

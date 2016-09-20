@@ -6,13 +6,29 @@ import java.util.Set;
 import exceptions.ObjetoInvalidoException;
 import exceptions.StringInvalidaException;
 
+/**
+ * 
+ *  A classe Cadastro Set é responsável por  ???
+ *
+ */
 public class CadastroSet {
 	private Set<Cadastro> cadastroSet;
 
+	/**
+	 * 
+	 * Construtor da classe Cadastro Set 
+	 * 
+	 */
 	public CadastroSet() {
 		cadastroSet = new HashSet<>();
 	}
 
+	/**
+	 * O metodo addCadastro adiciona um novo cadastro a lista 
+	 * 
+	 * @param c
+	 * @return um boolean se o cadastro foi adicionado a lista 
+	 */
 	public boolean addCadastro(Cadastro c) {
 		// Falta validar o argumento
 		//
@@ -30,11 +46,24 @@ public class CadastroSet {
 		return true;
 	}
 
+	//conferir se o cadastro existe antes de remover
+		/**
+		 * O metodo removeCadastro recebe um cadastro e e responsavel por remove-lo da lista 
+		 * 
+		 * @param c
+		 * @return um boolean informando se o cadastro foi removido ou nao 
+		 */
 	public boolean removeCadastro(Cadastro c) {
 		cadastroSet.remove(c);
 		return true;
 	}
 
+	/**
+	 * O metodo buscaCadastro e responsavel por achar um cadastro atraves de um e-mail .
+	 * 
+	 * @param email
+	 * @return um cadastro se ele for encontrado
+	 */	
 	public Cadastro buscaCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		if (email == null || email.trim().equals(""))
 			throw new StringInvalidaException();

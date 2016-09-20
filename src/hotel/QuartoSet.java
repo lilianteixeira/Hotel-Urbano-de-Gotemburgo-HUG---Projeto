@@ -8,18 +8,39 @@ import java.util.TreeSet;
 public class QuartoSet {
 	private Set<Quarto> quartos;
 
+	/**
+	 * Construtor da classe
+	 */
 	public QuartoSet() {
 		quartos = new TreeSet<>();
 	}
 
+	/**
+	 * O metodo abaixo adiciona um quarto a lista de quartos
+	 * retorna um boolean informando se o quarto foi adicionado ou nao 
+	 * @param q
+	 * @return um boolean
+	 */
 	public boolean addQuarto(Quarto q) {
 		return quartos.add(q);
 	}
 
+	/**
+	 * O metodo abaixo remove um quarto da lista de quartos
+	 * retorna um boolean informando se o quarto foi removido ou nao 
+	 * @param q
+	 * @return um boolean
+	 */
 	public boolean removeQuarto(Quarto q) {
 		return quartos.remove(q);
 	}
 
+	/**
+	 * O metodo abaixo busca um quarto atraves do seu id
+	 * se o quarto for encontrado ele o retorna o objeto que o representa
+	 * @param id
+	 * @return um objeto Quarto 
+	 */
 	public Quarto buscaQuarto(String id) {
 		Quarto q = null;
 		Iterator<Quarto> i = quartos.iterator();

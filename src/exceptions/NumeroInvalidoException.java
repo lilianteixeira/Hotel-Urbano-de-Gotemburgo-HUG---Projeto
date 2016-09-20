@@ -1,10 +1,16 @@
-/**
- * @author Antonio Dartagnan S. C. Junior - 114210775 Turma 02
- */
 package exceptions;
 
-
+/**
+ * 
+ * A classe Numero Invalido Exception faz parte da hierarquia de exceptions, 
+ * ele lanca uma excecao caso o numero recebido seja invalido
+ * 
+ */
 public class NumeroInvalidoException extends Exception {
+
+	public NumeroInvalidoException(){
+		super("Numero invalido");
+	}
 	
 	public NumeroInvalidoException(String mensagem){
 		super(mensagem);
