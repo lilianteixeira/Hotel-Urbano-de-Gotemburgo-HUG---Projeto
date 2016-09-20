@@ -28,6 +28,7 @@ public class Cadastro {
 	private String nome;
 	private String email;
 	private String dataDeNascimento;
+
 	/**
 	 * Retorna o nome da pessoa cadastrada.
 	 * 
@@ -54,7 +55,7 @@ public class Cadastro {
 	public String getDataDeNascimento() {
 		return dataDeNascimento;
 	}
-	
+
 	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
 		validaArgumento(nome, email, dataDeNascimento);
 		return new Cadastro(nome, email, dataDeNascimento);
@@ -74,19 +75,19 @@ public class Cadastro {
 		validaArgumento(dataDeNascimento);
 		this.dataDeNascimento = dataDeNascimento;
 	}
-	
+
 	private Cadastro(String nome, String email, String dataDeNascimento) {
 		validaArgumento(nome, email, dataDeNascimento);
 		this.nome = nome;
 		this.email = email;
 		this.dataDeNascimento = dataDeNascimento;
 	}
-	
-	private static void validaArgumento(String...strings) {
-		for(String s : strings) {
-			if(s == null)
+
+	private static void validaArgumento(String... strings) {
+		for (String s : strings) {
+			if (s == null)
 				throw new NullPointerException("string não pode ser null");
-			if(s.trim().equals(""))
+			if (s.trim().equals(""))
 				throw new IllegalArgumentException("string não pode ser vazia");
 		}
 	}
