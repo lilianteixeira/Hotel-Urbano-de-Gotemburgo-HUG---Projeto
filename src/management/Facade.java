@@ -57,9 +57,18 @@ public class Facade {
 	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
 		controller.cadastraPrato(nome, preco, descricao);
 	}
+	
+	public void cadastraRefeicao(String nome, String descricao, String componentes) throws Exception{
+		controller.cadastraRefeicao(nome, descricao, componentes);
+	}
+	
+	public String consultaRestaurante(String nome, String atributo){
+		return controller.consultaRestaurante(nome, atributo);
+	}
 
 	public static void main(String[] args) {
-		args = new String[] { "management.Facade", "resources/acceptance_test/testes_juntos.txt"};
+		args = new String[] { "management.Facade", "resources/acceptance_test/testes_juntos.txt",
+				"resources/acceptance_test/testes_uc4.txt"};
 		EasyAccept.main(args);
 	}
 }

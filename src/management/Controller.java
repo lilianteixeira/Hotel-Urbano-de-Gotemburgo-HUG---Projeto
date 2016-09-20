@@ -17,17 +17,17 @@ public class Controller {
 		this.restaurante = new Restaurante();
 	}
 
-
 	public String cadastraHospede(String nome, String email, String dataNascimento) throws StringInvalidaException {
 		hotel.cadastraHospede(nome, email, dataNascimento);
 		return email;
 	}
 
-	public String getInfoHospede(String email, String atributo)
-			throws Exception {
+	public String getInfoHospede(String email, String atributo) throws Exception {
 		return hotel.getInfoHospede(email, atributo);
 	}
-	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
+
+	public String getInfoHospedagem(String email, String atributo)
+			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException {
 		return hotel.getInfoHospedagem(email, atributo);
 	}
 
@@ -35,33 +35,40 @@ public class Controller {
 		return hotel.removeCadastro(email);
 	}
 
-	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws Exception {
+	public void atualizaCadastro(String email, String atributo, String novoAtributo) throws Exception {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
 	}
-	
-	public String consultaTransacoes( String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+
+	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException {
 		return hotel.consultaTransacoes(atributo);
 	}
+
 	public String consultaTransacoes(String atributo, int indice) {
 		return hotel.consultaTransacoes(atributo, indice);
 	}
+
 	public void cadastraPrato(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 		restaurante.cadastraPrato(nome, preco, descricao);
 	}
+	
+	public void cadastraRefeicao(String nome, String descricao, String componentes) throws Exception{
+		restaurante.cadastraRefeicao(nome, descricao, componentes);
+	}
+	
+	public String consultaRestaurante(String nome, String atributo) {
+		return restaurante.consultaRestaurante(nome, atributo);
+	}
 
 	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto)
 			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException {
-		//hotel.buscaQuarto(id);
+		// hotel.buscaQuarto(id);
 		hotel.checkIn(email, dias, idQuarto, tipoQuarto);
 	}
-	
-	public String realizaCheckout(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
+
+	public String realizaCheckout(String email, String idQuarto)
+			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException {
 		return hotel.checkOut(email, idQuarto);
 	}
 
-
-
-	
 }
