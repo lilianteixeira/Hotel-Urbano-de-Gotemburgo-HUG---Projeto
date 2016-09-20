@@ -88,10 +88,11 @@ public class Hotel {
 	 * @param atributo
 	 * @param novoAtributo
 	 * @throws CadastroNotFoundException
-	 * @throws AtualizaCadastroException 
+	 * @throws AtualizaCadastroException
 	 */
 
-	public void atualizaCadastro(String email, String atributo, String valor) throws CadastroNotFoundException, AtualizaCadastroException {
+	public void atualizaCadastro(String email, String atributo, String valor)
+			throws CadastroNotFoundException, AtualizaCadastroException {
 		try {
 			cadastros.setInfoCadastro(email, atributo, valor);
 		} catch (RuntimeException e) {
@@ -106,36 +107,25 @@ public class Hotel {
 				message = e.getCause().getMessage();
 		}
 	}
-	
-	
-	  public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
-		  if(email == null || email.trim().equals(""))
-			  throw new GetInfoException("Email do(a) hospede nao pode ser vazio.");
-		  if (!Pattern.matches("[^@]+@[^@]+", email))
-				throw new GetInfoException("Email do(a) hospede esta invalido");
-		  try {
+
+	public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
+		if (email == null || email.trim().equals(""))
+			throw new GetInfoException("Email do(a) hospede nao pode ser vazio.");
+		if (!Pattern.matches("[^@]+@[^@]+", email))
+			throw new GetInfoException("Email do(a) hospede esta invalido");
+		try {
 			return cadastros.getInfoCadastro(email, atributo);
 		} catch (CadastroNotFoundException e) {
 			throw e;
-			
-		}
-		  }
-	 
 
-	/**
-	 * 
-	 * O metodo abaixo remove um hospede cadastrado, atraves do e-mail desse
-	 * hospede retorna um boolean indicando se foi removido ou nao
-	 * 
-	 * @param email
-	 * @return um boolean
-	 * @throws CadastroNotFoundException
-	 * @throws Exception
-	 */
-	// public boolean removeCadastro(String email) throws
-	// CadastroNotFoundException {
-	// return cadastros.removeCadastro(cadastros.buscaCadastro(email));
-	// }
+		}
+	}
+
+	public boolean removeHospede(String email) throws CadastroNotFoundException {
+		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
+		
+		
+	}
 
 	/**
 	 * O metodo abaixo faz o checkin do hospede
@@ -232,7 +222,6 @@ public class Hotel {
 	 * @return uma String
 	 * @throws Exception
 	 */
-	
 
 	/*
 	 * public String getInfoHospedagem(String email, String atributo) throws
@@ -257,8 +246,6 @@ public class Hotel {
 	 * it.next().getPrecoTotal(); } retorno += "R$" + String.format("%.2f",
 	 * total); } return retorno; }
 	 */
-
-	
 
 	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException {
 		String retorno = "";
@@ -307,7 +294,7 @@ public class Hotel {
 
 	public void checkIn(String email, int dias, String idQuarto, String tipoQuarto) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

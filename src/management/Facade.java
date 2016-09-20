@@ -39,9 +39,9 @@ public class Facade {
 		controller.atualizaCadastro(email, atributo, novoAtributo);
 	}
 
-	/*public void removeHospede(String email) throws Exception {
+	  public void removeHospede(String email) throws CadastroNotFoundException {
 		controller.removeHospede(email);
-	}*/
+	}
 
 	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto)
 			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException, QuartoNotFoundException,

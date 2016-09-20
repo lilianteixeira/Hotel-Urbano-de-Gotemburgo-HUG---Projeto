@@ -32,10 +32,10 @@ public class Controller {
 		return hotel.getInfoHospedagem(email, atributo);
 	}*/
 
-/*	public boolean removeHospede(String email) throws Exception {
-		return hotel.removeCadastro(email);
+	public boolean removeHospede(String email) throws CadastroNotFoundException {
+		return hotel.removeHospede(email);
 	}
-*/
+	
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
 			throws Exception {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
