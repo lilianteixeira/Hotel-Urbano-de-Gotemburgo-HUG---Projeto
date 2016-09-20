@@ -1,4 +1,4 @@
-package hotel;
+package estadia;
 
 import quarto.Quarto;
 
@@ -17,17 +17,21 @@ public class Estadia {
 	private Quarto quarto;
 	private int dias;
 
-	/**Construtor de estadia
-	 * 
-	 * @param quarto
-	 * @param dias
-	 */
-	public Estadia(Quarto quarto, int dias) {
-		// durante a validação dos argumentos, deve-se checar se o
-		// objeto Quarto, está ocupado, usando o método quarto.isOcupado()
+	private Estadia(Quarto quarto, int dias) throws InvalidQuartoStateException {
+		if(quarto == null)
+			throw new NullPointerException();
+		if(dias <= 0) {
+			throw new IllegalArgumentException();
+		}
+		if(quarto.isOcupado())
+			throw new InvalidQuartoStateException(quarto.getId());
 
 		this.quarto = quarto;
 		this.dias = dias;
+	}
+	
+	static Estadia novaEstadia(Quarto quarto, int dias) throws InvalidQuartoStateException {
+		return new Estadia(quarto, dias);
 	}
 
 	/**

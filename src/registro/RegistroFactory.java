@@ -1,4 +1,4 @@
-package hotel;
+package registro;
 
 /**
  *  O enum Registro Factory e responsavel pela criacao de um registro. 

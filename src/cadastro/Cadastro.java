@@ -87,38 +87,40 @@ public class Cadastro {
 	}
 
 	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
-		validaArgumento(nome, email, dataDeNascimento);
+		validaArgumento(nome, "nome");
+		validaArgumento(email, "email");
+		validaArgumento(dataDeNascimento, "data de nascimento");		
 		return new Cadastro(nome, email, dataDeNascimento);
 	}
 
 	void setNome(String nome) {
-		validaArgumento(nome);
+		validaArgumento(nome, "nome");
 		this.nome = nome;
 	}
 
 	void setEmail(String email) {
-		validaArgumento(email);
+		validaArgumento(email, "email");
 		this.email = email;
 	}
 
 	void setDataDeNascimento(String dataDeNascimento) {
-		validaArgumento(dataDeNascimento);
+		validaArgumento(dataDeNascimento, "data de nascimento");
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
 	private Cadastro(String nome, String email, String dataDeNascimento) {
-		validaArgumento(nome, email, dataDeNascimento);
+		validaArgumento(nome, "nome");
+		validaArgumento(email, "email");
+		validaArgumento(dataDeNascimento, "data de nascimento");
 		this.nome = nome;
 		this.email = email;
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
-	private static void validaArgumento(String... strings) {
-		for (String s : strings) {
-			if (s == null)
-				throw new NullPointerException("string não pode ser null");
-			if (s.trim().equals(""))
-				throw new IllegalArgumentException("string não pode ser vazia");
-		}
+	private static void validaArgumento(String string, String identifier) {
+			if (string == null)
+				throw new NullPointerException(identifier + " nao pode ser null");
+			if (string.trim().equals(""))
+				throw new IllegalArgumentException(identifier + " nao pode ser vazio");
 	}
 }

@@ -1,4 +1,4 @@
-package hotel;
+package estadia;
 
 import quarto.Quarto;
 
@@ -11,9 +11,10 @@ public enum EstadiaFactory {
 
 	/**
 	 * O metodo create retorna uma nova estadia
+	 * @throws InvalidQuartoStateException 
 	 */
-	public Estadia create(Quarto quarto, int dias) {
-		return new Estadia(quarto, dias);
+	public Estadia create(Quarto quarto, int dias) throws InvalidQuartoStateException {
+		return Estadia.novaEstadia(quarto, dias);
 	}
 
 }

@@ -1,4 +1,4 @@
-package hotel;
+package registro;
 
 import java.util.HashSet;
 import java.util.Iterator;

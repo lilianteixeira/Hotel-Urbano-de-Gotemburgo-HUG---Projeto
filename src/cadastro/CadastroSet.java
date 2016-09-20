@@ -101,7 +101,7 @@ public class CadastroSet {
 		throw new IllegalArgumentException("atributo inválido");
 	}
 
-	public String setInfoCadastro(String email, String atributo, String valor) throws Exception {
+	public String setInfoCadastro(String email, String atributo, String valor) throws CadastroNotFoundException {
 		validateInfoArgument(atributo);
 
 		if (atributo.equalsIgnoreCase("Nome")) {

@@ -1,4 +1,4 @@
-package hotel;
+package registro;
 
 import java.time.LocalDate;
 
