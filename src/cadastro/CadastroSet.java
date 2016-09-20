@@ -7,52 +7,51 @@ import exceptions.ObjetoInvalidoException;
 import exceptions.StringInvalidaException;
 
 /**
+ * Essa classe encapsula uma coleção de instâncias de <code>Cadastro</code>, e
+ * fornece métodos para a visualização de cada Cadastro, como a edição deles.
+ * <p>
  * 
- * A classe Cadastro Set é responsável por ???
+ * @see Cadastro
  *
  */
 public class CadastroSet {
 	private Set<Cadastro> cadastroSet;
 
 	/**
-	 * 
-	 * Construtor da classe Cadastro Set
-	 * 
+	 * Construtor de CadastroSet.
 	 */
 	public CadastroSet() {
 		cadastroSet = new HashSet<>();
 	}
 
 	/**
-	 * O metodo addCadastro adiciona um novo cadastro a lista
+	 * adiciona um <code>Cadastro c</code> à essa coleção, se ele já não estiver
+	 * presente, e se ele não for <code>null</code>. De maneira mais formal,
+	 * adiciona o elemento especificado <code>c</code> à essa coleção, se essa
+	 * coleção não contiver <code>c2</code>, tal que <code>c.equals(c2)</code>.
+	 * <p>
+	 * Essa coleção não aceita objetos do tipo null, e irá lançar um
+	 * <code>NullPointerException</code>, se for passado um objeto com
+	 * referência <code>null</code> como argumento desse método.
 	 * 
 	 * @param c
-	 * @return um boolean se o cadastro foi adicionado a lista
+	 *            elemento a ser adicionado nessa coleção.
+	 * @return true se a coleção mudou por conta da chamada desse método.
+	 * @throws NullPointerException
+	 *             se <code>c</code> for <code>null</code>.
 	 */
 	public boolean addCadastro(Cadastro c) {
-		// Falta validar o argumento
-		//
-		// O retorno é um default boolean (true), então não deve ser
-		// implementado um
-		// caso onde esse método retorne false.
-		//
-		/*
-		 * Eu sei que o cliente quer fazer as operações pelo e-mail, mas é
-		 * melhor ter o método na forma mais geral, e na implementação do
-		 * controller, disponibilizar o método que busca pelo e-mail, e depois
-		 * chama esse método.
-		 */
+		if (c == null)
+			throw new NullPointerException("c não pode ser null");
 		cadastroSet.add(c);
 		return true;
 	}
 
 	// conferir se o cadastro existe antes de remover
 	/**
-	 * O metodo removeCadastro recebe um cadastro e e responsavel por remove-lo
-	 * da lista
-	 * 
+	 * Remove uma instância c de <code>Cadastro</code>, desta coleção, se tal coleção a contiver. 
 	 * @param c
-	 * @return um boolean informando se o cadastro foi removido ou nao
+	 * @return
 	 */
 	public boolean removeCadastro(Cadastro c) {
 		cadastroSet.remove(c);
@@ -80,7 +79,7 @@ public class CadastroSet {
 
 	public String getInfoCadastro(String email, String atributo) throws Exception {
 		validateInfoArgument(email, atributo);
-		
+
 		if (atributo.equalsIgnoreCase("Nome")) {
 			return buscaCadastro(email).getNome();
 		}
@@ -90,12 +89,13 @@ public class CadastroSet {
 		if (atributo.equalsIgnoreCase("Email")) {
 			return buscaCadastro(email).getEmail();
 		}
-		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é inválido
+		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é
+								// inválido
 	}
-	
+
 	public String setInfoCadastro(String email, String atributo, String valor) throws Exception {
 		validateInfoArgument(email, atributo);
-		
+
 		if (atributo.equalsIgnoreCase("Nome")) {
 			buscaCadastro(email).setNome(valor);
 		}
@@ -105,9 +105,10 @@ public class CadastroSet {
 		if (atributo.equalsIgnoreCase("Email")) {
 			buscaCadastro(email).setEmail(valor);
 		}
-		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é inválido
+		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é
+								// inválido
 	}
-	
+
 	private void validateInfoArgument(String email, String atributo) throws Exception {
 		if (email == null)
 			throw new Exception();
