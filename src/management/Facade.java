@@ -42,7 +42,14 @@ public class Facade {
 	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto) throws ObjetoInvalidoException, StringInvalidaException{
 		controller.realizaCheckin(email, dias, idQuarto, tipoQuarto);
 	}
-
+	public String realizaCheckout(String email, String idQuarto) throws Exception{
+		return controller.realizaCheckout(email, idQuarto);
+	}
+	
+	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+		return controller.consultaTransacoes( atributo);
+	}
+	
 	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
 		controller.cadastraPrato(nome, preco, descricao);
 	}

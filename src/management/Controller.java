@@ -38,6 +38,10 @@ public class Controller {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
 	}
 	
+	public String consultaTransacoes( String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+		return hotel.consultaTransacoes(atributo);
+	}
+	
 	public void cadastraPrato(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 		restaurante.cadastraPrato(nome, preco, descricao);
@@ -48,4 +52,9 @@ public class Controller {
 		//hotel.buscaQuarto(id);
 		hotel.checkIn(email, dias, idQuarto, tipoQuarto);
 	}
+	
+	public String realizaCheckout(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException{
+		return hotel.checkOut(email, idQuarto);
+	}
+	
 }

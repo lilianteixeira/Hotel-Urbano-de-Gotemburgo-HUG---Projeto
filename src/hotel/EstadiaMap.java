@@ -95,6 +95,11 @@ public class EstadiaMap {
 		}
 		return estadiasAtivas;
 	}
+
+	public void removeEstadia(Estadia estadia) {
+		estadiaMap.remove(estadia);
+		
+	}
 	
 
 }

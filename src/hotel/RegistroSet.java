@@ -35,5 +35,9 @@ public class RegistroSet {
 	public Iterator<RegistroCheckOut> iterator() {
 		return registroSet.iterator();
 	}
-
+	
+	public int size(){
+		return registroSet.size();
+	}
+	
 }

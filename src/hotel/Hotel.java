@@ -1,7 +1,10 @@
 package hotel;
 
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,6 +19,7 @@ public class Hotel {
 	private CadastroSet cadastros;
 	private EstadiaMap estadias;
 	private RegistroSet registros;
+	private ArrayList<RegistroCheckOut> registroCheckout;
 	private QuartoSet quartos;
 	private QuartoFactory quartoFactory;
 
@@ -28,6 +32,7 @@ public class Hotel {
 		this.registros = new RegistroSet();
 		this.quartos = new QuartoSet();
 		this.quartoFactory = new QuartoFactory();
+		this.registroCheckout = new ArrayList<>();
 	}
 
 	/**
@@ -92,8 +97,30 @@ public class Hotel {
 	/**
 	 * O metodo abaixo faz o checkout de um hospede que está no hotel 
 	 * @param email
+	 * @throws StringInvalidaException 
+	 * @throws ObjetoInvalidoException 
 	 * @throws Exception
 	 */
+	public String checkOut(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException{
+		
+		Cadastro hospede = cadastros.buscaCadastro(email);
+		LinkedHashSet<Estadia> hospedagensAtivas = estadias.getHospedagensAtivas(hospede);
+		Iterator<Estadia> it = hospedagensAtivas.iterator();
+		double totalEstadia = 0;
+		for (Estadia estadia : hospedagensAtivas) {
+			
+			if (estadia.getId().equals(idQuarto)) {
+				totalEstadia += it.next().getPrecoTotal();
+				quartos.buscaQuarto(idQuarto).setOcupadoState();
+				RegistroCheckOut r = RegistroFactory.INSTANCE.create(hospede.getNome(), idQuarto, estadia.getPrecoTotal());
+				registroCheckout.add(r);
+				estadias.removeEstadia(estadia);
+			}
+		} 
+		
+		return "R$" + String.format("%.2f", totalEstadia);
+	}
+	/*
 	public void checkOut(String email) throws Exception {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		Set<Map.Entry<Estadia, Cadastro>> entradas = estadias.entrySet();
@@ -126,7 +153,7 @@ public class Hotel {
 			}
 		}
 	}
-
+*/
 	/**
 	 * O metodo abaixo pega as informacoes de um hospede
 	 * retorna uma String com a informacao desejada
@@ -217,13 +244,22 @@ public class Hotel {
 			throw new IllegalArgumentException(); // trocar por uma
 													// checkedException
 	}
+	
+	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+		String retorno = "";
+		
+		if (atributo.equalsIgnoreCase("Quantidade")){
+			retorno += registroCheckout.size();
+		}
+		return retorno;
+	}
 
 	/**
 	 * O metodo busca um quarto atraves do seu id
 	 * @param id
 	 * @return um objeto quarto 
 	 */
-	public Quarto buscaQuarto(String id) {
+	private Quarto buscaQuarto(String id) {
 		return quartos.buscaQuarto(id);
 	}
 }
