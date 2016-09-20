@@ -42,7 +42,9 @@ public class Controller {
 	public String consultaTransacoes( String atributo) throws ObjetoInvalidoException, StringInvalidaException{
 		return hotel.consultaTransacoes(atributo);
 	}
-	
+	public String consultaTransacoes(String atributo, int indice) {
+		return hotel.consultaTransacoes(atributo, indice);
+	}
 	public void cadastraPrato(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 		restaurante.cadastraPrato(nome, preco, descricao);
@@ -57,5 +59,8 @@ public class Controller {
 	public String realizaCheckout(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException{
 		return hotel.checkOut(email, idQuarto);
 	}
+
+
+
 	
 }

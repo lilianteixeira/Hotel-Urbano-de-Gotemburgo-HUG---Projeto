@@ -231,6 +231,32 @@ public class Hotel {
 		if (atributo.equalsIgnoreCase("Quantidade")){
 			retorno += registroCheckout.size();
 		}
+		else if(atributo.equalsIgnoreCase("Total")){
+			double total =0;
+			for (RegistroCheckOut registro : registroCheckout) {
+				total += registro.getTotalPago();
+			}
+			retorno += "R$" + String.format("%.2f", total);
+		}
+		else if(atributo.equalsIgnoreCase("Nome")){
+			for (RegistroCheckOut registro : registroCheckout) {
+				retorno += registro.getNome() + ";";
+			}
+			retorno = retorno.substring(0, retorno.length() - 1);
+		}
+		return retorno;
+	}
+	
+	public String consultaTransacoes(String atributo, int indice) {
+		String retorno = "";
+		
+		if(atributo.equalsIgnoreCase("Total")){
+			double total = registroCheckout.get(indice).getTotalPago();
+			retorno += "R$" + String.format("%.2f", total);
+		} if(atributo.equalsIgnoreCase("Nome")){
+			retorno += registroCheckout.get(indice).getNome();
+
+		}
 		return retorno;
 	}
 
@@ -243,4 +269,6 @@ public class Hotel {
 	private Quarto buscaQuarto(String id) {
 		return quartos.buscaQuarto(id);
 	}
+
+
 }

@@ -49,6 +49,10 @@ public class Facade {
 		return controller.consultaTransacoes( atributo);
 	}
 	
+	public String consultaTransacoes(String atributo, int indice) throws ObjetoInvalidoException, StringInvalidaException{
+		return controller.consultaTransacoes( atributo, indice);
+	}
+	
 	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
 		controller.cadastraPrato(nome, preco, descricao);
 	}
