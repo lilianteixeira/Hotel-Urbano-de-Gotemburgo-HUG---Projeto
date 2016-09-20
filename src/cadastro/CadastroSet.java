@@ -9,7 +9,6 @@ import exceptions.StringInvalidaException;
 /**
  * Essa classe encapsula uma coleção de instâncias de <code>Cadastro</code>, e
  * fornece métodos para a visualização de cada Cadastro, como a edição deles.
- * <p>
  * 
  * @see Cadastro
  *

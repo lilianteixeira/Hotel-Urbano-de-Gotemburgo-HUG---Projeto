@@ -35,7 +35,7 @@ public enum CadastroFactory {
 	 * @throws NullPointerException se algum dos argumentos tiver referência null.
 	 * @throws IllegalArgumentException se algum dos argumentos for composto só por espaço em brancos
 	 */
-	public Cadastro create(String nome, String email, String dataDeNascimento) throws StringInvalidaException {
+	public Cadastro create(String nome, String email, String dataDeNascimento) {
 		return Cadastro.novoCadastro(nome, email, dataDeNascimento);
 	}
 }
