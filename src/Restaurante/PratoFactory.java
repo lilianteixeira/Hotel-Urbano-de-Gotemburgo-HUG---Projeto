@@ -14,13 +14,13 @@ public enum PratoFactory {
 			throws StringInvalidaException, NumeroInvalidoException {
 
 		if (nome == null || nome.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Nome nao pode ser nulo ou vazio");
+			throw new StringInvalidaException("Erro no cadastro do prato. Nome do prato esta vazio.");
 		}
 		if (preco < 0) {
-			throw new NumeroInvalidoException("Preco nao pode ser negativo");
+			throw new NumeroInvalidoException("Erro no cadastro do prato. Preco do prato eh invalido.");
 		}
 		if (descricao == null || descricao.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
+			throw new StringInvalidaException("Erro no cadastro do prato. Descricao do prato esta vazia.");
 		}
 
 		Prato prato = new Prato(nome, preco, descricao);

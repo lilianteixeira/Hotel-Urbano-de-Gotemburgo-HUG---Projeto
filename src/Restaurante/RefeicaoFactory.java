@@ -15,10 +15,10 @@ public enum RefeicaoFactory {
 	public Refeicao create(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException {
 
 		if (nome == null || nome.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Nome nao pode ser nulo ou vazio");
+			throw new StringInvalidaException("Erro no cadastro de refeicao. Nome da refeicao esta vazio.");
 		}
 		if (descricao == null || descricao.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Descricao nao pode ser nula ou vazia");
+			throw new StringInvalidaException("Erro no cadastro de refeicao. Descricao da refeicao esta vazia.");
 		}
 		
 		return new Refeicao(nome, descricao, pratos);

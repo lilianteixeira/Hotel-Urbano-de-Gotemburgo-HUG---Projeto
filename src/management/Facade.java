@@ -62,13 +62,14 @@ public class Facade {
 		controller.cadastraRefeicao(nome, descricao, componentes);
 	}
 	
-	public String consultaRestaurante(String nome, String atributo){
+	public String consultaRestaurante(String nome, String atributo) throws Exception{
 		return controller.consultaRestaurante(nome, atributo);
 	}
 
 	public static void main(String[] args) {
 		args = new String[] { "management.Facade", "resources/acceptance_test/testes_juntos.txt",
-				"resources/acceptance_test/testes_uc4.txt"};
+				"resources/acceptance_test/testes_uc4.txt",
+				"resources/acceptance_test/testes_uc4_exception.txt"};
 		EasyAccept.main(args);
 	}
 }

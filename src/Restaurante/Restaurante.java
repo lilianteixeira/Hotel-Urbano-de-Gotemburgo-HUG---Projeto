@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import exceptions.NumeroInvalidoException;
+import exceptions.ObjetoInvalidoException;
 import exceptions.StringInvalidaException;
 
 public class Restaurante {
@@ -42,28 +43,45 @@ public class Restaurante {
 		return null;
 	}
 
-	public void cadastraRefeicao(String nome, String descricao, String componentes) throws StringInvalidaException {
+	public void cadastraRefeicao(String nome, String descricao, String componentes)
+			throws StringInvalidaException, ObjetoInvalidoException, NumeroInvalidoException {
+		if (componentes == null || componentes.trim().equalsIgnoreCase("")) {
+			throw new StringInvalidaException("Erro no cadastro de refeicao. Componente(s) esta(o) vazio(s).");
+		}
 		ArrayList<Prato> pratosRefeicao = separaPratos(componentes);
+		// if (!menuPratos.contains(pratosRefeicao)) {
+		// throw new ObjetoInvalidoException(
+		// "Erro no cadastro de refeicao. So eh possivel cadastrar refeicoes com
+		// pratos ja cadastrados.");
+		// }
+
 		Refeicao refeicao = RefeicaoFactory.INSTANCIA.create(nome, descricao, pratosRefeicao);
 
 		menuRefeicoes.add(refeicao);
 
 	}
 
-	private ArrayList<Prato> separaPratos(String componentes) {
+	private ArrayList<Prato> separaPratos(String componentes) throws NumeroInvalidoException {
 		String[] pratosSeparados = componentes.split(";");
+		if (pratosSeparados.length < 3 || pratosSeparados.length > 4) {
+			throw new NumeroInvalidoException(
+					"Erro no cadastro de refeicao completa. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos.");
+		}
 		ArrayList<Prato> pratosRefeicao = new ArrayList<>();
-		int contador = 0;
-		for (Prato pratoRefeicao : menuPratos) {
-			if (pratoRefeicao.getNome().equalsIgnoreCase(pratosSeparados[contador])) {
-				pratosRefeicao.add(pratoRefeicao);
-				contador++;
+		for (int contador = 0; contador < pratosSeparados.length; contador++) {
+			for (Prato prato : menuPratos) {
+				if(prato.getNome().equalsIgnoreCase(pratosSeparados[contador]))
+					pratosRefeicao.add(prato);
 			}
 		}
 		return pratosRefeicao;
 	}
 
-	public String consultaRestaurante(String nome, String atributo) {
+	public String consultaRestaurante(String nome, String atributo) throws StringInvalidaException {
+		if (nome == null || nome.trim().equalsIgnoreCase("")) {
+			throw new StringInvalidaException("Erro na consulta do restaurante. Nome do prato esto vazio.");
+		}
+
 		Prato pratoProcurado = buscaPratoPorNome(nome);
 		Refeicao refeicaoProcurada = buscaRefeicaoPorNome(nome);
 		if (pratoProcurado != null) {
@@ -77,7 +95,7 @@ public class Restaurante {
 				return pratoProcurado.getDescricao();
 			}
 		}
-		if (refeicaoProcurada != null){
+		if (refeicaoProcurada != null) {
 			if (atributo.equalsIgnoreCase("Preco")) {
 				DecimalFormat formatador = new DecimalFormat("#.00");
 				String valor = "R$" + formatador.format(refeicaoProcurada.valorRefeicao());
@@ -85,7 +103,7 @@ public class Restaurante {
 				return valor;
 			}
 			if (atributo.equalsIgnoreCase("Descricao")) {
-				return refeicaoProcurada.getDescricao();
+				return refeicaoProcurada.toString();
 			}
 		}
 

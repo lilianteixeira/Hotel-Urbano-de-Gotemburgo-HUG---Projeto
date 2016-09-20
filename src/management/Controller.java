@@ -56,7 +56,7 @@ public class Controller {
 		restaurante.cadastraRefeicao(nome, descricao, componentes);
 	}
 	
-	public String consultaRestaurante(String nome, String atributo) {
+	public String consultaRestaurante(String nome, String atributo) throws Exception {
 		return restaurante.consultaRestaurante(nome, atributo);
 	}
 

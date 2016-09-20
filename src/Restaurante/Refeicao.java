@@ -35,22 +35,6 @@ public class Refeicao {
 	}
 
 	/**
-	 * Adiciona um prato a uma refeicao completa, sendo que uma refeicao nao
-	 * pode ter mais de 4 pratos
-	 * 
-	 * @param novoPrato
-	 *            - prato a ser adicionado a refeicao
-	 * @return - retorna se foi possivel ou nao adicionar um novo prato a
-	 *         refeicao
-	 */
-	public boolean addPrato(Prato novoPrato) {
-		if (refeicoes.size() < 4) {
-			return refeicoes.add(novoPrato);
-		}
-		return false;
-	}
-
-	/**
 	 * metodo que calcula o valor de um refeicao completa, sabendo que para um
 	 * refeicao completa o hospede recebe 10% de desconto no valor total da
 	 * refeicao
@@ -62,19 +46,21 @@ public class Refeicao {
 		for (Prato prato : refeicoes) {
 			valorTotal += prato.getValor();
 		}
-		valorTotal = valorTotal * DESCONTO;
+		valorTotal = valorTotal - (valorTotal * DESCONTO);
 		return valorTotal;
 	}
 
 	@Override
 	public String toString() {
+		int contador = 1;
 		String msg = "";
-		msg += this.getNome() + ", ";
-		msg += this.getDescricao() + " ";
+		msg += this.getDescricao() + " Serao Servidos: ";
 		for (Prato prato : refeicoes) {
-			msg += prato.getNome() + ", ";
+			msg += "(" + contador + ") " +prato.getNome() + ", ";
+			contador++;
 		}
-		msg += "R$" + valorRefeicao() + ".";
+		msg = msg.substring(0, msg.length() - 2);
+		msg += ".";
 		return msg;
 	}
 
