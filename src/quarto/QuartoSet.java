@@ -1,8 +1,6 @@
-package hotel;
+package quarto;
 
-import java.util.Iterator;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class QuartoSet {
@@ -16,12 +14,14 @@ public class QuartoSet {
 	}
 
 	/**
-	 * O metodo abaixo adiciona um quarto a lista de quartos
+	 * adiciona um quarto a lista de quartos
 	 * retorna um boolean informando se o quarto foi adicionado ou nao 
 	 * @param q
 	 * @return um boolean
 	 */
 	public boolean addQuarto(Quarto q) {
+		if(q == null)
+			throw new NullPointerException();
 		return quartos.add(q);
 	}
 
@@ -40,17 +40,13 @@ public class QuartoSet {
 	 * se o quarto for encontrado ele o retorna o objeto que o representa
 	 * @param id
 	 * @return um objeto Quarto 
+	 * @throws QuartoNotFoundException 
 	 */
-	public Quarto buscaQuarto(String id) {
-		Quarto q = null;
-		Iterator<Quarto> i = quartos.iterator();
-
-		while (i.hasNext()) {
-			q = i.next();
-			if (q.getId().equals(id))
+	public Quarto buscaQuarto(String id) throws QuartoNotFoundException {
+		for(Quarto q : quartos)
+			if(q.equals(id))
 				return q;
-		}
-		return null;
+		throw new QuartoNotFoundException();
 	}
 
 }

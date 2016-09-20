@@ -1,5 +1,7 @@
 package hotel;
 
+import quarto.Quarto;
+
 /**
  *
  * A classe Estadia e uma representacao de uma estadia de um quarto

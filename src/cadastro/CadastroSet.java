@@ -3,9 +3,6 @@ package cadastro;
 import java.util.HashSet;
 import java.util.Set;
 
-import exceptions.ObjetoInvalidoException;
-import exceptions.StringInvalidaException;
-
 /**
  * Essa classe encapsula uma coleção de instâncias de <code>Cadastro</code>, e
  * fornece métodos para a visualização de cada Cadastro, como a edição deles.
@@ -46,7 +43,6 @@ public class CadastroSet {
 		return true;
 	}
 
-	// conferir se o cadastro existe antes de remover
 	/**
 	 * Remove uma instância c de <code>Cadastro</code>, desta coleção, se tal
 	 * coleção a contiver.

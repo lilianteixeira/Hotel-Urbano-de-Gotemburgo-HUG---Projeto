@@ -1,63 +1,46 @@
-package hotel;
+package quarto;
 
 /**
  * A classe Quarto e uma representacao do quarto do hotel.
  * 
- * Um objeto Quarto, encapsula informacoes que um quarto contem. 
- * Tais informacoes sao:
+ * Um objeto Quarto, encapsula informacoes que um quarto contem. Tais
+ * informacoes sao:
  * 
- * Id
- * Tipo do quarto 
- * E se o quarto esta ocupado
+ * Id Tipo do quarto E se o quarto esta ocupado
  * 
  */
 public class Quarto implements Comparable<Quarto> {
 	private String id;
 	private TipoDeQuarto tipoDeQuarto;
 	private boolean isOcupado;
-
 	/**
-	 * Construtor da classe Quarto
-	 * @param id
-	 * @param tipoDeQuarto
-	 */
-	public Quarto(String id, TipoDeQuarto tipoDeQuarto) {
-		this.id = id;
-		this.tipoDeQuarto = tipoDeQuarto;
-		this.isOcupado = false;
-	}
-
-	/**
-	 * @return um boolean que informa se o quarto esta com um hospede ou nao 
+	 * 
+	 * @return
 	 */
 	public boolean isOcupado() {
 		return isOcupado;
 	}
-
 	/**
-	 * modifica se um quarto esta ocupado, passa a ser desocupado e vice-versa
+	 * 
 	 */
 	public void setOcupadoState() {
 		// A idéia é que o método mude o estado do quarto, a partir do seu
 		// estado atual.
 		isOcupado = !isOcupado;
 	}
-
 	/**
-	 * @return um id que representa o numero do quarto 
+	 * @return um id que representa o numero do quarto
 	 */
 	public String getId() {
 		return id;
 	}
-
 	/**
 	 * 
-	 * @return um double que informa o valor da diaria do quarto 
+	 * @return um double que informa o valor da diaria do quarto
 	 */
 	public double getDiaria() {
 		return tipoDeQuarto.getDiaria();
 	}
-
 	/**
 	 * O metodo abaixo compara se os quartos sao do mesmo tipo
 	 */
@@ -65,7 +48,6 @@ public class Quarto implements Comparable<Quarto> {
 	public int compareTo(Quarto q) {
 		return this.id.compareToIgnoreCase(q.getId());
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -73,7 +55,6 @@ public class Quarto implements Comparable<Quarto> {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 	/**
 	 * O metodo abaixo compara se dois objetos sao iguais
 	 */
@@ -92,6 +73,28 @@ public class Quarto implements Comparable<Quarto> {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	
+	private Quarto(String id, TipoDeQuarto tipoDeQuarto) {
+		validaArgumento(id);
+		if(tipoDeQuarto == null)
+			throw new NullPointerException("tipo de quarto não pode ser null");
+		this.id = id;
+		this.tipoDeQuarto = tipoDeQuarto;
+		this.isOcupado = false;
+	}
+	
+	private static void validaArgumento(String... strings) {
+		for (String s : strings) {
+			if (s == null)
+				throw new NullPointerException("string não pode ser null");
+			if (s.trim().equals(""))
+				throw new IllegalArgumentException("string não pode ser vazia");
+		}
+	}
+
+	static Quarto novoQuarto(String id, TipoDeQuarto tipoDeQuarto) {
+		return new Quarto(id, tipoDeQuarto);
 	}
 
 }

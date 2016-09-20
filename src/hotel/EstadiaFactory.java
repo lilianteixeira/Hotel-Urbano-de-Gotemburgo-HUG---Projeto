@@ -1,5 +1,7 @@
 package hotel;
 
+import quarto.Quarto;
+
 /**
  *  O enum Estadia Factory e responsavel pela criacao de uma estadia. 
  * 
