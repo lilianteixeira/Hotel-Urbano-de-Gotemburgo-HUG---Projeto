@@ -79,15 +79,8 @@ public class CadastroSet {
 	}
 
 	public String getInfoCadastro(String email, String atributo) throws Exception {
-		if (email == null)
-			throw new Exception();
-		if (email.trim().equals(""))
-			throw new Exception();
-		if (atributo == null)
-			throw new Exception();
-		if (atributo.trim().equals(""))
-			throw new Exception();
-
+		validateInfoArgument(email, atributo);
+		
 		if (atributo.equalsIgnoreCase("Nome")) {
 			return buscaCadastro(email).getNome();
 		}
@@ -98,6 +91,31 @@ public class CadastroSet {
 			return buscaCadastro(email).getEmail();
 		}
 		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é inválido
-
+	}
+	
+	public String setInfoCadastro(String email, String atributo, String valor) throws Exception {
+		validateInfoArgument(email, atributo);
+		
+		if (atributo.equalsIgnoreCase("Nome")) {
+			buscaCadastro(email).setNome(valor);
+		}
+		if (atributo.equalsIgnoreCase("Data de nascimento")) {
+			buscaCadastro(email).setDataDeNascimento(valor);
+		}
+		if (atributo.equalsIgnoreCase("Email")) {
+			buscaCadastro(email).setEmail(valor);
+		}
+		throw new Exception(); // Se chegou nesse ponto, é porque o atributo é inválido
+	}
+	
+	private void validateInfoArgument(String email, String atributo) throws Exception {
+		if (email == null)
+			throw new Exception();
+		if (email.trim().equals(""))
+			throw new Exception();
+		if (atributo == null)
+			throw new Exception();
+		if (atributo.trim().equals(""))
+			throw new Exception();
 	}
 }
