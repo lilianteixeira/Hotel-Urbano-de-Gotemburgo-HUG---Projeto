@@ -1,6 +1,7 @@
 package management;
 
 import hotel.GetInfoException;
+import hotel.HospedeNotFoundException;
 import cadastro.CadastroNotFoundException;
 import easyaccept.EasyAccept;
 import estadia.InvalidQuartoStateException;
@@ -26,7 +27,7 @@ public class Facade {
 		return controller.cadastraHospede(nome, email, dataNascimento);
 	}
 
-	  public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
+	  public String getInfoHospede(String email, String atributo) throws GetInfoException, HospedeNotFoundException {
 		return controller.getInfoHospede(email, atributo);
 	}
 
@@ -39,7 +40,7 @@ public class Facade {
 		controller.atualizaCadastro(email, atributo, novoAtributo);
 	}
 
-	  public void removeHospede(String email) throws CadastroNotFoundException {
+	  public void removeHospede(String email) throws HospedeNotFoundException {
 		controller.removeHospede(email);
 	}
 

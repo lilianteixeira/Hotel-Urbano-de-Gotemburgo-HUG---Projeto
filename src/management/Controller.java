@@ -25,14 +25,14 @@ public class Controller {
 		return email;
 	}
 
-  	public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
+  	public String getInfoHospede(String email, String atributo) throws GetInfoException, HospedeNotFoundException {
 		return hotel.getInfoHospede(email, atributo);
 	}
 /*	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
 		return hotel.getInfoHospedagem(email, atributo);
 	}*/
 
-	public boolean removeHospede(String email) throws CadastroNotFoundException {
+	public boolean removeHospede(String email) throws HospedeNotFoundException {
 		return hotel.removeHospede(email);
 	}
 	

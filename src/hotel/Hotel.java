@@ -108,7 +108,7 @@ public class Hotel {
 		}
 	}
 
-	public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
+	public String getInfoHospede(String email, String atributo) throws GetInfoException, HospedeNotFoundException {
 		if (email == null || email.trim().equals(""))
 			throw new GetInfoException("Email do(a) hospede nao pode ser vazio.");
 		if (!Pattern.matches("[^@]+@[^@]+", email))
@@ -116,13 +116,18 @@ public class Hotel {
 		try {
 			return cadastros.getInfoCadastro(email, atributo);
 		} catch (CadastroNotFoundException e) {
-			throw e;
+			throw new HospedeNotFoundException(email);
 
 		}
 	}
 
-	public boolean removeHospede(String email) throws CadastroNotFoundException {
-		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
+	public boolean removeHospede(String email) throws HospedeNotFoundException {
+		try {
+			cadastros.removeCadastro(cadastros.buscaCadastro(email));
+			return true;
+		} catch (CadastroNotFoundException e) {
+			throw new HospedeNotFoundException(email);
+		}
 		
 		
 	}
