@@ -1,8 +1,5 @@
 package management;
 
-/**
- * faltou esse pacote
- */
 import Restaurante.Restaurante;
 import exceptions.NumeroInvalidoException;
 import exceptions.ObjetoInvalidoException;
@@ -19,6 +16,7 @@ public class Controller {
 		this.restaurante = new Restaurante();
 	}
 
+
 	public String cadastraHospede(String nome, String email, String dataNascimento) throws StringInvalidaException {
 		hotel.cadastraHospede(nome, email, dataNascimento);
 		return email;
@@ -27,6 +25,9 @@ public class Controller {
 	public String getInfoHospede(String email, String atributo)
 			throws Exception {
 		return hotel.getInfoHospede(email, atributo);
+	}
+	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+		return hotel.getInfoHospedagem(email, atributo);
 	}
 
 	public boolean removeHospede(String email) throws Exception {
@@ -37,15 +38,15 @@ public class Controller {
 			throws Exception {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
 	}
-
+	
 	public void cadastraPrato(String nome, double preco, String descricao)
 			throws StringInvalidaException, NumeroInvalidoException {
 		restaurante.cadastraPrato(nome, preco, descricao);
 	}
 
-	public void realizaCheckin(String email, int dias, String id, String tipoQuarto)
-			throws Exception {
-		hotel.buscaQuarto(id);
-		hotel.checkIn(email, id, dias);
+	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto)
+			throws ObjetoInvalidoException, StringInvalidaException {
+		//hotel.buscaQuarto(id);
+		hotel.checkIn(email, dias, idQuarto, tipoQuarto);
 	}
 }

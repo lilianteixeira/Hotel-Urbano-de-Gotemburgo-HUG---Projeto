@@ -1,6 +1,7 @@
 package hotel;
 
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public class Hotel {
 	private EstadiaMap estadias;
 	private RegistroSet registros;
 	private QuartoSet quartos;
+	private QuartoFactory quartoFactory;
 
 	/**
 	 * Construtor da classe Hotel
@@ -26,6 +28,7 @@ public class Hotel {
 		this.estadias = new EstadiaMap();
 		this.registros = new RegistroSet();
 		this.quartos = new QuartoSet();
+		this.quartoFactory = new QuartoFactory();
 	}
 
 	/**
@@ -36,9 +39,14 @@ public class Hotel {
 	 * @param nome
 	 * @param email
 	 * @param dataDeNascimento
-	 * @return um boolean
+	 * @return um boolean <<<<<<< HEAD
 	 * @throws StringInvalidaException
+	 *             =======
+	 * @throws Exception
+	 *             >>>>>>> branch 'master' of
+	 *             https://github.com/lilianteixeira/Hotel-Urbano-de-Gotemburgo-HUG---Projeto.git
 	 */
+
 	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) throws StringInvalidaException {
 		cadastros.addCadastro(CadastroFactory.INSTANCE.create(nome, email, dataDeNascimento));
 		return true;
@@ -53,7 +61,7 @@ public class Hotel {
 	 * @return um boolean
 	 * @throws Exception
 	 */
-	public boolean removeCadastro(String email) throws Exception {
+	public boolean removeCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
 	}
 
@@ -65,13 +73,29 @@ public class Hotel {
 	 * @param dias
 	 * @throws Exception
 	 */
-	public void checkIn(String email, String id, int dias) throws Exception {
+	public void checkIn(String email, int dias, String idQuarto, String tipoQuarto)
+			throws ObjetoInvalidoException, StringInvalidaException {
 		Cadastro hospede = cadastros.buscaCadastro(email);
-		Quarto quarto = quartos.buscaQuarto(id);
+		if (buscaQuarto(idQuarto) == null) {
+			quartos.addQuarto(quartoFactory.create(idQuarto, tipoQuarto));
+		}
+		if (quartos.buscaQuarto(idQuarto).isOcupado()) {
+			throw new ObjetoInvalidoException("Erro ao realizar checkin. Quarto " + idQuarto + " ja esta ocupado.");
+		}
+		Quarto quarto = buscaQuarto(idQuarto);
 		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
 		estadias.putEstadia(estadia, hospede);
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
 	}
+
+	/*
+	 * public void checkIn(String email, String id, int dias) throws Exception {
+	 * Cadastro hospede = cadastros.buscaCadastro(email); Quarto quarto =
+	 * quartos.buscaQuarto(id); Estadia estadia =
+	 * EstadiaFactory.INSTANCE.create(quarto, dias);
+	 * estadias.putEstadia(estadia, hospede); quarto.setOcupadoState(); // Muda
+	 * o estado do quarto pra ocupado }
+	 */
 
 	/**
 	 * O metodo abaixo faz o checkout de um hospede que está no hotel
@@ -91,7 +115,7 @@ public class Hotel {
 													// já que não vão existir
 													// duas instâncias de
 													// Hospedes iguais
-				
+
 				// se a estadia estiver relacionada ao email que está fazendo
 				// checkout...
 				registros.addRegistro(RegistroFactory.INSTANCE.create(hospede.getNome(), entrada.getKey().getId(),
@@ -129,6 +153,36 @@ public class Hotel {
 		return cadastros.getInfoCadastro(email, atributo);
 	}
 
+	public String getInfoHospedagem(String email, String atributo)
+			throws ObjetoInvalidoException, StringInvalidaException {
+		String retorno = "";
+		Cadastro hospede = cadastros.buscaCadastro(email);
+
+		if (!estadias.temEstadiasAtivas(hospede)) {
+			throw new ObjetoInvalidoException(
+					"Erro na consulta de hospedagem. Hospede " + hospede.getNome() + " nao esta hospedado(a).");
+		}
+
+		LinkedHashSet<Estadia> hospedagensAtivas = estadias.getHospedagensAtivas(hospede);
+		Iterator<Estadia> it = hospedagensAtivas.iterator();
+
+		if (atributo.equalsIgnoreCase("Hospedagens ativas")) {
+			retorno += estadias.getHospedagensAtivas(hospede).size();
+		} else if (atributo.equalsIgnoreCase("Quarto")) {
+			while (it.hasNext()) {
+				retorno += it.next().getId() + ",";
+			}
+			retorno = retorno.substring(0, retorno.length() - 1);
+		} else if (atributo.equalsIgnoreCase("Total")) {
+			double total = 0;
+			while (it.hasNext()) {
+				total += it.next().getPrecoTotal();
+			}
+			retorno += "R$" + String.format("%.2f", total);
+		}
+		return retorno;
+	}
+
 	/**
 	 * 
 	 * O metodo atualiza o cadastro de um hospede
@@ -138,17 +192,10 @@ public class Hotel {
 	 * @param novoAtributo
 	 * @throws Exception
 	 */
-	public void atualizaCadastro(String email, String atributo, String novoAtributo) throws Exception {
-		Cadastro hospede = cadastros.buscaCadastro(email);
-		if (atributo.equalsIgnoreCase("Nome"))
-			hospede.setNome(novoAtributo);
-		else if (atributo.equalsIgnoreCase("Data de nascimento"))
-			hospede.setDataDeNascimento(novoAtributo);
-		else if (atributo.equalsIgnoreCase("Email"))
-			hospede.setEmail(novoAtributo);
-		else
-			throw new IllegalArgumentException(); // trocar por uma
-													// checkedException
+
+	public void atualizaCadastro(String email, String atributo, String valor)
+			throws Exception {
+		cadastros.setInfoCadastro(email, atributo, valor);
 	}
 
 	/**
