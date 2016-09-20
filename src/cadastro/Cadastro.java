@@ -32,12 +32,12 @@ public class Cadastro {
 	private String dataDeNascimento;
 
 
-	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
+	/*final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
 		return new Cadastro(nome, email, dataDeNascimento);
 	}
 	
 	private Cadastro(String nome, String email, String dataDeNascimento) {
-
+*/
 	/**
 	 * Construtor
 	 * 

@@ -2,6 +2,8 @@ package hotel;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -19,7 +21,7 @@ public class EstadiaMap {
 	 * Construtor da classe
 	 */
 	public EstadiaMap() {
-		this.estadiaMap = new HashMap<>();
+		this.estadiaMap = new LinkedHashMap<>();
 	}
 
 	/**
@@ -75,5 +77,24 @@ public class EstadiaMap {
 				entradas.remove(entrada);
 		}
 	}
+	
+	public boolean temEstadiasAtivas(Cadastro hospede) {
+		if (estadiaMap.containsValue(hospede))
+			return true;
+		return false;
+	}
+	
+	public LinkedHashSet getHospedagensAtivas(Cadastro hospede) {
+		LinkedHashSet<Estadia> estadiasAtivas = new LinkedHashSet<>();
+		
+		for (Estadia e : estadiaMap.keySet()) {
+			if (estadiaMap.get(e).equals(hospede)) {
+				estadiasAtivas.add(e);
+
+			}
+		}
+		return estadiasAtivas;
+	}
+	
 
 }

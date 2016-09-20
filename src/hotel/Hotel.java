@@ -1,6 +1,7 @@
 package hotel;
 
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ public class Hotel {
 	private EstadiaMap estadias;
 	private RegistroSet registros;
 	private QuartoSet quartos;
+	private QuartoFactory quartoFactory;
 
 	/**
 	 * Construtor da classe Hotel
@@ -25,6 +27,7 @@ public class Hotel {
 		this.estadias = new EstadiaMap();
 		this.registros = new RegistroSet();
 		this.quartos = new QuartoSet();
+		this.quartoFactory = new QuartoFactory();
 	}
 
 	/**
@@ -35,8 +38,9 @@ public class Hotel {
 	 * @param email
 	 * @param dataDeNascimento
 	 * @return um boolean
+	 * @throws Exception 
 	 */
-	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) {
+	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) throws Exception {
 		cadastros.addCadastro(CadastroFactory.INSTANCE.create(nome, email, dataDeNascimento));
 		return true;
 	}
@@ -50,7 +54,7 @@ public class Hotel {
 	 * @return um boolean
 	 * @throws Exception
 	 */
-	public boolean removeCadastro(String email) throws Exception {
+	public boolean removeCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
 	}
 
@@ -62,13 +66,28 @@ public class Hotel {
 	 * @param dias
 	 * @throws Exception
 	 */
-	public void checkIn(String email, String id, int dias) throws Exception {
+	public void checkIn(String email, int dias, String idQuarto, String tipoQuarto)
+			throws ObjetoInvalidoException, StringInvalidaException {
+		Cadastro hospede = cadastros.buscaCadastro(email);
+		if (buscaQuarto(idQuarto) == null) {
+			quartos.addQuarto(quartoFactory.create(idQuarto, tipoQuarto));
+		}
+		if (quartos.buscaQuarto(idQuarto).isOcupado()) {
+			throw new ObjetoInvalidoException("Erro ao realizar checkin. Quarto " + idQuarto + " ja esta ocupado.");
+		}
+		Quarto quarto = buscaQuarto(idQuarto);
+		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
+		estadias.putEstadia(estadia, hospede);
+		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
+	}
+
+	/*public void checkIn(String email, String id, int dias) throws Exception {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		Quarto quarto = quartos.buscaQuarto(id);
 		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
 		estadias.putEstadia(estadia, hospede);
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
-	}
+	}*/
 
 	/**
 	 * O metodo abaixo faz o checkout de um hospede que está no hotel 
@@ -118,7 +137,7 @@ public class Hotel {
 	 * @throws Exception
 	 */
 	public String getInfoHospede(String email, String atributo)
-			throws Exception {
+			throws ObjetoInvalidoException, StringInvalidaException {
 		/*
 		 * if (buscaHospede(email) == null) { throw new ObjetoInvalidoException(
 		 * "Erro na consulta de hospede. Hospede de email " + email +
@@ -143,6 +162,38 @@ public class Hotel {
 		throw new IllegalArgumentException(); // Trocar por uma checked
 												// exception depois.
 	}
+	
+	public String getInfoHospedagem(String email, String atributo)
+			throws ObjetoInvalidoException, StringInvalidaException {
+
+		String retorno = "";
+		Cadastro hospede = cadastros.buscaCadastro(email);
+
+		if (!estadias.temEstadiasAtivas(hospede)) {
+			throw new ObjetoInvalidoException(
+					"Erro na consulta de hospedagem. Hospede " + hospede.getNome() + " nao esta hospedado(a).");
+		}
+
+		LinkedHashSet<Estadia> hospedagensAtivas = estadias.getHospedagensAtivas(hospede);
+		Iterator<Estadia> it = hospedagensAtivas.iterator();
+
+		if (atributo.equalsIgnoreCase("Hospedagens ativas")) {
+			retorno += estadias.getHospedagensAtivas(hospede).size();
+		} else if (atributo.equalsIgnoreCase("Quarto")) {
+			while (it.hasNext()) {
+				retorno += it.next().getId() + ",";
+			}
+			retorno = retorno.substring(0, retorno.length() - 1);
+		} else if (atributo.equalsIgnoreCase("Total")) {
+			double total = 0;
+			while (it.hasNext()) {
+				total += it.next().getPrecoTotal();
+			}
+			retorno += "R$" + String.format("%.2f", total);
+		}
+		return retorno;
+	}
+
 
 	/**
 	 * 
@@ -154,7 +205,7 @@ public class Hotel {
 	 * @throws Exception
 	 */
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws Exception {
+			throws ObjetoInvalidoException, StringInvalidaException {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		if (atributo.equalsIgnoreCase("Nome"))
 			hospede.setNome(novoAtributo);

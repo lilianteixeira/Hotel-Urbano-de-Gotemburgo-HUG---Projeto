@@ -9,7 +9,7 @@ public class Facade {
 
 	public Facade() {
 
-	}
+	}  
 
 	public void iniciaSistema() {
 		this.controller = new Controller();
@@ -26,6 +26,9 @@ public class Facade {
 			throws ObjetoInvalidoException, StringInvalidaException {
 		return controller.getInfoHospede(email, atributo);
 	}
+	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException{
+		return controller.getInfoHospedagem(email, atributo);
+	}
 
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
 			throws ObjetoInvalidoException, StringInvalidaException {
@@ -35,14 +38,17 @@ public class Facade {
 	public void removeHospede(String email) throws ObjetoInvalidoException, StringInvalidaException {
 		controller.removeHospede(email);
 	}
+	
+	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto) throws ObjetoInvalidoException, StringInvalidaException{
+		controller.realizaCheckin(email, dias, idQuarto, tipoQuarto);
+	}
 
 	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
 		controller.cadastraPrato(nome, preco, descricao);
 	}
 
 	public static void main(String[] args) {
-		args = new String[] { "management.Facade", "resources/acceptance_test/testes_uc1.txt",
-				"resources/acceptance_test/testes_uc4.txt" };
+		args = new String[] { "management.Facade", "resources/acceptance_test/testes_juntos.txt"};
 		EasyAccept.main(args);
 	}
 }
