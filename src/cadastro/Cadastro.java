@@ -3,7 +3,6 @@ package cadastro;
 import exceptions.StringInvalidaException;
 
 /**
- *
  * A classe Cadastro e uma representacao do cadastro de uma pessoa.
  * 
  * Um objeto Cadastro, encapsula informacoes de uma pessoa cadastrada. Tais
@@ -15,26 +14,30 @@ import exceptions.StringInvalidaException;
  *
  */
 public class Cadastro {
+	
+
 	/**
 	 * nome da pessoa cadastrada.
 	 */
 	private String nome;
+
 	/**
 	 * email de contato da pessoa cadastrada.
 	 */
 	private String email;
+	
 	/**
 	 * data de nascimento da pessoa cadastrada.
 	 */
 	private String dataDeNascimento;
 
-<<<<<<< HEAD
+
 	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
 		return new Cadastro(nome, email, dataDeNascimento);
 	}
 	
 	private Cadastro(String nome, String email, String dataDeNascimento) {
-=======
+
 	/**
 	 * Construtor
 	 * 
@@ -48,7 +51,7 @@ public class Cadastro {
 	 */
 	public Cadastro(String nome, String email, String dataDeNascimento) throws Exception {
 
->>>>>>> javaDoc
+
 		if (nome == null)
 			throw new StringInvalidaException("nome não pode ser null");
 		

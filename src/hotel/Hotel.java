@@ -166,16 +166,12 @@ public class Hotel {
 			throw new IllegalArgumentException(); // trocar por uma
 													// checkedException
 	}
-<<<<<<< HEAD
 
-=======
-	
 	/**
 	 * O metodo busca um quarto atraves do seu id
 	 * @param id
 	 * @return um objeto quarto 
 	 */
->>>>>>> javaDoc
 	public Quarto buscaQuarto(String id) {
 		return quartos.buscaQuarto(id);
 	}
