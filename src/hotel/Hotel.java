@@ -88,9 +88,10 @@ public class Hotel {
 	 * @param atributo
 	 * @param novoAtributo
 	 * @throws CadastroNotFoundException
+	 * @throws AtualizaCadastroException 
 	 */
 
-	public void atualizaCadastro(String email, String atributo, String valor) throws CadastroNotFoundException {
+	public void atualizaCadastro(String email, String atributo, String valor) throws CadastroNotFoundException, AtualizaCadastroException {
 		try {
 			cadastros.setInfoCadastro(email, atributo, valor);
 		} catch (RuntimeException e) {
@@ -102,9 +103,24 @@ public class Hotel {
 			else if (e.getMessage().contains("data de nascimento"))
 				message = ("Data de Nascimento do(a) hospede nao pode ser vazio.");
 			else
-				message = "Erro nao identificado";
+				message = e.getCause().getMessage();
 		}
 	}
+	
+	
+	  public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
+		  if(email == null || email.trim().equals(""))
+			  throw new GetInfoException("Email do(a) hospede nao pode ser vazio.");
+		  if (!Pattern.matches("[^@]+@[^@]+", email))
+				throw new GetInfoException("Email do(a) hospede esta invalido");
+		  try {
+			return cadastros.getInfoCadastro(email, atributo);
+		} catch (CadastroNotFoundException e) {
+			throw e;
+			
+		}
+		  }
+	 
 
 	/**
 	 * 
@@ -216,10 +232,7 @@ public class Hotel {
 	 * @return uma String
 	 * @throws Exception
 	 */
-	/*
-	 * public String getInfoHospede(String email, String atributo) throws
-	 * Exception { return cadastros.getInfoCadastro(email, atributo); }
-	 */
+	
 
 	/*
 	 * public String getInfoHospedagem(String email, String atributo) throws

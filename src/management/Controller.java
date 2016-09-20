@@ -25,8 +25,7 @@ public class Controller {
 		return email;
 	}
 
-/*	public String getInfoHospede(String email, String atributo)
-			throws Exception {
+  	public String getInfoHospede(String email, String atributo) throws GetInfoException, CadastroNotFoundException {
 		return hotel.getInfoHospede(email, atributo);
 	}
 /*	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{

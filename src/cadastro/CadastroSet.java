@@ -86,7 +86,7 @@ public class CadastroSet {
 	// Na documentação, deve deixar específico que o método só aceita um
 	// determinado conjunto de atributos, passar uma String atributo, que não é
 	// esperada, irá lançar uma exception
-	public String getInfoCadastro(String email, String atributo) throws Exception {
+	public String getInfoCadastro(String email, String atributo) throws CadastroNotFoundException {
 		validateInfoArgument(atributo);
 
 		if (atributo.equalsIgnoreCase("Nome")) {
@@ -106,20 +106,23 @@ public class CadastroSet {
 
 		if (atributo.equalsIgnoreCase("Nome")) {
 			buscaCadastro(email).setNome(valor);
+			return email;
 		}
 		if (atributo.equalsIgnoreCase("Data de nascimento")) {
 			buscaCadastro(email).setDataDeNascimento(valor);
+			return email;
 		}
 		if (atributo.equalsIgnoreCase("Email")) {
 			buscaCadastro(email).setEmail(valor);
+			return email;
 		}
-		throw new IllegalArgumentException("atributo inválido");
+		throw new IllegalArgumentException("atributo invalido");
 	}
 
 	private void validateInfoArgument(String atributo) {
 		if (atributo == null)
-			throw new NullPointerException("atributo não pode ser null");
+			throw new NullPointerException("atributo nao pode ser null");
 		if (atributo.trim().equals(""))
-			throw new IllegalArgumentException("atributo não pode ser vazio");
+			throw new IllegalArgumentException("atributo nao pode ser vazio");
 	}
 }
