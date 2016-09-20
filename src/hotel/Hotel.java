@@ -10,6 +10,7 @@ import java.util.Set;
 
 import cadastro.*;
 import exceptions.*;
+
 /**
  *
  * A classe hotel ela gerencia a parte de cadastro, estadia, registro e quartos
@@ -36,24 +37,30 @@ public class Hotel {
 	}
 
 	/**
-	 * O metodo abaixo faz o cadastro de um hospede, adicionando o mesmo na lista de hospedes cadastrados 
-	 * retornando um boolean indicando se o hospede foi cadastrado ou nao 
+	 * O metodo abaixo faz o cadastro de um hospede, adicionando o mesmo na
+	 * lista de hospedes cadastrados retornando um boolean indicando se o
+	 * hospede foi cadastrado ou nao
 	 * 
 	 * @param nome
 	 * @param email
 	 * @param dataDeNascimento
-	 * @return um boolean
-	 * @throws Exception 
+	 * @return um boolean <<<<<<< HEAD
+	 * @throws StringInvalidaException
+	 *             =======
+	 * @throws Exception
+	 *             >>>>>>> branch 'master' of
+	 *             https://github.com/lilianteixeira/Hotel-Urbano-de-Gotemburgo-HUG---Projeto.git
 	 */
-	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) throws Exception {
+
+	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) throws StringInvalidaException {
 		cadastros.addCadastro(CadastroFactory.INSTANCE.create(nome, email, dataDeNascimento));
 		return true;
 	}
 
 	/**
 	 * 
-	 * O metodo abaixo remove um hospede cadastrado, atraves do e-mail desse hospede
-	 * retorna um boolean indicando se foi removido ou nao 
+	 * O metodo abaixo remove um hospede cadastrado, atraves do e-mail desse
+	 * hospede retorna um boolean indicando se foi removido ou nao
 	 * 
 	 * @param email
 	 * @return um boolean
@@ -86,16 +93,18 @@ public class Hotel {
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
 	}
 
-	/*public void checkIn(String email, String id, int dias) throws Exception {
-		Cadastro hospede = cadastros.buscaCadastro(email);
-		Quarto quarto = quartos.buscaQuarto(id);
-		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
-		estadias.putEstadia(estadia, hospede);
-		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
-	}*/
+	/*
+	 * public void checkIn(String email, String id, int dias) throws Exception {
+	 * Cadastro hospede = cadastros.buscaCadastro(email); Quarto quarto =
+	 * quartos.buscaQuarto(id); Estadia estadia =
+	 * EstadiaFactory.INSTANCE.create(quarto, dias);
+	 * estadias.putEstadia(estadia, hospede); quarto.setOcupadoState(); // Muda
+	 * o estado do quarto pra ocupado }
+	 */
 
 	/**
-	 * O metodo abaixo faz o checkout de um hospede que está no hotel 
+	 * O metodo abaixo faz o checkout de um hospede que está no hotel
+	 * 
 	 * @param email
 	 * @throws StringInvalidaException 
 	 * @throws ObjetoInvalidoException 
@@ -129,7 +138,11 @@ public class Hotel {
 
 		while (i.hasNext()) {// Varre todas as estadias
 			entrada = i.next();
-			if (entrada.getValue().equals(hospede)) {
+			if (entrada.getValue() == hospede) { // Essa comparação é possível,
+													// já que não vão existir
+													// duas instâncias de
+													// Hospedes iguais
+
 				// se a estadia estiver relacionada ao email que está fazendo
 				// checkout...
 				registros.addRegistro(RegistroFactory.INSTANCE.create(hospede.getNome(), entrada.getKey().getId(),
@@ -155,44 +168,20 @@ public class Hotel {
 	}
 */
 	/**
-	 * O metodo abaixo pega as informacoes de um hospede
-	 * retorna uma String com a informacao desejada
+	 * O metodo abaixo pega as informacoes de um hospede retorna uma String com
+	 * a informacao desejada
 	 * 
 	 * @param email
 	 * @param atributo
 	 * @return uma String
 	 * @throws Exception
 	 */
-	public String getInfoHospede(String email, String atributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
-		/*
-		 * if (buscaHospede(email) == null) { throw new ObjetoInvalidoException(
-		 * "Erro na consulta de hospede. Hospede de email " + email +
-		 * " nao foi cadastrado(a)."); }
-		 */
-
-		Cadastro hospede = cadastros.buscaCadastro(email);
-		// A checagem se o e-mail está cadastrado, foi passado para o método
-		// buscaCadastro.
-
-		if (atributo.equalsIgnoreCase("Nome")) {
-			return hospede.getNome();
-		}
-		if (atributo.equalsIgnoreCase("Data de nascimento")) {
-			return hospede.getDataDeNascimento();
-		}
-		if (atributo.equalsIgnoreCase("Email")) {
-			return hospede.getEmail();
-		}
-		/* return null; */// Não deveria retornar um null, e sim lançar uma
-							// exceção de argumento inválido
-		throw new IllegalArgumentException(); // Trocar por uma checked
-												// exception depois.
+	public String getInfoHospede(String email, String atributo) throws Exception {
+		return cadastros.getInfoCadastro(email, atributo);
 	}
-	
+
 	public String getInfoHospedagem(String email, String atributo)
 			throws ObjetoInvalidoException, StringInvalidaException {
-
 		String retorno = "";
 		Cadastro hospede = cadastros.buscaCadastro(email);
 
@@ -221,7 +210,6 @@ public class Hotel {
 		return retorno;
 	}
 
-
 	/**
 	 * 
 	 * O metodo atualiza o cadastro de um hospede
@@ -231,18 +219,10 @@ public class Hotel {
 	 * @param novoAtributo
 	 * @throws Exception
 	 */
-	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
-		Cadastro hospede = cadastros.buscaCadastro(email);
-		if (atributo.equalsIgnoreCase("Nome"))
-			hospede.setNome(novoAtributo);
-		else if (atributo.equalsIgnoreCase("Data de nascimento"))
-			hospede.setDataDeNascimento(novoAtributo);
-		else if (atributo.equalsIgnoreCase("Email"))
-			hospede.setEmail(novoAtributo);
-		else
-			throw new IllegalArgumentException(); // trocar por uma
-													// checkedException
+
+	public void atualizaCadastro(String email, String atributo, String valor)
+			throws Exception {
+		cadastros.setInfoCadastro(email, atributo, valor);
 	}
 	
 	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException{
@@ -256,8 +236,9 @@ public class Hotel {
 
 	/**
 	 * O metodo busca um quarto atraves do seu id
+	 * 
 	 * @param id
-	 * @return um objeto quarto 
+	 * @return um objeto quarto
 	 */
 	private Quarto buscaQuarto(String id) {
 		return quartos.buscaQuarto(id);

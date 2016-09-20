@@ -1,147 +1,94 @@
 package cadastro;
 
-import exceptions.StringInvalidaException;
-
 /**
- * A classe Cadastro e uma representacao do cadastro de uma pessoa.
+ * Essa classe é a representação do cadastro de uma pessoa, em algum possível
+ * sistema que gerência uma coleção de cadastros. Cada objeto do tipo Cadastro
+ * se refere às informações de uma única pessoa.
+ * <p>
+ * O objetivo dessa classe é encapsular informações pessoais, representadas pela
+ * classe <code>String</code>, e gerenciar tais informações com o auxílio de
+ * <code>CadastroSet</code>.
+ * <p>
+ * A única maneira de instanciar essa classe, é fazendo uso do
+ * <code>CadastroFactory</code>, e a única maneira de alterar as informações de
+ * uma instância de cadastro, é pelos métodos de <code>CadastroSet</code>,
+ * contanto que a instância faça parte de <code>CadastroSet</code>.
+ * <p>
+ * Dois cadastros podem ser considerados iguais, se pelo menos uma das
+ * informações, únicas para cada pessoa, que ele encapsula forem iguais.
  * 
- * Um objeto Cadastro, encapsula informacoes de uma pessoa cadastrada. Tais
- * informacoes sao:
- * 
- * Nome
- * Email de contato.
- * Data de nascimento
- *
+ * @version 1.0
+ * @see CadastroFactory
+ * @see CadastroSet
  */
 public class Cadastro {
-	
-
-	/**
-	 * nome da pessoa cadastrada.
-	 */
+	// Não precisa fazer a documentação de membros com acesso private ou
+	// package, já que durante o processamento dos comentários, eles são
+	// ignorados
 	private String nome;
-
-	/**
-	 * email de contato da pessoa cadastrada.
-	 */
 	private String email;
-	
-	/**
-	 * data de nascimento da pessoa cadastrada.
-	 */
 	private String dataDeNascimento;
 
-
-	/*final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
-		return new Cadastro(nome, email, dataDeNascimento);
-	}
-	
-	private Cadastro(String nome, String email, String dataDeNascimento) {
-*/
 	/**
-	 * Construtor
+	 * Retorna o nome da pessoa cadastrada.
 	 * 
-	 * @param nome, representa o nome da pessoa a qual o cadastro se refere.
-	 * 
-	 * @param email, representa o e-mail da pessoa a qual o cadastro se refere.
-	 * 
-	 * @param dataDeNascimento, representa a data de nascimento da pessoa a qual o cadastro se refere.
-	 * 
-	 * @throws StringInvalidaException 
-	 */
-	public Cadastro(String nome, String email, String dataDeNascimento) throws Exception {
-
-
-		if (nome == null)
-			throw new StringInvalidaException("nome não pode ser null");
-		
-		if (nome.trim().equals(""))
-			throw new StringInvalidaException("nome não pode ser vazio");
-		
-		if (email == null)
-			throw new StringInvalidaException("email não pode ser null");
-		
-		if (email.trim().equals(""))
-			throw new StringInvalidaException("email não pode ser vazio");
-		
-		if (dataDeNascimento == null)
-			throw new StringInvalidaException("data de nascimento não pode ser null");
-		
-		if (dataDeNascimento.trim().equals(""))
-			throw new StringInvalidaException("data de nascimento não pode ser vazia");
-
-		this.nome = nome;
-		this.email = email;
-		this.dataDeNascimento = dataDeNascimento;
-	}
-
-	/**
-	 * Abaixo os acessadores(get's) e os modificadores(set's) das informacoes
-	 */
-	/**
-	 * @return uma String que representa do hospede
+	 * @return o nome da pessoa cadastrada.
 	 */
 	public String getNome() {
 		return nome;
 	}
-	
-	/**
-	 * @param nome
-	 *            the nome to set
-	 */
-	//é realmente necessário verificar aqui tambem ?
-	public void setNome(String nome) {
-		if (nome == null)
-			throw new IllegalArgumentException(new NullPointerException("nome não pode ser null"));
-		if (nome.trim().equals(""))
-			throw new IllegalArgumentException("nome não pode ser vazio");
-		this.nome = nome;
-	}
 
 	/**
-	 * @return uma String que representa um e-mail
+	 * Retorna o email da pessoa cadastrada.
+	 * 
+	 * @return o email da pessoa cadastrada.
 	 */
 	public String getEmail() {
 		return email;
 	}
 
-		
 	/**
-	 * @param email
-	 *            the email to set
-	 */
-	public void setEmail(String email) {
-		if (email == null)
-			throw new IllegalArgumentException(new NullPointerException("email não pode ser null"));
-		if (email.trim().equals(""))
-			throw new IllegalArgumentException("email não pode ser vazio");
-		this.email = email;
-	}
-
-
-	/**
-	 * @return uma String que representa a data de nascimento 
+	 * Retorna a data de nascimento da pessoa cadastrada.
+	 * 
+	 * @return a data de nascimento da pessoa cadastrada.
 	 */
 	public String getDataDeNascimento() {
 		return dataDeNascimento;
 	}
 
+	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
+		validaArgumento(nome, email, dataDeNascimento);
+		return new Cadastro(nome, email, dataDeNascimento);
+	}
 
-	/**
-	 * @param dataDeNascimento
-	 *            the dataDeNascimento to set
-	 */
-	public void setDataDeNascimento(String dataDeNascimento) {
-		if (dataDeNascimento == null)
-			throw new IllegalArgumentException(new NullPointerException("data de nascimento não pode ser null"));
-		if (dataDeNascimento.trim().equals(""))
-			throw new IllegalArgumentException("data de nascimento não pode ser vazia");
+	void setNome(String nome) {
+		validaArgumento(nome);
+		this.nome = nome;
+	}
+
+	void setEmail(String email) {
+		validaArgumento(email);
+		this.email = email;
+	}
+
+	void setDataDeNascimento(String dataDeNascimento) {
+		validaArgumento(dataDeNascimento);
 		this.dataDeNascimento = dataDeNascimento;
 	}
 
+	private Cadastro(String nome, String email, String dataDeNascimento) {
+		validaArgumento(nome, email, dataDeNascimento);
+		this.nome = nome;
+		this.email = email;
+		this.dataDeNascimento = dataDeNascimento;
+	}
+
+	private static void validaArgumento(String... strings) {
+		for (String s : strings) {
+			if (s == null)
+				throw new NullPointerException("string não pode ser null");
+			if (s.trim().equals(""))
+				throw new IllegalArgumentException("string não pode ser vazia");
+		}
+	}
 }
-	
-	
-	
-	
-	

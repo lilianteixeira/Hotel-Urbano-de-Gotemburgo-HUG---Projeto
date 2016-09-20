@@ -16,25 +16,26 @@ public class Controller {
 		this.restaurante = new Restaurante();
 	}
 
-	public String cadastraHospede(String nome, String email, String dataNascimento) throws Exception {
+
+	public String cadastraHospede(String nome, String email, String dataNascimento) throws StringInvalidaException {
 		hotel.cadastraHospede(nome, email, dataNascimento);
 		return email;
 	}
 
 	public String getInfoHospede(String email, String atributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		return hotel.getInfoHospede(email, atributo);
 	}
 	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException{
 		return hotel.getInfoHospedagem(email, atributo);
 	}
 
-	public boolean removeHospede(String email) throws ObjetoInvalidoException, StringInvalidaException {
+	public boolean removeHospede(String email) throws Exception {
 		return hotel.removeCadastro(email);
 	}
 
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
 	}
 	

@@ -22,8 +22,7 @@ public class Facade {
 		return controller.cadastraHospede(nome, email, dataNascimento);
 	}
 
-	public String getInfoHospede(String email, String atributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+	public String getInfoHospede(String email, String atributo) throws Exception {
 		return controller.getInfoHospede(email, atributo);
 	}
 	public String getInfoHospedagem(String email, String atributo) throws ObjetoInvalidoException, StringInvalidaException{
@@ -31,11 +30,11 @@ public class Facade {
 	}
 
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		controller.atualizaCadastro(email, atributo, novoAtributo);
 	}
 
-	public void removeHospede(String email) throws ObjetoInvalidoException, StringInvalidaException {
+	public void removeHospede(String email) throws Exception {
 		controller.removeHospede(email);
 	}
 	
