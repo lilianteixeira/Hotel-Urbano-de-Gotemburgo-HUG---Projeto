@@ -64,9 +64,10 @@ public class Hotel {
 	 * 
 	 * @param email
 	 * @return um boolean
+	 * @throws CadastroNotFoundException 
 	 * @throws Exception
 	 */
-	public boolean removeCadastro(String email) throws ObjetoInvalidoException, StringInvalidaException {
+	public boolean removeCadastro(String email) throws CadastroNotFoundException {
 		return cadastros.removeCadastro(cadastros.buscaCadastro(email));
 	}
 
@@ -76,10 +77,11 @@ public class Hotel {
 	 * @param email
 	 * @param id
 	 * @param dias
+	 * @throws CadastroNotFoundException 
 	 * @throws Exception
 	 */
 	public void checkIn(String email, int dias, String idQuarto, String tipoQuarto)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException {
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		if (buscaQuarto(idQuarto) == null) {
 			quartos.addQuarto(quartoFactory.create(idQuarto, tipoQuarto));
@@ -108,9 +110,10 @@ public class Hotel {
 	 * @param email
 	 * @throws StringInvalidaException 
 	 * @throws ObjetoInvalidoException 
+	 * @throws CadastroNotFoundException 
 	 * @throws Exception
 	 */
-	public String checkOut(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException{
+	public String checkOut(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException{
 		
 		Cadastro hospede = cadastros.buscaCadastro(email);
 		LinkedHashSet<Estadia> hospedagensAtivas = estadias.getHospedagensAtivas(hospede);
@@ -181,7 +184,7 @@ public class Hotel {
 	}
 
 	public String getInfoHospedagem(String email, String atributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException {
 		String retorno = "";
 		Cadastro hospede = cadastros.buscaCadastro(email);
 
