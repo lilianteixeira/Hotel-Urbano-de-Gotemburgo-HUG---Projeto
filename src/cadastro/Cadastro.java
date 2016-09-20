@@ -30,26 +30,20 @@ public class Cadastro {
 	 * data de nascimento da pessoa cadastrada.
 	 */
 	private String dataDeNascimento;
-
-
-	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) {
+	/**
+	 * 
+	 * @param nome nome da pessoa a qual o cadastro se refere. 
+	 * @param email e-mail da pessoa a qual o cadastro se refere.	  
+	 * @param dataDeNascimento data de nascimento da pessoa a qual o cadastro se refere.	  
+	 * @return instância de cadastro.
+	 * @throws StringInvalidaException se algum dos argumentos tiver referência null, ou for vazia.
+	 * 
+	 */
+	final static Cadastro novoCadastro(String nome, String email, String dataDeNascimento) throws StringInvalidaException {
 		return new Cadastro(nome, email, dataDeNascimento);
 	}
 	
-	private Cadastro(String nome, String email, String dataDeNascimento) {
-
-	/**
-	 * Construtor
-	 * 
-	 * @param nome, representa o nome da pessoa a qual o cadastro se refere.
-	 * 
-	 * @param email, representa o e-mail da pessoa a qual o cadastro se refere.
-	 * 
-	 * @param dataDeNascimento, representa a data de nascimento da pessoa a qual o cadastro se refere.
-	 * 
-	 * @throws StringInvalidaException 
-	 */
-	public Cadastro(String nome, String email, String dataDeNascimento) throws Exception {
+	private Cadastro(String nome, String email, String dataDeNascimento) throws StringInvalidaException {
 
 
 		if (nome == null)

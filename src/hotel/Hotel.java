@@ -35,8 +35,9 @@ public class Hotel {
 	 * @param email
 	 * @param dataDeNascimento
 	 * @return um boolean
+	 * @throws StringInvalidaException 
 	 */
-	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) {
+	public boolean cadastraHospede(String nome, String email, String dataDeNascimento) throws StringInvalidaException {
 		cadastros.addCadastro(CadastroFactory.INSTANCE.create(nome, email, dataDeNascimento));
 		return true;
 	}

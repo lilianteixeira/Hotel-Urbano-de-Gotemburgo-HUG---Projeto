@@ -19,22 +19,22 @@ public class Controller {
 		this.restaurante = new Restaurante();
 	}
 
-	public String cadastraHospede(String nome, String email, String dataNascimento) {
+	public String cadastraHospede(String nome, String email, String dataNascimento) throws StringInvalidaException {
 		hotel.cadastraHospede(nome, email, dataNascimento);
 		return email;
 	}
 
 	public String getInfoHospede(String email, String atributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		return hotel.getInfoHospede(email, atributo);
 	}
 
-	public boolean removeHospede(String email) throws ObjetoInvalidoException, StringInvalidaException {
+	public boolean removeHospede(String email) throws Exception {
 		return hotel.removeCadastro(email);
 	}
 
 	public void atualizaCadastro(String email, String atributo, String novoAtributo)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		hotel.atualizaCadastro(email, atributo, novoAtributo);
 	}
 
@@ -44,7 +44,7 @@ public class Controller {
 	}
 
 	public void realizaCheckin(String email, int dias, String id, String tipoQuarto)
-			throws ObjetoInvalidoException, StringInvalidaException {
+			throws Exception {
 		hotel.buscaQuarto(id);
 		hotel.checkIn(email, id, dias);
 	}
