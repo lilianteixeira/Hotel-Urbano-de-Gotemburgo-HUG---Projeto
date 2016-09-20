@@ -57,6 +57,14 @@ public class Quarto implements Comparable<Quarto> {
 	public double getDiaria() {
 		return tipoDeQuarto.getDiaria();
 	}
+	
+	public TipoDeQuarto getTipoDeQuarto() {
+		return tipoDeQuarto;
+	}
+	
+	public void setTipoDeQuarto(TipoDeQuarto tipoDeQuarto) {
+		this.tipoDeQuarto = tipoDeQuarto;
+	}
 
 	/**
 	 * O metodo abaixo compara se os quartos sao do mesmo tipo

@@ -68,12 +68,12 @@ public class Facade {
 
 	public static void main(String[] args) {
 		args = new String[] { "management.Facade", "resources/acceptance_test/testes_juntos.txt",
-				"resources/acceptance_test/testes_uc1.txt",
+/*				"resources/acceptance_test/testes_uc1.txt",
 				"resources/acceptance_test/testes_uc1_exception.txt",
 				"resources/acceptance_test/testes_uc2.txt",
 				"resources/acceptance_test/testes_uc2_exception.txt",
 				"resources/acceptance_test/testes_uc3.txt",
-				"resources/acceptance_test/testes_uc3_exception.txt",
+				"resources/acceptance_test/testes_uc3_exception.txt",*/
 				"resources/acceptance_test/testes_uc4.txt",
 				"resources/acceptance_test/testes_uc4_exception.txt"};
 		EasyAccept.main(args);

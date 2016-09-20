@@ -90,6 +90,21 @@ public class Hotel {
 			throw new ObjetoInvalidoException("Erro ao realizar checkin. Quarto " + idQuarto + " ja esta ocupado.");
 		}
 		Quarto quarto = buscaQuarto(idQuarto);
+		
+		// Os resultados do total no teste 03
+		// estava dando errado pq quando ele faz um novo chekkin para um quarto
+		// que ja estava na lista de quartos ele muda o tipo de quarto de presidencial para luxo
+		//Corrigi assim na presssa mesmo. Tá meio POG mas no lab hj agt corrige 
+		if (!quarto.getTipoDeQuarto().getClass().toString().equals("class hotel.Quarto" + tipoQuarto)){
+			TipoDeQuarto tipo = null;
+			if (tipoQuarto.equalsIgnoreCase("simples"))
+				tipo = new QuartoSimples();
+			else if (tipoQuarto.equalsIgnoreCase("luxo"))
+				tipo = new QuartoLuxo();
+			else if (tipoQuarto.equalsIgnoreCase("presidencial"))
+				tipo = new QuartoPresidencial();
+			quarto.setTipoDeQuarto(tipo);
+		}
 		Estadia estadia = EstadiaFactory.INSTANCE.create(quarto, dias);
 		estadias.putEstadia(estadia, hospede);
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
@@ -120,13 +135,13 @@ public class Hotel {
 		Iterator<Estadia> it = hospedagensAtivas.iterator();
 		double totalEstadia = 0;
 		for (Estadia estadia : hospedagensAtivas) {
-			
 			if (estadia.getId().equals(idQuarto)) {
-				totalEstadia += it.next().getPrecoTotal();
+				totalEstadia += estadia.getPrecoTotal();
 				quartos.buscaQuarto(idQuarto).setOcupadoState();
 				RegistroCheckOut r = RegistroFactory.INSTANCE.create(hospede.getNome(), idQuarto, estadia.getPrecoTotal());
 				registroCheckout.add(r);
 				estadias.removeEstadia(estadia);
+				
 			}
 		} 
 		
