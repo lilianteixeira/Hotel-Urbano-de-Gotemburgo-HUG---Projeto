@@ -1,7 +1,5 @@
 package cadastro;
 
-import exceptions.StringInvalidaException;
-
 /**
  * Esse <code>Enum</code> tem como objetivo, fornecer um método público para
  * instanciar objetos da classe <code>Cadastro</code>.

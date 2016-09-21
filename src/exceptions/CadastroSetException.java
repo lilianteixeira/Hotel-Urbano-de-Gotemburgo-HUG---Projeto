@@ -1,4 +1,4 @@
-package cadastro;
+package exceptions;
 
 public class CadastroSetException extends Exception {
 

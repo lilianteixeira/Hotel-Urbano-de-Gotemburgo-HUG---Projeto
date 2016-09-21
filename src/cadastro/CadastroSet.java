@@ -3,6 +3,8 @@ package cadastro;
 import java.util.HashSet;
 import java.util.Set;
 
+import exceptions.CadastroNotFoundException;
+
 /**
  * Essa classe encapsula uma coleção de instâncias de <code>Cadastro</code>, e
  * fornece métodos para a visualização de cada Cadastro, como a edição deles.
@@ -104,15 +106,15 @@ public class CadastroSet {
 	public String setInfoCadastro(String email, String atributo, String valor) throws CadastroNotFoundException {
 		validateInfoArgument(atributo);
 
-		if (atributo.equalsIgnoreCase("Nome")) {
+		if(atributo.equalsIgnoreCase("Nome")) {
 			buscaCadastro(email).setNome(valor);
 			return email;
 		}
-		if (atributo.equalsIgnoreCase("Data de nascimento")) {
+		if(atributo.equalsIgnoreCase("Data de nascimento")) {
 			buscaCadastro(email).setDataDeNascimento(valor);
 			return email;
 		}
-		if (atributo.equalsIgnoreCase("Email")) {
+		if(atributo.equalsIgnoreCase("Email")) {
 			buscaCadastro(email).setEmail(valor);
 			return email;
 		}

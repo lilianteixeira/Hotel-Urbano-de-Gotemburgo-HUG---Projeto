@@ -1,7 +1,10 @@
 package quarto;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+
+import exceptions.QuartoNotFoundException;
 
 public class QuartoSet {
 	private Set<Quarto> quartos;
@@ -10,7 +13,7 @@ public class QuartoSet {
 	 * Construtor da classe
 	 */
 	public QuartoSet() {
-		quartos = new TreeSet<>();
+		quartos = new HashSet<>();
 	}
 
 	/**

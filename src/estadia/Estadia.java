@@ -1,5 +1,6 @@
 package estadia;
 
+import exceptions.InvalidQuartoStateException;
 import quarto.Quarto;
 
 /**
@@ -24,7 +25,7 @@ public class Estadia {
 			throw new IllegalArgumentException();
 		}
 		if(quarto.isOcupado())
-			throw new InvalidQuartoStateException(quarto.getId());
+			throw new InvalidQuartoStateException("Quarto " + quarto.getId() + " ja esta ocupado.");
 
 		this.quarto = quarto;
 		this.dias = dias;

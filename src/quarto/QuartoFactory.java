@@ -20,7 +20,7 @@ public enum QuartoFactory {
 		for(TipoDeQuarto t : TipoDeQuarto.values())
 			if(tipoDeQuarto.equalsIgnoreCase(t.toString()))
 				return Quarto.novoQuarto(id, t);
-		throw new IllegalArgumentException("tipoDeQuarto inválido");
+		throw new IllegalArgumentException("Tipo de quarto invalido.");
 	}
 
 }

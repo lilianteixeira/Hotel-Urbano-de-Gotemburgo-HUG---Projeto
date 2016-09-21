@@ -1,5 +1,6 @@
 package estadia;
 
+import exceptions.InvalidQuartoStateException;
 import quarto.Quarto;
 
 /**

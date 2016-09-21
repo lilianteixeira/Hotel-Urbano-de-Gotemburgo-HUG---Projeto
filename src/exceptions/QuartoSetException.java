@@ -1,4 +1,4 @@
-package quarto;
+package exceptions;
 
 public class QuartoSetException extends Exception {
 

@@ -1,4 +1,4 @@
-package estadia;
+package exceptions;
 
 public class EstadiaException extends Exception {
 

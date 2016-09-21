@@ -1,4 +1,4 @@
-package estadia;
+package exceptions;
 
 public class NoSuchEstadiaException extends EstadiaException{
 

@@ -1,13 +1,17 @@
 package management;
 
 import Restaurante.Restaurante;
-import cadastro.CadastroNotFoundException;
-import estadia.InvalidQuartoStateException;
+import exceptions.CadastroNotFoundException;
+import exceptions.CheckinException;
+import exceptions.GetInfoException;
+import exceptions.HospedeNotFoundException;
+import exceptions.HotelCadastroException;
+import exceptions.InvalidQuartoStateException;
 import exceptions.NumeroInvalidoException;
 import exceptions.ObjetoInvalidoException;
+import exceptions.QuartoNotFoundException;
 import exceptions.StringInvalidaException;
 import hotel.*;
-import quarto.QuartoNotFoundException;
 
 public class Controller {
 
@@ -52,10 +56,8 @@ public class Controller {
 		restaurante.cadastraPrato(nome, preco, descricao);
 	}
 
-	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto)
-			throws CadastroNotFoundException, QuartoNotFoundException, InvalidQuartoStateException {
-		//hotel.buscaQuarto(id);
-		hotel.checkIn(email, dias, idQuarto, tipoQuarto);
+	public void realizaCheckin(String email, int dias, String Quarto, String tipoQuarto) throws CheckinException {
+		hotel.realizaCheckin(email, dias, Quarto, tipoQuarto);
 	}
 	
 	/*public String realizaCheckout(String email, String idQuarto) throws ObjetoInvalidoException, StringInvalidaException, CadastroNotFoundException, QuartoNotFoundException{

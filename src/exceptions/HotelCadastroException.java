@@ -1,4 +1,4 @@
-package hotel;
+package exceptions;
 
 public class HotelCadastroException extends HotelException {
 

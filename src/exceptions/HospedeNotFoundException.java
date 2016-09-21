@@ -1,4 +1,4 @@
-package hotel;
+package exceptions;
 
 public class HospedeNotFoundException extends HotelException {
 
