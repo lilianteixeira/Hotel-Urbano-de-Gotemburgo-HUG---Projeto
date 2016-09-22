@@ -21,17 +21,15 @@ public class RegistroCheckOut {
 	private String id;
 	private double totalPago;
 
-	/**
-	 * Construtor da classe
-	 * @param nome
-	 * @param id
-	 * @param totalPago
-	 */
-	public RegistroCheckOut(String nome, String id, double totalPago) {
+	private RegistroCheckOut(String nome, String id, double totalPago) {
 		this.data = LocalDate.now();
 		this.nome = nome;
 		this.id = id;
 		this.totalPago = totalPago;
+	}
+	
+	static RegistroCheckOut novoRegistro(String nome, String id, double totalPago) {
+		return new RegistroCheckOut(nome, id, totalPago);
 	}
 
 	/**

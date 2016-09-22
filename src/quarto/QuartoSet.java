@@ -47,7 +47,7 @@ public class QuartoSet {
 	 */
 	public Quarto buscaQuarto(String id) throws QuartoNotFoundException {
 		for(Quarto q : quartos)
-			if(q.equals(id))
+			if(q.getId().equals(id))
 				return q;
 		throw new QuartoNotFoundException();
 	}

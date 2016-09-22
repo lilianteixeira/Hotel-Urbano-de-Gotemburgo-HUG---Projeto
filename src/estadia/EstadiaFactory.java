@@ -1,6 +1,7 @@
 package estadia;
 
-import exceptions.InvalidQuartoStateException;
+import cadastro.Cadastro;
+import exceptions.QuartoOcupadoException;
 import quarto.Quarto;
 
 /**
@@ -12,10 +13,10 @@ public enum EstadiaFactory {
 
 	/**
 	 * O metodo create retorna uma nova estadia
-	 * @throws InvalidQuartoStateException 
+	 * @throws QuartoOcupadoException 
 	 */
-	public Estadia create(Quarto quarto, int dias) throws InvalidQuartoStateException {
-		return Estadia.novaEstadia(quarto, dias);
+	public Estadia create(Quarto quarto, int dias, Cadastro hospede) throws QuartoOcupadoException {
+		return Estadia.novaEstadia(quarto, dias, hospede);
 	}
 
 }

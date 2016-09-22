@@ -1,6 +1,7 @@
 package estadia;
 
-import exceptions.InvalidQuartoStateException;
+import cadastro.Cadastro;
+import exceptions.QuartoOcupadoException;
 import quarto.Quarto;
 
 /**
@@ -14,25 +15,30 @@ import quarto.Quarto;
  * A quantidade de dias que ele vai ficar hospedado
  *
  */
-public class Estadia {
+public class Estadia implements Comparable<Estadia> {
 	private Quarto quarto;
 	private int dias;
+	private final Cadastro hospede;
 
-	private Estadia(Quarto quarto, int dias) throws InvalidQuartoStateException {
+	private Estadia(Quarto quarto, int dias, Cadastro hospede) throws QuartoOcupadoException {
 		if(quarto == null)
 			throw new NullPointerException();
 		if(dias <= 0) {
 			throw new IllegalArgumentException();
 		}
 		if(quarto.isOcupado())
-			throw new InvalidQuartoStateException("Quarto " + quarto.getId() + " ja esta ocupado.");
-
+			throw new QuartoOcupadoException(quarto.getId());
+		if(hospede == null)
+			throw new NullPointerException();
+		
+		quarto.setOcupadoState();
 		this.quarto = quarto;
 		this.dias = dias;
+		this.hospede = hospede;
 	}
 	
-	static Estadia novaEstadia(Quarto quarto, int dias) throws InvalidQuartoStateException {
-		return new Estadia(quarto, dias);
+	static Estadia novaEstadia(Quarto quarto, int dias, Cadastro hospede) throws QuartoOcupadoException {
+		return new Estadia(quarto, dias, hospede);
 	}
 
 	/**
@@ -57,6 +63,15 @@ public class Estadia {
 	 */
 	public double getPrecoTotal() {
 		return quarto.getDiaria() * dias;
+	}
+	
+	public Cadastro getHospede() {
+		return hospede;
+	}
+
+	@Override
+	public int compareTo(Estadia e) {
+		return quarto.getId().compareToIgnoreCase(e.getId());
 	}
 
 }

@@ -24,9 +24,7 @@ public class Quarto implements Comparable<Quarto> {
 	 * 
 	 */
 	public void setOcupadoState() {
-		// A idéia é que o método mude o estado do quarto, a partir do seu
-		// estado atual.
-		isOcupado = !isOcupado;
+		isOcupado = isOcupado ? false : true;
 	}
 	/**
 	 * @return um id que representa o numero do quarto

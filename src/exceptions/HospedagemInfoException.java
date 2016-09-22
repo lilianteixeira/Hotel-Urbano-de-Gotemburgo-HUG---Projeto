@@ -7,7 +7,7 @@ public class HospedagemInfoException extends HotelException {
 	}
 
 	public HospedagemInfoException(String arg0) {
-		super("Erro na consulta de hospedagem. " + arg0);
+		super("Erro ao checar hospedagem ativa. " + arg0);
 		// TODO Auto-generated constructor stub
 	}
 
