@@ -2,7 +2,10 @@ package restaurante;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import exceptions.ConsultaMenuException;
 import exceptions.PratoCadastroException;
@@ -74,6 +77,18 @@ public final class Restaurante {
 			return null;
 		}
 		return null;
+	}
+	
+	public ArrayList<Refeicao> getMenuByName() {
+		ArrayList<Refeicao> menu = new ArrayList<>(new TreeSet<>(this.menu));
+		return menu;
+	}
+	
+	public ArrayList<Refeicao> getMenuByPrice() {
+		SortedSet<Refeicao> menuOrdenado = new TreeSet<>(new RefeicaoComparatorByPrice());
+		menuOrdenado.addAll(this.menu);
+		ArrayList<Refeicao> menu = new ArrayList<>(menuOrdenado);
+		return menu;
 	}
 
 	private static final Restaurante instance = new Restaurante();
