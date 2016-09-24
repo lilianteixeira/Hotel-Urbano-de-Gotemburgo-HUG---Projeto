@@ -105,6 +105,11 @@ public class RefeicaoCompleta implements Refeicao{
 		return true;
 	}
 
+	@Override
+	public int compareTo(Refeicao r2) {
+		return this.nome.compareTo(r2.getDescricao());
+	}
+
 	
 	
 	

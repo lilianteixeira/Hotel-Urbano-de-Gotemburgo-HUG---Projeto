@@ -1,6 +1,6 @@
 package restaurante;
 
-public interface Refeicao {
+public interface Refeicao extends Comparable<Refeicao>{
 
 	public String getNome();
 

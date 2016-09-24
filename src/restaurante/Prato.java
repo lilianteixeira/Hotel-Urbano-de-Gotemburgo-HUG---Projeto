@@ -88,4 +88,9 @@ public class Prato implements Refeicao {
 
 		return msg;
 	}
+
+	@Override
+	public int compareTo(Refeicao r2) {
+		return this.nome.compareToIgnoreCase(r2.getNome());
+	}
 }
