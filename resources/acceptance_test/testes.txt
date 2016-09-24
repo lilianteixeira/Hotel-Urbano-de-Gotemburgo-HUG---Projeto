@@ -1,0 +1,457 @@
+
+#################
+# Caso de Uso 1 #
+#################
+
+#iniciaSistema e fechaSistema serao usados para carregar/armazenar os dados do sistema nos arquivos de dados.
+
+iniciaSistema
+
+###############################
+#    Cadastro de Hospedes     #
+###############################
+
+id1=cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="10/02/1978"
+id2=cadastraHospede nome="Ines Brasil" email="ines@brasil.com.br" dataNascimento="05/10/1969"
+id3=cadastraHospede nome="Agnetha Faltskog" email="agnetha@abba.se" dataNascimento="05/04/1950"
+id4=cadastraHospede nome="Robyn" email="robyn@sverige.se" dataNascimento="12/06/1979"
+
+############################################################################ 
+#        Note que o getInfoHospede abaixo tem diferentes parametros.       # 
+#   Para esse caso, ele retorna as informacoes referente ao parametro.     # ############################################################################
+
+expect "Sven Svensson"  getInfoHospede id=${id1} atributo="Nome"
+expect 10/02/1978 getInfoHospede id=${id1} atributo="Data de Nascimento"
+
+expect "Ines Brasil"  getInfoHospede id=${id2} atributo="Nome"
+expect 05/10/1969  getInfoHospede id=${id2} atributo="Data de Nascimento"
+
+expect "Agnetha Faltskog"  getInfoHospede id=${id3} atributo="Nome"
+expect 05/04/1950  getInfoHospede id=${id3} atributo="Data de Nascimento"
+
+expect "Robyn"  getInfoHospede id=${id4} atributo="Nome"
+expect 12/06/1979  getInfoHospede id=${id4} atributo="Data de Nascimento"
+
+###############################
+#      Atualiza Cadastro      #
+###############################
+
+atualizaCadastro id=${id1} atributo="Nome" valor="Sven Gudmar Svenson"
+expect "Sven Gudmar Svenson"  getInfoHospede id=${id1} atributo="Nome"
+
+atualizaCadastro id=${id2} atributo="Data de Nascimento" valor="25/10/1969"
+expect 25/10/1969  getInfoHospede id=${id2} atributo="Data de Nascimento"
+
+atualizaCadastro id=${id3} atributo="Email" valor="agnetha@monomusic.se"
+
+expect "agnetha@monomusic.se"  getInfoHospede id="agnetha@monomusic.se" atributo="Email"
+
+###############################
+#      Remove Hospede         #
+###############################
+
+removeHospede email="robyn@sverige.se"
+
+expectError "Erro na consulta de hospede. Hospede de email robyn@sverige.se nao foi cadastrado(a)." getInfoHospede id=${id4} atributo="Nome"
+expectError "Erro na consulta de hospede. Hospede de email robyn@sverige.se nao foi cadastrado(a)." getInfoHospede id=${id4} atributo="Email"
+expectError "Erro na consulta de hospede. Hospede de email robyn@sverige.se nao foi cadastrado(a)." getInfoHospede id=${id4} atributo="Data de Nascimento"
+
+#fechaSistema
+
+##########################
+#     Caso de Uso 1      #
+# Trabalhando Exceptions #
+##########################
+
+#iniciaSistema e fechaSistema serao usados para carregar/armazenar os dados do sistema nos arquivos de dados.
+
+#iniciaSistema
+
+
+###############################
+#    Cadastro de Hospedes     #
+###############################
+
+removeHospede email="sven@sverige.se"
+id1=cadastraHospede nome="Sven Gudmar Svenson" email="sven@sverige.se" dataNascimento="10/02/1978"
+
+expectError "Erro no cadastro de Hospede. Nome do(a) hospede nao pode ser vazio." cadastraHospede nome="" email="sven@sverige.se" dataNascimento="10/02/1978"
+expectError "Erro no cadastro de Hospede. Nome do(a) hospede nao pode ser vazio." cadastraHospede nome="    " email="sven@sverige.se" dataNascimento="10/02/1978"
+expectError "Erro no cadastro de Hospede. Nome do(a) hospede esta invalido." cadastraHospede nome="Sven Gudm@r Svenson" email="sven@sverige.se" dataNascimento="10/02/1978"
+
+expectError "Erro no cadastro de Hospede. Email do(a) hospede nao pode ser vazio." cadastraHospede nome="Sven Svensson" email="" dataNascimento="10/02/1978"
+expectError "Erro no cadastro de Hospede. Email do(a) hospede nao pode ser vazio." cadastraHospede nome="Sven Svensson" email="   " dataNascimento="10/02/1978"
+expectError "Erro no cadastro de Hospede. Email do(a) hospede esta invalido." cadastraHospede nome="Sven Svensson" email="sven.sverige.se" dataNascimento="10/02/1978"
+expectError "Erro no cadastro de Hospede. Email do(a) hospede esta invalido." cadastraHospede nome="Sven Svensson" email="sven@se" dataNascimento="10/02/1978"
+expectError "Erro no cadastro de Hospede. Email do(a) hospede esta invalido." cadastraHospede nome="Sven Svensson" email="@sven" dataNascimento="10/02/1978"
+
+expectError "Erro no cadastro de Hospede. Data de Nascimento do(a) hospede nao pode ser vazio." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento=""
+expectError "Erro no cadastro de Hospede. Data de Nascimento do(a) hospede nao pode ser vazio." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="    "
+
+expectError "Erro no cadastro de Hospede. Formato de data invalido." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="10.02.1919"
+expectError "Erro no cadastro de Hospede. Formato de data invalido." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="1010/02/1978"
+expectError "Erro no cadastro de Hospede. Formato de data invalido." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="10/0200/1978"
+expectError "Erro no cadastro de Hospede. Formato de data invalido." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="10/02/19"
+expectError "Erro no cadastro de Hospede. Formato de data invalido." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="10/02/19197"
+
+#O Hospede deve possuir uma idade minima para realizar cadastro no Hotel. 
+
+expectError "Erro no cadastro de Hospede. A idade do(a) hospede deve ser maior que 18 anos." cadastraHospede nome="Sven Svensson" email="sven@sverige.se" dataNascimento="10/02/1999"
+
+###############################
+#      Atualiza Cadastro      #
+###############################
+
+expectError "Erro na atualizacao do cadastro de Hospede. Nome do(a) hospede nao pode ser vazio." atualizaCadastro id=${id1} atributo="Nome" valor=""
+expectError "Erro na atualizacao do cadastro de Hospede. Nome do(a) hospede nao pode ser vazio." atualizaCadastro id=${id1} atributo="Nome" valor="    "
+expectError "Erro na atualizacao do cadastro de Hospede. Nome do(a) hospede esta invalido." atualizaCadastro id=${id1} atributo="Nome" valor="Sven Gudm@ar"
+
+expectError "Erro na atualizacao do cadastro de Hospede. Email do(a) hospede esta invalido." atualizaCadastro id=${id1} atributo="Email" valor="sven.sverige.se"
+expectError "Erro na atualizacao do cadastro de Hospede. Email do(a) hospede esta invalido." atualizaCadastro id=${id1} atributo="Email" valor="sven@se"
+expectError "Erro na atualizacao do cadastro de Hospede. Email do(a) hospede esta invalido." atualizaCadastro id=${id1} atributo="Email" valor="@sven"
+
+expectError "Erro na atualizacao do cadastro de Hospede. Data de Nascimento do(a) hospede nao pode ser vazio." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor=""
+expectError "Erro na atualizacao do cadastro de Hospede. Data de Nascimento do(a) hospede nao pode ser vazio." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="   "
+expectError "Erro na atualizacao do cadastro de Hospede. Data de Nascimento do(a) hospede nao pode ser vazio." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="   "
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="10.02.1978"
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="1010/02/1978"
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="10/0200/1978"
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="10/02/197878"
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="10/02/19"
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="32/02/1920"
+expectError "Erro na atualizacao do cadastro de Hospede. Formato de data invalido." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="10/13/1920"
+expectError "Erro na atualizacao do cadastro de Hospede. A idade do(a) hospede deve ser maior que 18 anos." atualizaCadastro id=${id1} atributo="Data de Nascimento" valor="10/02/1999"
+
+###############################
+#      Remove Hospede         #
+###############################
+
+expectError "Erro na remocao do Hospede. Formato de email invalido." removeHospede email="@sverige.se"
+expectError "Erro na remocao do Hospede. Formato de email invalido." removeHospede email="sverige.se"
+expectError "Erro na remocao do Hospede. Formato de email invalido." removeHospede email="sven@"
+
+
+#################
+# Caso de Uso 2 #
+#################
+
+#iniciaSistema
+
+# Alfred Nobel originalmente nasceu em 1833.
+id1=cadastraHospede nome="Alfred Nobel" email="nobel@got.se" dataNascimento="21/10/1983"
+
+#####################################################
+# Realiza checkin de alguns hospedes ja cadastrados #
+#####################################################
+# Lembrando que os precos de quartos sao:           #
+# Presidencial 450,00; Luxo 250,00; Simples 100,00  #
+#####################################################
+
+realizaCheckin email="sven@sverige.se" dias=5 quarto="1A" tipoQuarto="Presidencial"
+realizaCheckin email="sven@sverige.se" dias=3 quarto="2A" tipoQuarto="Presidencial"
+
+realizaCheckin email="ines@brasil.com.br" dias=2 quarto="1B" tipoQuarto="Luxo"
+
+realizaCheckin email="agnetha@monomusic.se" dias=2 quarto="15A" tipoQuarto="Simples"
+
+#############################################
+# Checa informacoes das hospedagens criadas #
+#############################################
+
+expect "2" getInfoHospedagem email="sven@sverige.se" atributo="Hospedagens ativas"
+expect "1" getInfoHospedagem email="ines@brasil.com.br" atributo="Hospedagens ativas"
+expect "1" getInfoHospedagem email="agnetha@monomusic.se" atributo="Hospedagens ativas"
+expectError "Erro ao checar hospedagem ativa. Hospede Alfred Nobel nao esta hospedado(a)." getInfoHospedagem email=${id1} atributo="Hospedagens ativas"
+
+expect "1A,2A" getInfoHospedagem email="sven@sverige.se" atributo="Quarto"
+expect "1B" getInfoHospedagem email="ines@brasil.com.br" atributo="Quarto"
+expect "15A" getInfoHospedagem email="agnetha@monomusic.se" atributo="Quarto"
+expectError "Erro ao checar hospedagem ativa. Hospede Alfred Nobel nao esta hospedado(a)." getInfoHospedagem email=${id1} atributo="Quarto"
+
+expect "R$3600,00" getInfoHospedagem email="sven@sverige.se" atributo="Total"
+expect "R$500,00" getInfoHospedagem email="ines@brasil.com.br" atributo="Total"
+expect "R$200,00" getInfoHospedagem email="agnetha@monomusic.se" atributo="Total"
+expectError "Erro ao checar hospedagem ativa. Hospede Alfred Nobel nao esta hospedado(a)." getInfoHospedagem email=${id1} atributo="Total"
+
+realizaCheckin email="ines@brasil.com.br" dias=3 quarto="2B" tipoQuarto="Luxo"
+expect "2" getInfoHospedagem email="ines@brasil.com.br" atributo="Hospedagens ativas"
+expect "1B,2B" getInfoHospedagem email="ines@brasil.com.br" atributo="Quarto"
+expect "R$1250,00" getInfoHospedagem email="ines@brasil.com.br" atributo="Total"
+
+atualizaCadastro id=agnetha@monomusic.se atributo="Email" valor="agnetha@abba.se"
+
+#########################################################################
+# Quartos jah ocupados nao podem ser usados para criar outra hospedagem #
+#########################################################################
+
+expectError "Erro ao realizar checkin. Quarto 1A ja esta ocupado." realizaCheckin email="ines@brasil.com.br" dias=10 quarto="1A" tipoQuarto="Presidencial"
+
+#fechaSistema
+
+##########################
+#     Caso de Uso 2      #
+# Trabalhando Exceptions #
+##########################
+
+#iniciaSistema
+
+#####################################################
+#        Realiza checkin com Exception              #
+#####################################################
+
+expectError "Erro ao realizar checkin. Hospede de email ada@lovelace.com nao foi cadastrado(a)." realizaCheckin email="ada@lovelace.com" dias=4 quarto="3A" tipoQuarto="Presidencial"
+
+expectError "Erro ao realizar checkin. Email do(a) hospede nao pode ser vazio." realizaCheckin email="" dias=5 quarto="1A" tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. Email do(a) hospede nao pode ser vazio." realizaCheckin email="  " dias=5 quarto="1A" tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. Email do(a) hospede esta invalido." realizaCheckin email="@sverige.se" dias=5 quarto="1A" tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. Email do(a) hospede esta invalido." realizaCheckin email="alfred@" dias=5 quarto="1A" tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. Email do(a) hospede esta invalido." realizaCheckin email="alfred@se" dias=5 quarto="1A" tipoQuarto="Presidencial"
+
+expectError "Erro ao realizar checkin. Quantidade de dias esta invalida." realizaCheckin email="sven@sverige.se" dias=-5 quarto="1A" tipoQuarto="Presidencial"
+
+expectError "Erro ao realizar checkin. ID do quarto invalido, use apenas numeros ou letras." realizaCheckin email="sven@sverige.se" dias=5 quarto="" tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. ID do quarto invalido, use apenas numeros ou letras." realizaCheckin email="sven@sverige.se" dias=5 quarto="  " tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. ID do quarto invalido, use apenas numeros ou letras." realizaCheckin email="sven@sverige.se" dias=5 quarto="#1" tipoQuarto="Presidencial"
+expectError "Erro ao realizar checkin. ID do quarto invalido, use apenas numeros ou letras." realizaCheckin email="sven@sverige.se" dias=5 quarto="@" tipoQuarto="Presidencial"
+
+expectError "Erro ao realizar checkin. Tipo de quarto invalido." realizaCheckin email="sven@sverige.se" dias=5 quarto="1A" tipoQuarto="Solteiro"
+expectError "Erro ao realizar checkin. Tipo de quarto invalido." realizaCheckin email="sven@sverige.se" dias=5 quarto="1A" tipoQuarto="Casal"
+
+#############################################
+# Checa informacoes das hospedagens criadas #
+#############################################
+
+expectError "Erro ao checar hospedagem ativa. Email do(a) hospede nao pode ser vazio." getInfoHospedagem email="" atributo="Hospedagens ativas"
+expectError "Erro ao checar hospedagem ativa. Email do(a) hospede nao pode ser vazio." getInfoHospedagem email="   " atributo="Hospedagens ativas"
+expectError "Erro ao checar hospedagem ativa. Email do(a) hospede esta invalido." getInfoHospedagem email="@sverige.se" atributo="Hospedagens ativas"
+expectError "Erro ao checar hospedagem ativa. Email do(a) hospede esta invalido." getInfoHospedagem email="alfred@" atributo="Hospedagens ativas"
+expectError "Erro ao checar hospedagem ativa. Email do(a) hospede esta invalido." getInfoHospedagem email="alfred.sverige.se" atributo="Hospedagens ativas"
+
+#########################################################################
+# Quartos jah ocupados nao podem ser usados para criar outra hospedagem #
+#########################################################################
+
+expectError "Erro ao realizar checkin. Quarto 15A ja esta ocupado." realizaCheckin email="ines@brasil.com.br" dias=7 quarto="15A" tipoQuarto="Simples"
+expectError "Erro ao realizar checkin. Quarto 2A ja esta ocupado." realizaCheckin email="agnetha@abba.se" dias=3 quarto="2A" tipoQuarto="Presidencial"
+
+#fechaSistema
+
+#################
+# Caso de Uso 3 #
+#################
+
+#iniciaSistema
+
+#####################################################
+# Realiza checkin de alguns hospedes ja cadastrados #
+#####################################################
+# Lembrando que os precos de quartos sao:           #
+# Presidencial 450,00; Luxo 250,00; Simples 100,00  #
+# Sven: 5 dias, 1A, Pres; 3 dias, 2A, Pres          #
+# Ines: 2 dias, 1B, Luxo; 3 dias, 2B, Luxo          #
+# Agnetha: 2 dias, 15A, Simples;                    #
+#####################################################
+
+expect "R$2250,00" realizaCheckout email="sven@sverige.se" quarto="1A"
+expect "R$500,00" realizaCheckout email="ines@brasil.com.br" quarto="1B"
+expect "R$200,00" realizaCheckout email="agnetha@abba.se" quarto="15A"
+
+expect "3" consultaTransacoes atributo="Quantidade"
+expect "R$2950,00" consultaTransacoes atributo="Total"
+expect "Sven Gudmar Svenson;Ines Brasil;Agnetha Faltskog" consultaTransacoes atributo="Nome"
+
+expect "R$2250,00" consultaTransacoes atributo="Total" indice=0
+expect "Sven Gudmar Svenson" consultaTransacoes atributo="Nome" indice=0
+
+expect "R$500,00" consultaTransacoes atributo="Total" indice=1
+expect "Ines Brasil" consultaTransacoes atributo="Nome" indice=1
+
+expect "R$200,00" consultaTransacoes atributo="Total" indice=2
+expect "Agnetha Faltskog" consultaTransacoes atributo="Nome" indice=2
+
+######################################################
+# Apesar de realizar checkout, alguns hospedes ainda #
+#           possuem hospedagens ativas               #
+######################################################
+expect "1" getInfoHospedagem email="sven@sverige.se" atributo="Hospedagens ativas"
+expect "1" getInfoHospedagem email="ines@brasil.com.br" atributo="Hospedagens ativas"
+
+expectError "Erro ao checar hospedagem ativa. Hospede Agnetha Faltskog nao esta hospedado(a)." getInfoHospedagem email="agnetha@abba.se" atributo="Hospedagens ativas"
+expectError "Erro ao checar hospedagem ativa. Hospede Alfred Nobel nao esta hospedado(a)." getInfoHospedagem email="nobel@got.se" atributo="Hospedagens ativas"
+
+expect "2A" getInfoHospedagem email="sven@sverige.se" atributo="Quarto"
+expect "2B" getInfoHospedagem email="ines@brasil.com.br" atributo="Quarto"
+
+expectError "Erro ao checar hospedagem ativa. Hospede Agnetha Faltskog nao esta hospedado(a)." getInfoHospedagem email="agnetha@abba.se" atributo="Quarto"
+expectError "Erro ao checar hospedagem ativa. Hospede Alfred Nobel nao esta hospedado(a)." getInfoHospedagem email="nobel@got.se" atributo="Quarto"
+
+expect "R$1350,00" getInfoHospedagem email="sven@sverige.se" atributo="Total"
+expect "R$750,00" getInfoHospedagem email="ines@brasil.com.br" atributo="Total"
+
+expectError "Erro ao checar hospedagem ativa. Hospede Agnetha Faltskog nao esta hospedado(a)." getInfoHospedagem email="agnetha@abba.se" atributo="Total"
+expectError "Erro ao checar hospedagem ativa. Hospede Alfred Nobel nao esta hospedado(a)." getInfoHospedagem email="nobel@got.se" atributo="Total"
+
+##############################################################
+# Um novo checkin nao deve alterar o historico de transacoes #
+##############################################################
+realizaCheckin email="nobel@got.se" dias=1 quarto="1A" tipoQuarto="Presidencial"
+
+expect "3" consultaTransacoes atributo="Quantidade"
+expect "R$2950,00" consultaTransacoes atributo="Total"
+expect "Sven Gudmar Svenson;Ines Brasil;Agnetha Faltskog" consultaTransacoes atributo="Nome"
+
+expect "R$2250,00" consultaTransacoes atributo="Total" indice=0
+expect "Sven Gudmar Svenson" consultaTransacoes atributo="Nome" indice=0
+expect "R$500,00" consultaTransacoes atributo="Total" indice=1
+expect "Ines Brasil" consultaTransacoes atributo="Nome" indice=1
+expect "R$200,00" consultaTransacoes atributo="Total" indice=2
+expect "Agnetha Faltskog" consultaTransacoes atributo="Nome" indice=2
+
+##############################################################
+#             O checkout por sua vez altera                  #
+##############################################################
+
+expect "R$450,00" realizaCheckout email="nobel@got.se" quarto="1A"
+
+expect "4" consultaTransacoes atributo="Quantidade"
+expect "R$3400,00" consultaTransacoes atributo="Total"
+expect "Sven Gudmar Svenson;Ines Brasil;Agnetha Faltskog;Alfred Nobel" consultaTransacoes atributo="Nome"
+
+expect "R$2250,00" consultaTransacoes atributo="Total" indice=0
+expect "Sven Gudmar Svenson" consultaTransacoes atributo="Nome" indice=0
+expect "R$500,00" consultaTransacoes atributo="Total" indice=1
+expect "Ines Brasil" consultaTransacoes atributo="Nome" indice=1
+expect "R$200,00" consultaTransacoes atributo="Total" indice=2
+expect "Agnetha Faltskog" consultaTransacoes atributo="Nome" indice=2
+# Nova transacao referente ao checkout de Nobel.
+expect "R$450,00" consultaTransacoes atributo="Total" indice=3
+expect "Alfred Nobel" consultaTransacoes atributo="Nome" indice=3
+
+#####################################################
+#            Checkout com Exception                 #
+#####################################################
+
+expectError "Erro ao realizar checkout. Email do(a) hospede nao pode ser vazio." realizaCheckout email="" quarto="1A"
+expectError "Erro ao realizar checkout. Email do(a) hospede nao pode ser vazio." realizaCheckout email="   " quarto="1A"
+
+expectError "Erro ao realizar checkout. Email do(a) hospede esta invalido." realizaCheckout email="@sven" quarto="1A"
+expectError "Erro ao realizar checkout. Email do(a) hospede esta invalido." realizaCheckout email="sven.se" quarto="1A"
+expectError "Erro ao realizar checkout. Email do(a) hospede esta invalido." realizaCheckout email="sven@se" quarto="1A"
+expectError "Erro ao realizar checkout. Email do(a) hospede esta invalido." realizaCheckout email="sven@" quarto="1A"
+
+expectError "Erro ao realizar checkout. ID do quarto invalido, use apenas numeros ou letras." realizaCheckout email="sven@sverige.se" quarto="##"
+expectError "Erro ao realizar checkout. ID do quarto invalido, use apenas numeros ou letras." realizaCheckout email="sven@sverige.se" quarto="@"
+
+#####################################################
+#            Consulta de Transacoes                 #
+#####################################################
+
+expectError "Erro na consulta de transacoes. Indice invalido." consultaTransacoes atributo="Total" indice=-1
+
+#fechaSistema
+
+#################
+# Caso de Uso 4 #
+#################
+
+#iniciaSistema
+
+###############################
+#    Cadastro de Pratos       #
+###############################
+
+cadastraPrato nome="Artsoppa com panquecas" preco=18.50 descricao="Deliciosa sopa de ervilhas com carne. Essa comida tradicional da Suecia eh saboreada principalmente nas quintas-feiras."
+cadastraPrato nome="Kotbullar com lingon" preco=38.50 descricao="Almondegas de carne feito no tradicional estilo sueco."
+cadastraPrato nome="Kanelbullar" preco=15.00 descricao="Um pequeno pao de massa fofinha e sabor de canela."
+cadastraPrato nome="Algkot com vegetais" preco=75.00 descricao="Carne de alce grelhada e servida com vegetais cozidos no vapor."
+
+cadastraPrato nome="Espresso" preco=2.50 descricao="Tradicional cafe italiano."
+cadastraPrato nome="Bruschetta" preco=10.50 descricao="Uma entrada italiana feito a base de pao, alho, queijo e tomates."
+cadastraPrato nome="Penne ao pesto" preco=34.50 descricao="Tradicional massa italiana feita ao molho pesto."
+cadastraPrato nome="Tiramisu" preco=12.00 descricao="Sobremesa cremosa a base de mascaporne e com sabor de cafe."
+cadastraPrato nome="Bresaola com rucula e parmesao" preco=10.50 descricao="Carne de vaca ressecada e salgada de sabor intenso."
+
+cadastraPrato nome="Tapioca" preco=3.00 descricao="Essa deliciosa receita nordestina possui como base a farinha de mandioca."
+cadastraPrato nome="Rapadura" preco=0.50 descricao="Sobremesa doce com sabor semelhante ao acucar mascavo."
+cadastraPrato nome="Carne de sol com fritas" preco=53.00 descricao="Carne de sol saborosa servida com fritas como acompanhamento."
+cadastraPrato nome="Galeto com farofa" preco=15.50 descricao="Galeto assado na brasa servido com farofa de calabresa e bacon."
+
+expect "R$3,00" consultaRestaurante nome="Tapioca" atributo="Preco"
+expect "R$38,50" consultaRestaurante nome="Kotbullar com lingon" atributo="Preco"
+expect "R$15,00" consultaRestaurante nome="Kanelbullar" atributo="Preco"
+expect "R$75,00" consultaRestaurante nome="Algkot com vegetais" atributo="Preco"
+expect "R$53,00" consultaRestaurante nome="Carne de sol com fritas" atributo="Preco"
+
+expect "Deliciosa sopa de ervilhas com carne. Essa comida tradicional da Suecia eh saboreada principalmente nas quintas-feiras." consultaRestaurante nome="Artsoppa com panquecas" atributo="Descricao"
+expect "Almondegas de carne feito no tradicional estilo sueco." consultaRestaurante nome="Kotbullar com lingon" atributo="Descricao"
+expect "Uma entrada italiana feito a base de pao, alho, queijo e tomates." consultaRestaurante nome="Bruschetta" atributo="Descricao"
+expect "Galeto assado na brasa servido com farofa de calabresa e bacon." consultaRestaurante nome="Galeto com farofa" atributo="Descricao"
+
+###################################
+# Cadastro de refeicoes completas #
+###################################
+
+cadastraRefeicao nome="Svensk mat" descricao="Uma variedade de comidas populares na Suecia." componentes="Artsoppa com panquecas;Algkot com vegetais;Kanelbullar"
+cadastraRefeicao nome="Pasto italiano" descricao="Varios pratos italianos para saborear." componentes="Bruschetta;Bresaola com rucula e parmesao;Penne ao pesto;Tiramisu"
+cadastraRefeicao nome="Delicia da serra" descricao="Uma selecao de pratos da culinaria regional nordestina." componentes="Tapioca;Carne de sol com fritas;Rapadura"
+
+expect "R$60,75" consultaRestaurante nome="Pasto italiano" atributo="Preco"
+expect "R$38,50" consultaRestaurante nome="Kotbullar com lingon" atributo="Preco"
+expect "R$15,00" consultaRestaurante nome="Kanelbullar" atributo="Preco"
+expect "R$50,85" consultaRestaurante nome="Delicia da serra" atributo="Preco"
+expect "R$97,65" consultaRestaurante nome="Svensk mat" atributo="Preco"
+
+###############################################################################
+# Ao retornar a descricao das refeicoes informe de que pratos ela eh composta #
+###############################################################################
+
+expect "Varios pratos italianos para saborear. Serao servidos: (1) Bruschetta, (2) Bresaola com rucula e parmesao, (3) Penne ao pesto, (4) Tiramisu." consultaRestaurante nome="Pasto italiano" atributo="Descricao"
+expect "Uma selecao de pratos da culinaria regional nordestina. Serao servidos: (1) Tapioca, (2) Carne de sol com fritas, (3) Rapadura." consultaRestaurante nome="Delicia da serra" atributo="Descricao"
+
+#fechaSistema
+
+##########################
+#     Caso de Uso 4      #
+# Trabalhando Exceptions #
+##########################
+
+#iniciaSistema
+
+###############################
+#    Cadastro de Pratos       #
+###############################
+
+expectError "Erro no cadastro do prato. Nome do prato esta vazio." cadastraPrato nome="" preco=18.50 descricao="Deliciosa sopa de ervilhas com carne. Essa comida tradicional da Suecia eh saboreada principalmente nas quintas-feiras."
+expectError "Erro no cadastro do prato. Nome do prato esta vazio." cadastraPrato nome="   " preco=18.50 descricao="Deliciosa sopa de ervilhas com carne. Essa comida tradicional da Suecia eh saboreada principalmente nas quintas-feiras."
+
+expectError "Erro no cadastro do prato. Preco do prato eh invalido." cadastraPrato nome="Artsoppa com panquecas" preco=-18.50 descricao="Deliciosa sopa de ervilhas com carne. Essa comida tradicional da Suecia eh saboreada principalmente nas quintas-feiras."
+
+expectError "Erro no cadastro do prato. Descricao do prato esta vazia." cadastraPrato nome="Artsoppa com panquecas" preco=18.50 descricao=""
+expectError "Erro no cadastro do prato. Descricao do prato esta vazia." cadastraPrato nome="Artsoppa com panquecas" preco=18.50 descricao="  "
+
+###############################
+#    Consulta restaurante     #
+###############################
+
+expectError "Erro na consulta do restaurante. Nome do prato esto vazio." consultaRestaurante nome="" atributo="Preco"
+expectError "Erro na consulta do restaurante. Nome do prato esto vazio." consultaRestaurante nome="  " atributo="Preco"
+
+###################################
+# Cadastro de refeicoes completas #
+###################################
+
+expectError "Erro no cadastro de refeicao. So eh possivel cadastrar refeicoes com pratos ja cadastrados." cadastraRefeicao nome="Svensk mat" descricao="Uma variedade de comidas populares na Suecia." componentes="Artsoppa com panquecas;Algkot com vegetais;Kanelbullar;Algkot com legumes"
+
+expectError "Erro no cadastro de refeicao. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos." cadastraRefeicao nome="Pasto italiano" descricao="Varios pratos italianos para saborear." componentes="Bruschetta;Bresaola com rucula e parmesao;Penne ao pesto;Tiramisu;Espresso"
+expectError "Erro no cadastro de refeicao. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos." cadastraRefeicao nome="Delicia da serra" descricao="Uma selecao de pratos da culinaria regional nordestina." componentes="Tapioca"
+
+expectError "Erro no cadastro de refeicao. Nome da refeicao esta vazio." cadastraRefeicao nome="" descricao="Uma variedade de comidas populares na Suecia." componentes="Artsoppa com panquecas;Algkot com vegetais;Kanelbullar"
+expectError "Erro no cadastro de refeicao. Nome da refeicao esta vazio." cadastraRefeicao nome="   " descricao="Uma variedade de comidas populares na Suecia." componentes="Artsoppa com panquecas;Algkot com vegetais;Kanelbullar"
+
+expectError "Erro no cadastro de refeicao. Descricao da refeicao esta vazia." cadastraRefeicao nome="Svensk mat" descricao="" componentes="Artsoppa com panquecas;Algkot com vegetais;Kanelbullar"
+expectError "Erro no cadastro de refeicao. Descricao da refeicao esta vazia." cadastraRefeicao nome="Svensk mat" descricao="  " componentes="Artsoppa com panquecas;Algkot com vegetais;Kanelbullar"
+
+expectError "Erro no cadastro de refeicao. Componente(s) esta(o) vazio(s)." cadastraRefeicao nome="Svensk mat" descricao="Uma variedade de comidas populares na Suecia." componentes=""
+
+#fechaSistema
+

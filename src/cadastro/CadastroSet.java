@@ -3,8 +3,7 @@ package cadastro;
 import java.util.HashSet;
 import java.util.Set;
 
-import exceptions.ObjetoInvalidoException;
-import exceptions.StringInvalidaException;
+import exceptions.CadastroNotFoundException;
 
 /**
  * Essa classe encapsula uma coleção de instâncias de <code>Cadastro</code>, e
@@ -46,7 +45,6 @@ public class CadastroSet {
 		return true;
 	}
 
-	// conferir se o cadastro existe antes de remover
 	/**
 	 * Remove uma instância c de <code>Cadastro</code>, desta coleção, se tal
 	 * coleção a contiver.
@@ -90,7 +88,7 @@ public class CadastroSet {
 	// Na documentação, deve deixar específico que o método só aceita um
 	// determinado conjunto de atributos, passar uma String atributo, que não é
 	// esperada, irá lançar uma exception
-	public String getInfoCadastro(String email, String atributo) throws Exception {
+	public String getInfoCadastro(String email, String atributo) throws CadastroNotFoundException {
 		validateInfoArgument(atributo);
 
 		if (atributo.equalsIgnoreCase("Nome")) {
@@ -105,25 +103,28 @@ public class CadastroSet {
 		throw new IllegalArgumentException("atributo inválido");
 	}
 
-	public String setInfoCadastro(String email, String atributo, String valor) throws Exception {
+	public String setInfoCadastro(String email, String atributo, String valor) throws CadastroNotFoundException {
 		validateInfoArgument(atributo);
 
-		if (atributo.equalsIgnoreCase("Nome")) {
+		if(atributo.equalsIgnoreCase("Nome")) {
 			buscaCadastro(email).setNome(valor);
+			return email;
 		}
-		if (atributo.equalsIgnoreCase("Data de nascimento")) {
+		if(atributo.equalsIgnoreCase("Data de nascimento")) {
 			buscaCadastro(email).setDataDeNascimento(valor);
+			return email;
 		}
-		if (atributo.equalsIgnoreCase("Email")) {
+		if(atributo.equalsIgnoreCase("Email")) {
 			buscaCadastro(email).setEmail(valor);
+			return email;
 		}
-		throw new IllegalArgumentException("atributo inválido");
+		throw new IllegalArgumentException("atributo invalido");
 	}
 
 	private void validateInfoArgument(String atributo) {
 		if (atributo == null)
-			throw new NullPointerException("atributo não pode ser null");
+			throw new NullPointerException("atributo nao pode ser null");
 		if (atributo.trim().equals(""))
-			throw new IllegalArgumentException("atributo não pode ser vazio");
+			throw new IllegalArgumentException("atributo nao pode ser vazio");
 	}
 }
