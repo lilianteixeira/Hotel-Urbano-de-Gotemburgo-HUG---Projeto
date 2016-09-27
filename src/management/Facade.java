@@ -21,11 +21,12 @@ public class Facade {
 	public String cadastraHospede(String nome, String email, String dataNascimento) throws HotelCadastroException {
 		return controller.cadastraHospede(nome, email, dataNascimento);
 	}
-	
-	public void atualizaCadastro(String email, String atributo, String valor) throws CadastroNotFoundException, AtualizaCadastroException {
+
+	public void atualizaCadastro(String email, String atributo, String valor)
+			throws CadastroNotFoundException, AtualizaCadastroException {
 		controller.atualizaCadastro(email, atributo, valor);
 	}
-	
+
 	public void removeHospede(String email) throws HospedeNotFoundException, HotelRemoveException {
 		controller.removeHospede(email);
 	}
@@ -33,7 +34,7 @@ public class Facade {
 	public String getInfoHospede(String email, String atributo) throws GetInfoException, HospedeNotFoundException {
 		return controller.getInfoHospede(email, atributo);
 	}
-	
+
 	public void realizaCheckin(String email, int dias, String idQuarto, String tipoQuarto) throws CheckinException {
 		controller.realizaCheckin(email, dias, idQuarto, tipoQuarto);
 	}
@@ -46,11 +47,10 @@ public class Facade {
 		return controller.realizaCheckout(email, quarto);
 	}
 
-
 	public String consultaTransacoes(String atributo) throws ConsultaRegistroException {
 		return controller.consultaTransacoes(atributo);
 	}
-	
+
 	public String consultaTransacoes(String atributo, int indice) throws ConsultaRegistroException {
 		return controller.consultaTransacoes(atributo, indice);
 	}
@@ -58,17 +58,21 @@ public class Facade {
 	public void cadastraPrato(String nome, double preco, String descricao) throws PratoCadastroException {
 		controller.cadastraPrato(nome, preco, descricao);
 	}
-	
+
 	public void cadastraRefeicao(String nome, String descricao, String componentes) throws RefeicaoCadastroException {
 		controller.cadastraRefeicao(nome, descricao, componentes);
 	}
-	
+
 	public String consultaRestaurante(String nome, String atributo) throws ConsultaMenuException {
 		return controller.consultaRestaurante(nome, atributo);
 	}
 
 	public static void main(String[] args) {
-		args = new String[] { "management.Facade", "resources/acceptance_test/testes.txt" };
+		args = new String[] { "management.Facade", "resources/acceptance_test/testes_uc1.txt",
+				"resources/acceptance_test/testes_uc1_exception.txt", "resources/acceptance_test/testes_uc2.txt",
+				"resources/acceptance_test/testes_uc2_exception.txt", "resources/acceptance_test/testes_uc3.txt",
+				"resources/acceptance_test/testes_uc3_exception.txt", "resources/acceptance_test/testes_uc4.txt",
+				"resources/acceptance_test/testes_uc4_exception.txt" };
 		EasyAccept.main(args);
 	}
 }
