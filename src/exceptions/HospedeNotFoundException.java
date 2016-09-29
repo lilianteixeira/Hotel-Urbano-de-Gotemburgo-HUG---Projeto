@@ -1,13 +1,13 @@
 package exceptions;
 
-public class HospedeNotFoundException extends HotelException {
-
+public class HospedeNotFoundException extends Exception {
+	
 	public HospedeNotFoundException() {
-		// TODO Auto-generated constructor stub
+		super("Erro na consulta de hospede.");
 	}
 
 	public HospedeNotFoundException(String arg0) {
-		super("Erro na consulta de hospede. Hospede de email " +  arg0 +  " nao foi cadastrado(a).");
+		super(arg0);
 		// TODO Auto-generated constructor stub
 	}
 
