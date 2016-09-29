@@ -1,29 +1,20 @@
 
 package factorys;
 
-import exceptions.StringInvalidaException;
+import java.util.List;
 
-import java.util.ArrayList;
+import restaurante.Prato;
+import restaurante.Refeicao;
+import restaurante.RefeicaoCompleta;
 
-import Restaurante.Prato;
-import Restaurante.Refeicao;
-
-/** 
- *Classe referente ao padr�o Factory usado para inst�nciar uma Refeicao
- *
- */
 public enum RefeicaoFactory {
-	INSTANCIA;
-
-	public Refeicao create(String nome, String descricao, ArrayList<Prato> pratos) throws StringInvalidaException {
-
-		if (nome == null || nome.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Erro no cadastro de refeicao. Nome da refeicao esta vazio.");
-		}
-		if (descricao == null || descricao.trim().equalsIgnoreCase("")) {
-			throw new StringInvalidaException("Erro no cadastro de refeicao. Descricao da refeicao esta vazia.");
-		}
-		
-		return new Refeicao(nome, descricao, pratos);
+	INSTANCE;
+	
+	public Refeicao createPrato(String nome, double preco, String descricao) {
+		return Prato.novoPrato(nome, preco, descricao);
 	}
+	public Refeicao createRefeicaoCompleta(String nome, String descricao, List<Prato> componentes) {
+		return RefeicaoCompleta.novaRefeicaoCompleta(nome, descricao, componentes);
+	}
+
 }

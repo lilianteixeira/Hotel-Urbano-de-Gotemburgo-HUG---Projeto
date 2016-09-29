@@ -61,6 +61,9 @@ public class Facade {
 	public String consultaRestaurante(String nome, String atributo) throws Exception {
 		return controller.consultaRestaurante(nome, atributo);
 	}
+	public String consultaMenuRestaurante() {
+		return controller.consultaMenuRestaurante();
+	}
 
 	public static void main(String[] args) {
 		args = new String[] { "hotel.Facade", 
@@ -70,7 +73,9 @@ public class Facade {
 							  "resources/acceptance_test/testes_uc2_exception.txt",
 							  "resources/acceptance_test/testes_uc3.txt",
 							  "resources/acceptance_test/testes_uc3_exception.txt",
-							  "resources/acceptance_test/testes_uc4.txt"
+							  "resources/acceptance_test/testes_uc4.txt",
+							  "resources/acceptance_test/testes_uc4_exception.txt",
+							  "resources/acceptance_test/testes_uc5.txt"
 							  
 							  
 		};

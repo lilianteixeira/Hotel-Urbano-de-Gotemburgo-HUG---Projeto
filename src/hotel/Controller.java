@@ -1,9 +1,9 @@
 package hotel;
 
-import Restaurante.Restaurante;
 import exceptions.NumeroInvalidoException;
 import exceptions.StringInvalidaException;
 import hospede.BancoDeHospedes;
+import restaurante.Restaurante;
 
 public class Controller {
 	private BancoDeHospedes bancoDeHospedes;
@@ -48,7 +48,7 @@ public class Controller {
 		return bancoDeHospedes.consultaTransacoes(atributo, indice);
 	}
 	public void cadastraPrato(String nome, double preco, String descricao)
-			throws StringInvalidaException, NumeroInvalidoException {
+			throws Exception {
 		restaurante.cadastraPrato(nome, preco, descricao);
 	}
 	
@@ -58,5 +58,8 @@ public class Controller {
 	
 	public String consultaRestaurante(String nome, String atributo) throws Exception{
 		return restaurante.consultaRestaurante(nome, atributo);
+	}
+	public String consultaMenuRestaurante() {
+		return restaurante.consultaMenuRestaurante();
 	}
 }
