@@ -6,7 +6,7 @@ public class Prato implements Refeicao {
 	private double valor;
 	private String descricao;
 
-	private Prato(String nome, double preco, String descricao) {
+	public Prato(String nome, double preco, String descricao) {
 		if (nome == null)
 			throw new NullPointerException();
 		if (nome.trim().equals(""))

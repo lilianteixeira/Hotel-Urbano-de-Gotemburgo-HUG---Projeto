@@ -62,4 +62,9 @@ public class Controller {
 	public String consultaMenuRestaurante() {
 		return restaurante.consultaMenuRestaurante();
 	}
+
+	public String realizaPedido(String email, String itemMenu) throws Exception {
+		double valorRefeicao = restaurante.buscaRefeicao(itemMenu).getValor();
+		return bancoDeHospedes.realizaPedido(email, itemMenu, valorRefeicao);
+	}
 }

@@ -39,8 +39,9 @@ public class BancoDeHospedes {
 		factoryHospede = new HospedeFactory();
 		estadiaFactory = new EstadiaFactory();
 		quartoFactory = new QuartoFactory();
-		registroCheckout = new ArrayList();
+		registroCheckout = new ArrayList<>();
 		registroFactory = new RegistroFactory();
+		
 	}
 
 	public String cadastraHospede(String nome, String email, String dataDeNascimento) throws Exception {
@@ -85,7 +86,11 @@ public class BancoDeHospedes {
 		if (atributo.equalsIgnoreCase("email")) {
 			return hospedeProcurado.getEmail();
 		}
-
+		if (atributo.equalsIgnoreCase("Pontos")){
+			String s = "";
+			s += hospedeProcurado.getCartaoFidelidade().getPontuacao();
+			return s;
+		}
 		return null;
 	}
 
@@ -199,15 +204,16 @@ public class BancoDeHospedes {
 			throw new CheckoutException("Email do(a) hospede esta invalido.");
 		if (!validaQuarto(idQuarto))
 			throw new CheckoutException("ID do quarto invalido, use apenas numeros ou letras.");
-		
+		Hospede hospede = buscaHospedePorEmail(email);
 		Estadia estadia = buscaEstadiaPorQuarto(idQuarto);
-		
+		double valorComDesconto = estadia.getPrecoTotal() - hospede.getCartaoFidelidade().calculaDesconto(estadia.getPrecoTotal());	
 		registroCheckout.add(
-				registroFactory.criaRegistro(estadia.getHospede().getNome(), idQuarto, estadia.getPrecoTotal()));
+				registroFactory.criaRegistro(estadia.getHospede().getNome(), idQuarto, valorComDesconto));
 		
 		buscaQuarto(idQuarto).setOcupadoState();
 		removeEstadia(estadia);
-		return String.format("R$%.2f", estadia.getPrecoTotal()).replace(".", ",");
+		hospede.getCartaoFidelidade().adicionaPontos(estadia.getPrecoTotal());
+		return String.format("R$%.2f",valorComDesconto).replace(".", ",");
 	}
 
 	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException{
@@ -249,8 +255,22 @@ public class BancoDeHospedes {
 		return retorno;
 	}
 	
+	
+	public String realizaPedido(String email, String itemMenu, double valorRefeicao) throws Exception {
+		
+		Hospede hospede = buscaHospedePorEmail(email);
+		double valorComDesconto = valorRefeicao - hospede.getCartaoFidelidade().calculaDesconto(valorRefeicao);	
+		
+		registroCheckout.add(
+				registroFactory.criaRegistro(hospede.getNome(), itemMenu,valorComDesconto));
+
+		hospede.getCartaoFidelidade().adicionaPontos(valorRefeicao);
+		return String.format("R$%.2f",valorComDesconto).replace(".", ",");
+	}
+	
+	
 	/*
-	 * Os metodos que validam email e data est√£o aqui e na classe hospede, verificar uma forma de manter so em um local
+	 * Os metodos que validam email e data estao£o aqui e na classe hospede, verificar uma forma de manter so em um local
 	 */
 	
 
@@ -295,7 +315,7 @@ public class BancoDeHospedes {
 		return true;
 	}
 	
-	private Hospede buscaHospedePorEmail(String email) throws Exception {
+	public Hospede buscaHospedePorEmail(String email) throws Exception {
 		for (Hospede hospede : hopedesCadastrados) {
 			if (hospede.getEmail().equalsIgnoreCase(email))
 				return hospede;

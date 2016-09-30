@@ -7,8 +7,8 @@ import restaurante.Prato;
 import restaurante.Refeicao;
 import restaurante.RefeicaoCompleta;
 
-public enum RefeicaoFactory {
-	INSTANCE;
+public class RefeicaoFactory {
+//	INSTANCE;
 	
 	public Refeicao createPrato(String nome, double preco, String descricao) {
 		return Prato.novoPrato(nome, preco, descricao);

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cartaoFidelidade.CartaoFidelidade;
 import exceptions.StringInvalidaException;
 
 public class Hospede {
@@ -13,12 +14,16 @@ public class Hospede {
 	private String nome;
 	private String email;
 	private String dataNascimento;
+	private CartaoFidelidade cartaoFidelidade;
+
+
 
 	public Hospede(String nome, String email, String dataDeNascimento) throws Exception {
 				
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataDeNascimento;
+		this.cartaoFidelidade = new CartaoFidelidade();
 	}
 
 	public String getNome() {
@@ -74,6 +79,10 @@ public class Hospede {
 		}
 		
 		this.dataNascimento = dataNascimento;
+	}
+	
+	public CartaoFidelidade getCartaoFidelidade() {
+		return cartaoFidelidade;
 	}
 
 	public boolean isEmailValid(String email) {

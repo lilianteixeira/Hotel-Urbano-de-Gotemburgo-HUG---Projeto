@@ -1,19 +1,15 @@
 package restaurante;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 import exceptions.ConsultaMenuException;
 import exceptions.PratoCadastroException;
 import exceptions.RefeicaoCadastroException;
-import factorys.RefeicaoFactory;
 
-public final class Restaurante {
+public class Restaurante {
 
 	private Set<Refeicao> menu;
 
@@ -33,7 +29,7 @@ public final class Restaurante {
 		if (descricao == null || descricao.trim().equals(""))
 			throw new PratoCadastroException("Descricao do prato esta vazia.");
 
-		Refeicao prato = RefeicaoFactory.INSTANCE.createPrato(nome, preco, descricao);
+		Refeicao prato = new Prato(nome, preco, descricao);
 		menu.add(prato);
 	}
 
@@ -59,7 +55,7 @@ public final class Restaurante {
 		if(pratos.size() < 3 || pratos.size() > 4)
 			throw new RefeicaoCadastroException(" completa. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos.");
 
-		Refeicao refeicaoCompleta = RefeicaoFactory.INSTANCE.createRefeicaoCompleta(nome, descricao, pratos);
+		Refeicao refeicaoCompleta = new RefeicaoCompleta(nome, descricao, pratos);
 		menu.add(refeicaoCompleta);
 	}
 
@@ -95,8 +91,12 @@ public final class Restaurante {
 		return retorno;
 	}
 	
-	public void ordenaMenu(String atributo){
-		
+	public Refeicao buscaRefeicao(String nome) throws Exception{
+		for (Refeicao refeicao : menu) {
+			if (refeicao.getNome().equals(nome))
+				return refeicao;
+		}
+		throw new RefeicaoCadastroException();
 	}
 	
 //	public ArrayList<Refeicao> getMenuByPrice() {

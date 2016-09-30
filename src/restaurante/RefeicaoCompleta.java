@@ -9,7 +9,7 @@ public class RefeicaoCompleta implements Refeicao{
 	private String descricao;
 	private List<Prato> componentes;
 
-	private RefeicaoCompleta(String nome, String descricao, List<Prato> componentes) {
+	public RefeicaoCompleta(String nome, String descricao, List<Prato> componentes) {
 		
 		this.nome = nome;
 		this.descricao = descricao;

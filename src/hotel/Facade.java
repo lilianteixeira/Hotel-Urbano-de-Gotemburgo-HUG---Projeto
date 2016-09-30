@@ -24,6 +24,10 @@ public class Facade {
 	public String getInfoHospede(String email, String atributo) throws Exception {
 		return controller.getInfoHospede(email, atributo);
 	}
+	
+	public String getHospedeInfo(String email, String atributo) throws Exception {
+		return controller.getInfoHospede(email, atributo);
+	}
 
 	public void atualizaCadastro(String email, String atributo, String alteracao) throws Exception{
 		controller.atualizaCadastro(email, atributo, alteracao);
@@ -64,7 +68,11 @@ public class Facade {
 	public String consultaMenuRestaurante() {
 		return controller.consultaMenuRestaurante();
 	}
-
+	
+	public String realizaPedido(String email, String itemMenu) throws Exception{
+		return controller.realizaPedido(email, itemMenu);
+	}
+	
 	public static void main(String[] args) {
 		args = new String[] { "hotel.Facade", 
 							  "resources/acceptance_test/testes_uc1.txt",
@@ -75,7 +83,8 @@ public class Facade {
 							  "resources/acceptance_test/testes_uc3_exception.txt",
 							  "resources/acceptance_test/testes_uc4.txt",
 							  "resources/acceptance_test/testes_uc4_exception.txt",
-							  "resources/acceptance_test/testes_uc5.txt"
+							  "resources/acceptance_test/testes_uc5.txt",
+							  "resources/acceptance_test/testes_uc6.txt"
 							  
 							  
 		};
