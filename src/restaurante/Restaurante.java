@@ -84,13 +84,9 @@ public class Restaurante {
 		if (tipoOrdenacao.equalsIgnoreCase("nome"))
 				Collections.sort(menu);
 		else if (tipoOrdenacao.equalsIgnoreCase("Preco")){
-			RefeicaoComparatorByPrice c = new RefeicaoComparatorByPrice();
-			ordenaPorPreco(c);
+			RefeicaoComparatorByPrice comparador = new RefeicaoComparatorByPrice();
+			Collections.sort(menu, comparador);
 		}
-	}
-
-	public void ordenaPorPreco(Comparator<Refeicao> comparador) {
-		Collections.sort(menu, comparador);
 	}
 
 	public String consultaMenuRestaurante() {
