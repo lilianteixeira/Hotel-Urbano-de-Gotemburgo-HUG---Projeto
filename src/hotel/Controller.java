@@ -66,6 +66,10 @@ public class Controller {
 		double valorRefeicao = restaurante.buscaRefeicao(itemMenu).getValor();
 		return bancoDeHospedes.realizaPedido(email, itemMenu, valorRefeicao);
 	}
+	
+	public String convertePontos (String email, int qtdPontos) throws Exception{
+		return bancoDeHospedes.convertePontos(email, qtdPontos);
+	}
 
 	public void ordenaMenu(String tipoOrdenacao) {
 		restaurante.ordenaMenu(tipoOrdenacao);

@@ -266,6 +266,16 @@ public class BancoDeHospedes {
 		hospede.getCartaoFidelidade().adicionaPontos(valorRefeicao);
 		return String.format("R$%.2f", valorComDesconto).replace(".", ",");
 	}
+	
+	public String convertePontos(String email, int qtdPontos) throws Exception{
+		Hospede hospede = buscaHospedePorEmail(email);
+		if(qtdPontos > hospede.getCartaoFidelidade().getPontuacao()){
+			throw new NumeroInvalidoException("Quantidade de pontos menor do que a quantidade de pontos acumulada.");
+		}
+		String str = hospede.getCartaoFidelidade().getTipoDeCartao().convertePontos(qtdPontos);
+		hospede.getCartaoFidelidade().diminuiPontosConvertidos(qtdPontos);
+		return str;
+	}
 
 	/*
 	 * Os metodos que validam email e data estao�o aqui e na classe hospede,

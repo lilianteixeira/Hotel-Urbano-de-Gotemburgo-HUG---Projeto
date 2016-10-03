@@ -30,10 +30,16 @@ public class CartaoFidelidade {
 	private void upgradeFidelidade() {
 		if (getPontuacao() > 1000) setTipoDeCartao(new Vip());
 		else if (getPontuacao() >= 350) setTipoDeCartao(new Premium());
+		else if (getPontuacao() < 350) setTipoDeCartao(new Padrao());
 	}
 
 	public void adicionaPontos(double valorGasto){
 		int pontosAdicionais = tipoDeCartao.calculaPontos(valorGasto);
 		setPontuacao(getPontuacao() + pontosAdicionais);
 	}	
+	
+	public void diminuiPontosConvertidos(int qtdPontos){
+		this.pontuacao = this.pontuacao - qtdPontos;
+		upgradeFidelidade();
+	}
 }

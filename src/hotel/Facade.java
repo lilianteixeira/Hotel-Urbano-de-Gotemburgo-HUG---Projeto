@@ -76,6 +76,10 @@ public class Facade {
 		controller.ordenaMenu(tipoOrdenacao);
 	}
 	
+	public String convertePontos (String email, int qtdPontos) throws Exception{
+		return controller.convertePontos(email, qtdPontos);
+	}
+	
 	public static void main(String[] args) {
 		args = new String[] { "hotel.Facade", 
 							  "resources/acceptance_test/testes_uc1.txt",
