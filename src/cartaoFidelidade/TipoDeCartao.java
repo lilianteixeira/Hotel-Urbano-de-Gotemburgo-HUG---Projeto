@@ -3,12 +3,12 @@ package cartaoFidelidade;
 import hospede.Hospede;
 
 public interface TipoDeCartao {
-	//adicionar pontos, aplicar desconto em gastos e pagar dívidas com gastos
+	//adicionar pontos, aplicar desconto em gastos e pagar dï¿½vidas com gastos
 	
-	public int calculaPontos(double valorGasto);
-	
-	public double getDesconto();
-	
-	public void pagarDivida(Hospede hospede, double valor);
+	int calculaPontos(double valorGasto);
+		
+	void pagarDivida(Hospede hospede, double valor);
+
+	double calculaDesconto(double valorGasto);
 
 }

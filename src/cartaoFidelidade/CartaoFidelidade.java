@@ -35,10 +35,5 @@ public class CartaoFidelidade {
 	public void adicionaPontos(double valorGasto){
 		int pontosAdicionais = tipoDeCartao.calculaPontos(valorGasto);
 		setPontuacao(getPontuacao() + pontosAdicionais);
-	}
-	
-	public double calculaDesconto(double valorGasto) {
-		return valorGasto*getTipoDeCartao().getDesconto();
-	}
-	
+	}	
 }

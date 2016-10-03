@@ -12,8 +12,8 @@ public class Padrao implements TipoDeCartao{
 		return (int) (valorGasto * BONUS_PADRAO);
 	}
 	@Override
-	public double getDesconto() {
-		return DESCONTO_PADRAO;
+	public double calculaDesconto(double valorGasto) {
+		return valorGasto*DESCONTO_PADRAO;
 	}
 	@Override
 	public void pagarDivida(Hospede hospede, double valor) {

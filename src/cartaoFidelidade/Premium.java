@@ -9,11 +9,14 @@ public class Premium implements TipoDeCartao{
 	
 	@Override
 	public int calculaPontos(double valorGasto) {
-		return (int) (valorGasto * BONUS_PADRAO);
+		if (valorGasto< 100)
+			return (int) (valorGasto * BONUS_PADRAO);
+		else
+			return ((int) (valorGasto * BONUS_PADRAO)) + ((int) (valorGasto/100)*10); 
 	}
 	@Override
-	public double getDesconto() {
-		return DESCONTO_PADRAO;
+	public double calculaDesconto(double valorGasto) {
+		return valorGasto*DESCONTO_PADRAO;
 	}
 	@Override
 	public void pagarDivida(Hospede hospede, double valor) {

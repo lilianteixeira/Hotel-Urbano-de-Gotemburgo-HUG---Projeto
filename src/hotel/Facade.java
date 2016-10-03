@@ -72,6 +72,9 @@ public class Facade {
 	public String realizaPedido(String email, String itemMenu) throws Exception{
 		return controller.realizaPedido(email, itemMenu);
 	}
+	public void ordenaMenu(String tipoOrdenacao){
+		controller.ordenaMenu(tipoOrdenacao);
+	}
 	
 	public static void main(String[] args) {
 		args = new String[] { "hotel.Facade", 
@@ -84,7 +87,8 @@ public class Facade {
 							  "resources/acceptance_test/testes_uc4.txt",
 							  "resources/acceptance_test/testes_uc4_exception.txt",
 							  "resources/acceptance_test/testes_uc5.txt",
-							  "resources/acceptance_test/testes_uc6.txt"
+							  "resources/acceptance_test/testes_uc6.txt",
+							  "resources/acceptance_test/testes_uc7.txt"
 							  
 							  
 		};

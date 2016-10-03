@@ -1,8 +1,10 @@
 package restaurante;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 import exceptions.ConsultaMenuException;
@@ -11,10 +13,10 @@ import exceptions.RefeicaoCadastroException;
 
 public class Restaurante {
 
-	private Set<Refeicao> menu;
+	private ArrayList<Refeicao> menu;
 
 	public Restaurante() {
-		this.menu = new LinkedHashSet<>();
+		this.menu = new ArrayList<>();
 	}
 
 	public static Restaurante getInstance() {
@@ -52,8 +54,9 @@ public class Restaurante {
 			if (!isCadastrado)
 				throw new RefeicaoCadastroException(". So eh possivel cadastrar refeicoes com pratos ja cadastrados.");
 		}
-		if(pratos.size() < 3 || pratos.size() > 4)
-			throw new RefeicaoCadastroException(" completa. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos.");
+		if (pratos.size() < 3 || pratos.size() > 4)
+			throw new RefeicaoCadastroException(
+					" completa. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos.");
 
 		Refeicao refeicaoCompleta = new RefeicaoCompleta(nome, descricao, pratos);
 		menu.add(refeicaoCompleta);
@@ -76,35 +79,43 @@ public class Restaurante {
 		}
 		return null;
 	}
-	
-	public ArrayList<Refeicao> getMenuByName() {
-		ArrayList<Refeicao> menu = new ArrayList<>(new TreeSet<>(this.menu));
-		return menu;
+
+	public void ordenaMenu(String tipoOrdenacao) {
+		if (tipoOrdenacao.equalsIgnoreCase("nome"))
+				Collections.sort(menu);
+		else if (tipoOrdenacao.equalsIgnoreCase("Preco")){
+			RefeicaoComparatorByPrice c = new RefeicaoComparatorByPrice();
+			ordenaPorPreco(c);
+		}
 	}
-	
-	public String consultaMenuRestaurante(){
+
+	public void ordenaPorPreco(Comparator<Refeicao> comparador) {
+		Collections.sort(menu, comparador);
+	}
+
+	public String consultaMenuRestaurante() {
 		String retorno = "";
 		for (Refeicao refeicao : menu) {
 			retorno += refeicao.getNome() + ";";
 		}
-		retorno = retorno.substring(0, retorno.length() - 1);
-		return retorno;
+		return retorno.substring(0, retorno.length() - 1);
+
 	}
-	
-	public Refeicao buscaRefeicao(String nome) throws Exception{
+
+	public Refeicao buscaRefeicao(String nome) throws Exception {
 		for (Refeicao refeicao : menu) {
 			if (refeicao.getNome().equals(nome))
 				return refeicao;
 		}
 		throw new RefeicaoCadastroException();
 	}
-	
-//	public ArrayList<Refeicao> getMenuByPrice() {
-//		SortedSet<Refeicao> menuOrdenado = new TreeSet<>(new Exception());
-//		menuOrdenado.addAll(this.menu);
-//		ArrayList<Refeicao> menu = new ArrayList<>(menuOrdenado);
-//		return menu;
-//	}
+
+	public ArrayList<Refeicao> getMenuByPrice() {
+		SortedSet<Refeicao> menuOrdenado = new TreeSet<>();
+		menuOrdenado.addAll(this.menu);
+		ArrayList<Refeicao> menu = new ArrayList<>(menuOrdenado);
+		return menu;
+	}
 
 	private static final Restaurante instance = new Restaurante();
 

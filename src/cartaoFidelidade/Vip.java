@@ -11,10 +11,15 @@ public class Vip implements TipoDeCartao{
 	public int calculaPontos(double valorGasto) {
 		return (int) (valorGasto * BONUS_PADRAO);
 	}
+	
 	@Override
-	public double getDesconto() {
-		return DESCONTO_PADRAO;
-	}
+	public double calculaDesconto(double valorGasto) {
+		if (valorGasto< 100)
+			return (valorGasto * DESCONTO_PADRAO);
+		else
+			return ((valorGasto * DESCONTO_PADRAO)) + ((valorGasto/100)*10); 
+	}	
+	
 
 	@Override
 	public void pagarDivida(Hospede hospede, double valor) {

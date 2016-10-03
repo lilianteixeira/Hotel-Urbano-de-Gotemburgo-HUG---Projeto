@@ -1,7 +1,6 @@
 package hotel;
 
-import exceptions.NumeroInvalidoException;
-import exceptions.StringInvalidaException;
+
 import hospede.BancoDeHospedes;
 import restaurante.Restaurante;
 
@@ -66,5 +65,10 @@ public class Controller {
 	public String realizaPedido(String email, String itemMenu) throws Exception {
 		double valorRefeicao = restaurante.buscaRefeicao(itemMenu).getValor();
 		return bancoDeHospedes.realizaPedido(email, itemMenu, valorRefeicao);
+	}
+
+	public void ordenaMenu(String tipoOrdenacao) {
+		restaurante.ordenaMenu(tipoOrdenacao);
+		
 	}
 }
