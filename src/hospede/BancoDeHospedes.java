@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
+
 import exceptions.*;
 import factorys.HospedeFactory;
 
@@ -30,8 +31,7 @@ public class BancoDeHospedes {
 	public String getInfoHospede(String email, String atributo) throws Exception {
 		Hospede hospedeProcurado = buscaHospedePorEmail(email);
 		if (hospedeProcurado == null) {
-			throw new ObjetoInvalidoException(
-					"Erro na consulta de hospede. Hospede de email " + email + " nao foi cadastrado(a).");
+			throw new HospedeNotFoundException("hospede. Hospede de email " + email + " nao foi cadastrado(a).");
 		}
 		if (atributo.equalsIgnoreCase("nome")) {
 			return hospedeProcurado.getNome();

@@ -9,8 +9,9 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import exceptions.EstadiaIvalidaException;
-import exceptions.ObjetoInvalidoException;
+import exceptions.CheckinException;
+import exceptions.HospedeNotFoundException;
+import exceptions.StringInvalidaException;
 import factorys.EstadiaFactory;
 import factorys.QuartoFactory;
 import hospede.Hospede;
@@ -38,7 +39,7 @@ public class BancoDeHospedagem {
 		}
 		Quarto QuartoBuscado = buscaQuarto(idQuarto);
 		if (QuartoBuscado.isOcupado()) {
-			throw new ObjetoInvalidoException("Erro ao realizar checkin. Quarto " + idQuarto + " ja esta ocupado.");
+			throw new CheckinException("Quarto " + idQuarto + " ja esta ocupado.");
 		}
 		Quarto quarto = buscaQuarto(idQuarto);
 		Estadia estadia = estadiaFactory.criaEstadia(quarto, dias, hospede);
@@ -68,7 +69,7 @@ public class BancoDeHospedagem {
 		//Hospede hospede = bancoDehospedes.buscaHospedePorEmail(email);
 
 		if (!temEstadiasAtivas(hospede)) {
-			throw new ObjetoInvalidoException("Erro na consulta de hospedagem. Hospede " + hospede.getNome()
+			throw new HospedeNotFoundException("hospedagem. Hospede " + hospede.getNome()
 					+ " nao esta hospedado(a).");
 		}
 
@@ -129,7 +130,7 @@ public class BancoDeHospedagem {
 				return estadia;
 			}
 		}
-		throw new EstadiaIvalidaException();
+		throw new StringInvalidaException();
 	}
 
 	private void removeEstadia(Estadia estadia) {

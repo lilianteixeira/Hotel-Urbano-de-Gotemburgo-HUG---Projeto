@@ -4,8 +4,6 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import exceptions.ObjetoInvalidoException;
-import exceptions.StringInvalidaException;
 
 public class BancoDeRegistros {
 	private ArrayList<RegistroOperacoes> registroOperacoes;
@@ -19,7 +17,7 @@ public class BancoDeRegistros {
 	}
 	
 
-	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException {
+	public String consultaTransacoes(String atributo) {
 		DecimalFormat df = new DecimalFormat("#0.00");
 		df.setRoundingMode(RoundingMode.UP);
 		String retorno = "";
