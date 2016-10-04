@@ -3,13 +3,14 @@ package exceptions;
 public class PratoCadastroException extends RestauranteException {
 
 	public PratoCadastroException() {
-		// TODO Auto-generated constructor stub
+		// ver a mensagem que vai aqui
 	}
 
-	public PratoCadastroException(String arg0) {
-		super("Erro no cadastro do prato. " + arg0);
+	public PratoCadastroException(String mensagem) {
+		super("Erro no cadastro do prato. " + mensagem);
 	}
 
+	//desnecessarios
 	public PratoCadastroException(Throwable arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub

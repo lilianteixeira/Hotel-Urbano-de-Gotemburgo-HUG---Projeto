@@ -3,14 +3,14 @@ package exceptions;
 public class HospedagemInfoException extends HotelException {
 
 	public HospedagemInfoException() {
-		// TODO Auto-generated constructor stub
+		//ver mensagem que fica aqui
 	}
 
-	public HospedagemInfoException(String arg0) {
-		super("Erro ao checar hospedagem ativa. " + arg0);
-		// TODO Auto-generated constructor stub
+	public HospedagemInfoException(String mensagem) {
+		super("Erro ao checar hospedagem ativa. " + mensagem);
 	}
 
+	//desnecessario
 	public HospedagemInfoException(Throwable arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub

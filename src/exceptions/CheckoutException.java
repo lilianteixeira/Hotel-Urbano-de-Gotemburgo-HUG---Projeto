@@ -3,16 +3,16 @@ package exceptions;
 public class CheckoutException extends HotelException {
 
 	public CheckoutException() {
-		// TODO Auto-generated constructor stub
+		// ver qual a mensagem que vai aqui
 	}
 
-	public CheckoutException(String arg0) {
-		super("Erro ao realizar checkout. " + arg0);
+	public CheckoutException(String mensagem) {
+		super("Erro ao realizar checkout. " + mensagem);
 	}
 
+	//desnecessarios
 	public CheckoutException(Throwable arg0) {
 		super(arg0);
-		// TODO Auto-generated constructor stub
 	}
 
 	public CheckoutException(String arg0, Throwable arg1) {

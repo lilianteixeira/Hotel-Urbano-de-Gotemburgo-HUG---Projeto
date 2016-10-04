@@ -3,14 +3,14 @@ package exceptions;
 public class RestauranteException extends Exception {
 
 	public RestauranteException() {
-		// TODO Auto-generated constructor stub
+		//ver a mensagem que vai aqui
 	}
 
-	public RestauranteException(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	public RestauranteException(String mensagem) {
+		super(mensagem);
 	}
 
+	//desnecessarios
 	public RestauranteException(Throwable arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub

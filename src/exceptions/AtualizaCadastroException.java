@@ -3,15 +3,15 @@ package exceptions;
 public class AtualizaCadastroException extends Exception {
 
 	public AtualizaCadastroException() {
-		// TODO Auto-generated constructor stub
+		//ver qual a mensagem que vai aqui
 	}
 
-	public AtualizaCadastroException(String arg0) {
-		super("Erro na atualizacao do cadastro de Hospede. " + arg0);
+	public AtualizaCadastroException(String mensagem) {
+		super("Erro na atualizacao do cadastro de Hospede. " + mensagem);
 
-		// TODO Auto-generated constructor stub
 	}
 
+	//desnecessarios
 	public AtualizaCadastroException(Throwable arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub

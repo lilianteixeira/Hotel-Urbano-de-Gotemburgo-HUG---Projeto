@@ -6,11 +6,12 @@ public class HospedeNotFoundException extends Exception {
 		super("Erro na consulta de hospede.");
 	}
 
-	public HospedeNotFoundException(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	public HospedeNotFoundException(String mensagem) {
+		super(mensagem);
+		
 	}
 
+	//desnecessarios
 	public HospedeNotFoundException(Throwable arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub
