@@ -1,5 +1,6 @@
 package cartaoFidelidade;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import hospede.Hospede;
@@ -23,6 +24,7 @@ public class Padrao implements TipoDeCartao {
 	@Override
 	public String convertePontos(int qtdPontos) {
 		DecimalFormat df = new DecimalFormat("#0.00");
+		df.setRoundingMode(RoundingMode.UP);
 		String str = "";
 		double dinheiro = qtdPontos * CONVERTE_PONTOS;
 		str += "R$" + df.format(dinheiro);

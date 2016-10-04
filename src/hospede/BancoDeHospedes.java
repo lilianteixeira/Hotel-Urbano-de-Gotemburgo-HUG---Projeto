@@ -1,5 +1,7 @@
 package hospede;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -201,6 +203,8 @@ public class BancoDeHospedes {
 			throw new CheckoutException("ID do quarto invalido, use apenas numeros ou letras.");
 		Hospede hospede = buscaHospedePorEmail(email);
 		Estadia estadia = buscaEstadiaPorQuarto(idQuarto);
+		DecimalFormat df =  new DecimalFormat("#0.00");
+		df.setRoundingMode(RoundingMode.UP);
 		double valorComDesconto = estadia.getPrecoTotal()
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(estadia.getPrecoTotal());
 		
@@ -209,12 +213,14 @@ public class BancoDeHospedes {
 		buscaQuarto(idQuarto).setOcupadoState();
 		removeEstadia(estadia);
 		hospede.getCartaoFidelidade().adicionaPontos(estadia.getPrecoTotal());
-		return String.format("R$%.2f", valorComDesconto).replace(".", ",");
+		return "R$" + df.format(valorComDesconto).replace(".", ",");
 	}
 
 	public String consultaTransacoes(String atributo) throws ObjetoInvalidoException, StringInvalidaException {
+		DecimalFormat df =  new DecimalFormat("#0.00");
+		df.setRoundingMode(RoundingMode.UP);
 		String retorno = "";
-
+	
 		if (atributo.equalsIgnoreCase("Quantidade")) {
 			retorno += registroCheckout.size();
 			return retorno;
@@ -224,7 +230,7 @@ public class BancoDeHospedes {
 			for (RegistroCheckOut registro : registroCheckout) {
 				total += registro.getTotalPago();
 			}
-			return "R$" + String.format("%.2f", total);
+			return "R$" + df.format(total);
 		}
 		if (atributo.equalsIgnoreCase("Nome")) {
 			for (RegistroCheckOut registro : registroCheckout) {
@@ -236,15 +242,17 @@ public class BancoDeHospedes {
 	}
 
 	public String consultaTransacoes(String atributo, int indice) throws Exception {
-
 		if (indice < 0)
 			throw new Exception("Erro na consulta de transacoes. Indice invalido.");
-
+		
+		DecimalFormat df =  new DecimalFormat("#0.00");
+		df.setRoundingMode(RoundingMode.UP);
 		String retorno = "";
 
 		if (atributo.equalsIgnoreCase("Total")) {
 			double total = registroCheckout.get(indice).getTotalPago();
-			return "R$" + String.format("%.2f", total);
+			
+			return "R$" + df.format(total);
 		}
 		if (atributo.equalsIgnoreCase("Nome")) {
 			return registroCheckout.get(indice).getNome();
@@ -256,7 +264,8 @@ public class BancoDeHospedes {
 	}
 
 	public String realizaPedido(String email, String itemMenu, double valorRefeicao) throws Exception {
-
+		DecimalFormat df = new DecimalFormat("#0.00");
+		df.setRoundingMode(RoundingMode.UP);
 		Hospede hospede = buscaHospedePorEmail(email);
 		double valorComDesconto = valorRefeicao
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(valorRefeicao);
@@ -264,7 +273,8 @@ public class BancoDeHospedes {
 		registroCheckout.add(registroFactory.criaRegistro(hospede.getNome(), itemMenu, valorComDesconto));
 
 		hospede.getCartaoFidelidade().adicionaPontos(valorRefeicao);
-		return String.format("R$%.2f", valorComDesconto).replace(".", ",");
+		String retorno = "R$" + df.format(valorComDesconto);
+		return retorno;
 	}
 	
 	public String convertePontos(String email, int qtdPontos) throws Exception{
