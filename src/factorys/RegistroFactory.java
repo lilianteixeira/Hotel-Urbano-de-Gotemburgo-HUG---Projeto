@@ -1,11 +1,11 @@
 package factorys;
 
-import hospede.RegistroCheckOut;
+import hospedagem.RegistroOperacoes;
 
 public class RegistroFactory {
 	
-	public RegistroCheckOut criaRegistro(String nome, String id, double totalPago) {
-		return new RegistroCheckOut(nome, id, totalPago);
+	public RegistroOperacoes criaRegistro(String nome, String id, double totalPago) {
+		return new RegistroOperacoes(nome, id, totalPago);
 	}
 	
 }

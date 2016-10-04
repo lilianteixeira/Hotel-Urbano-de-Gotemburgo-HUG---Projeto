@@ -2,21 +2,18 @@ package restaurante;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
-import exceptions.ConsultaMenuException;
-import exceptions.PratoCadastroException;
 import exceptions.RefeicaoCadastroException;
 
 public class Restaurante {
 
-	private ArrayList<Refeicao> menu;
+	private List<Refeicao> menu;
+	private String tipoOrdenacao;
 
 	public Restaurante() {
 		this.menu = new ArrayList<>();
+		this.tipoOrdenacao = "";
 	}
 
 	public static Restaurante getInstance() {
@@ -24,24 +21,13 @@ public class Restaurante {
 	}
 
 	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
-		if (nome == null || nome.trim().equals(""))
-			throw new PratoCadastroException("Nome do prato esta vazio.");
-		if (preco < 0)
-			throw new PratoCadastroException("Preco do prato eh invalido.");
-		if (descricao == null || descricao.trim().equals(""))
-			throw new PratoCadastroException("Descricao do prato esta vazia.");
-
 		Refeicao prato = new Prato(nome, preco, descricao);
-		menu.add(prato);
+		addNoMenu(prato);
+		
 	}
 
 	public void cadastraRefeicao(String nome, String descricao, String componentes) throws Exception {
-		if (nome == null || nome.trim().equals(""))
-			throw new RefeicaoCadastroException(". Nome da refeicao esta vazio.");
-		if (descricao == null || descricao.trim().equals(""))
-			throw new RefeicaoCadastroException(". Descricao da refeicao esta vazia.");
-		if (componentes == null || componentes.trim().equals(""))
-			throw new RefeicaoCadastroException(". Componente(s) esta(o) vazio(s).");
+		
 		ArrayList<Prato> pratos = new ArrayList<>();
 		for (String componente : componentes.split(";")) {
 			boolean isCadastrado = false;
@@ -59,12 +45,11 @@ public class Restaurante {
 					" completa. Uma refeicao completa deve possuir no minimo 3 e no maximo 4 pratos.");
 
 		Refeicao refeicaoCompleta = new RefeicaoCompleta(nome, descricao, pratos);
-		menu.add(refeicaoCompleta);
+		addNoMenu(refeicaoCompleta);
 	}
 
 	public String consultaRestaurante(String nome, String atributo) throws Exception {
-		if (nome == null || nome.trim().equals(""))
-			throw new ConsultaMenuException("Nome do prato esta vazio.");
+
 		if (atributo.equalsIgnoreCase("Preco")) {
 			for (Refeicao r : menu)
 				if (nome.equals(r.getNome()))
@@ -81,11 +66,15 @@ public class Restaurante {
 	}
 
 	public void ordenaMenu(String tipoOrdenacao) {
-		if (tipoOrdenacao.equalsIgnoreCase("nome"))
-				Collections.sort(menu);
-		else if (tipoOrdenacao.equalsIgnoreCase("Preco")){
+		if (tipoOrdenacao.equalsIgnoreCase("nome")) {
+			setTipoOrdenacao(tipoOrdenacao);
+			Collections.sort(menu);
+			
+		} else if (tipoOrdenacao.equalsIgnoreCase("Preco")) {
+			setTipoOrdenacao(tipoOrdenacao);
 			RefeicaoComparatorByPrice comparador = new RefeicaoComparatorByPrice();
 			Collections.sort(menu, comparador);
+			
 		}
 	}
 
@@ -106,11 +95,24 @@ public class Restaurante {
 		throw new RefeicaoCadastroException();
 	}
 
-	public ArrayList<Refeicao> getMenuByPrice() {
-		SortedSet<Refeicao> menuOrdenado = new TreeSet<>();
-		menuOrdenado.addAll(this.menu);
-		ArrayList<Refeicao> menu = new ArrayList<>(menuOrdenado);
-		return menu;
+	private void setTipoOrdenacao(String tipoOrdenacao) {
+		this.tipoOrdenacao = tipoOrdenacao;
+	}
+	
+	private void addNoMenu(Refeicao refeicao){
+		
+		if (tipoOrdenacao == null || tipoOrdenacao.trim().equals(""))
+			menu.add(refeicao);
+		else if (tipoOrdenacao.equalsIgnoreCase("Nome")){
+			menu.add(refeicao);
+			Collections.sort(menu);
+		}			
+		else if (tipoOrdenacao.equalsIgnoreCase("Preco")){
+			menu.add(refeicao);
+			RefeicaoComparatorByPrice comparador = new RefeicaoComparatorByPrice();
+			Collections.sort(menu, comparador);
+		}
+		
 	}
 
 	private static final Restaurante instance = new Restaurante();

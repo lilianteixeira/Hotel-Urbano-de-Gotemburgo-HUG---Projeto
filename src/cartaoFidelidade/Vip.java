@@ -3,7 +3,6 @@ package cartaoFidelidade;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-import hospede.Hospede;
 
 public class Vip implements TipoDeCartao{
 
