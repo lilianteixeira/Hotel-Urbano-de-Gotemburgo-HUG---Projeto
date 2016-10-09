@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -28,8 +30,9 @@ public class GerenteRelatorios {
 			String msgArquivo = "Cadastro de Hospedes: " + listaHospedes.size() + " hospedes registrados\n";
 			int contador = 1;
 			for (Hospede hospede : listaHospedes) {
-				msgArquivo += "==> Hospede " + contador + ":\nEmail: " + hospede.getEmail() + "\nNome:"
-						+ hospede.getNome() + "\nData de nascimento: " + hospede.getDataNascimento() + "\n\n";
+				LocalDate dataFormatada = formataData(hospede.getDataNascimento());
+				msgArquivo += "==> Hospede " + contador + ":\nEmail: " + hospede.getEmail() + "\nNome: "
+						+ hospede.getNome() + "\nData de nascimento: " + dataFormatada + "\n\n";
 				contador++;
 			}
 			arquivo.print(msgArquivo);
@@ -48,8 +51,9 @@ public class GerenteRelatorios {
 			String msgArquivo = "Menu do Restaurante: " + menu.size() + "  itens no cardapio\n";
 			int contador = 1;
 			for (Refeicao refeicao : menu) {
-				msgArquivo += "==> Item " + contador + ":\nNome: " + refeicao.getNome() + " Preco R$:"
-						+ refeicao.getValor() + "\nDescricao: " + refeicao.getDescricao() + "\n\n";
+				msgArquivo += "==> Item " + contador + ":\nNome: " + refeicao.getNome() + " Preco: R$"
+						+ String.format("%.2f", refeicao.getValor()) + "\nDescricao: " + refeicao.getDescricao()
+						+ "\n\n";
 				contador++;
 			}
 			arquivo.print(msgArquivo);
@@ -68,14 +72,14 @@ public class GerenteRelatorios {
 			String msgArquivo = "Historico de Transacoes:\n";
 			double total = 0;
 			for (RegistroOperacoes registro : registrosOperacoes) {
-				msgArquivo += "==> Nome " + registro.getNome() + " Gasto R$:" + registro.getTotalPago() + " Detalhes: "
-						+ registro.getId() + "\n";
+				msgArquivo += "==> Nome: " + registro.getNome() + " Gasto: R$"
+						+ String.format("%.2f", registro.getTotalPago()) + " Detalhes: " + registro.getId() + "\n";
 				total += registro.getTotalPago();
 			}
 
-			msgArquivo += "\n===== Resumo de transacoes =====" + "\nLucro total:R$" + total + "\nTotal de transacoes:"
-					+ registrosOperacoes.size() + "\nLucro medio por transacao: R$"
-					+ (total / registrosOperacoes.size());
+			msgArquivo += "\n===== Resumo de transacoes =====" + "\nLucro total:R$" + String.format("%.2f", total)
+					+ "\nTotal de transacoes:" + registrosOperacoes.size() + "\nLucro medio por transacao: R$"
+					+ String.format("%.2f", (total / registrosOperacoes.size()));
 
 			arquivo.print(msgArquivo);
 		} finally {
@@ -94,8 +98,7 @@ public class GerenteRelatorios {
 		String[] listaArquivos = file.list();
 		Arrays.sort(listaArquivos);
 		try {
-			arquivo = new PrintWriter(
-					new BufferedWriter(new FileWriter("resources/relatorios/hotel_principal.txt")));
+			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/hotel_principal.txt")));
 			for (String arq : listaArquivos) {
 				if (arq.endsWith(".txt") && !arq.startsWith("hotel")) {
 					msgArquivo += "======================================================\n"
@@ -111,7 +114,7 @@ public class GerenteRelatorios {
 
 	}
 
-	private static String leitura(String dir) throws Exception {
+	private String leitura(String dir) throws Exception {
 		String linha = "", conteudo = "";
 		BufferedReader br = new BufferedReader(new FileReader(new File(dir)));
 		while ((linha = br.readLine()) != null) {
@@ -121,6 +124,12 @@ public class GerenteRelatorios {
 		}
 		br.close();
 		return conteudo;
+	}
+
+	private LocalDate formataData(String dataRecebida) {
+		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		LocalDate data = LocalDate.parse(dataRecebida, formato);
+		return (data);
 	}
 
 }
