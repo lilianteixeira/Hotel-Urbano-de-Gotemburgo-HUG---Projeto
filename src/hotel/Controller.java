@@ -222,6 +222,8 @@ public class Controller {
 			gerenteRelatorios.relatorioRestaurante(restaurante.getMenu());
 		else if (tipoRelatorio.equalsIgnoreCase("Transacoes"))
 			gerenteRelatorios.relatorioRegistros(bancoDeRegistros.getRegistroOperacoes());
+		else if (tipoRelatorio.equalsIgnoreCase("Hotel"))
+			gerenteRelatorios.relatorioHotel();
 	}
 	
 	

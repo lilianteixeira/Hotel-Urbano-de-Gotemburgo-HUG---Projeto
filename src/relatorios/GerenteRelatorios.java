@@ -1,8 +1,12 @@
 package relatorios;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -35,7 +39,7 @@ public class GerenteRelatorios {
 		}
 
 	}
-	
+
 	public void relatorioRestaurante(List<Refeicao> menu) throws Exception {
 		PrintWriter arquivo = null;
 
@@ -55,7 +59,7 @@ public class GerenteRelatorios {
 		}
 
 	}
-	
+
 	public void relatorioRegistros(List<RegistroOperacoes> registrosOperacoes) throws Exception {
 		PrintWriter arquivo = null;
 
@@ -63,17 +67,16 @@ public class GerenteRelatorios {
 			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/cad_transacoes.txt")));
 			String msgArquivo = "Historico de Transacoes:\n";
 			double total = 0;
-			for (RegistroOperacoes registro: registrosOperacoes) {
-				msgArquivo += "==> Nome " + registro.getNome() + " Gasto R$:"
-						+ registro.getTotalPago() + " Detalhes: " + registro.getId() + "\n";
+			for (RegistroOperacoes registro : registrosOperacoes) {
+				msgArquivo += "==> Nome " + registro.getNome() + " Gasto R$:" + registro.getTotalPago() + " Detalhes: "
+						+ registro.getId() + "\n";
 				total += registro.getTotalPago();
 			}
-			
-			msgArquivo +="\n===== Resumo de transacoes ====="
-						+ "\nLucro total:R$" + total
-						+ "\nTotal de transacoes:" + registrosOperacoes.size() 	
-						+ "\nLucro medio por transacao: R$" + (total/registrosOperacoes.size());
-			
+
+			msgArquivo += "\n===== Resumo de transacoes =====" + "\nLucro total:R$" + total + "\nTotal de transacoes:"
+					+ registrosOperacoes.size() + "\nLucro medio por transacao: R$"
+					+ (total / registrosOperacoes.size());
+
 			arquivo.print(msgArquivo);
 		} finally {
 			if (arquivo != null)
@@ -82,6 +85,42 @@ public class GerenteRelatorios {
 
 	}
 
-	
+	public void relatorioHotel() throws Exception {
+
+		PrintWriter arquivo = null;
+		String dir = "resources/relatorios";
+		String msgArquivo = "";
+		File file = new File(dir);
+		String[] listaArquivos = file.list();
+		Arrays.sort(listaArquivos);
+		try {
+			arquivo = new PrintWriter(
+					new BufferedWriter(new FileWriter("resources/relatorios/hotel_principal.txt")));
+			for (String arq : listaArquivos) {
+				if (arq.endsWith(".txt") && !arq.startsWith("hotel")) {
+					msgArquivo += "======================================================\n"
+							+ (leitura(dir + "/" + arq)) + "\n";
+				}
+			}
+			arquivo.print(msgArquivo);
+		} finally {
+			if (arquivo != null)
+				arquivo.close();
+
+		}
+
+	}
+
+	private static String leitura(String dir) throws Exception {
+		String linha = "", conteudo = "";
+		BufferedReader br = new BufferedReader(new FileReader(new File(dir)));
+		while ((linha = br.readLine()) != null) {
+			if (!linha.isEmpty()) {
+				conteudo = new StringBuilder(conteudo).append(linha.concat("\n")).toString();
+			}
+		}
+		br.close();
+		return conteudo;
+	}
 
 }

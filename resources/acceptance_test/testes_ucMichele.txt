@@ -3,5 +3,6 @@ iniciaSistema
 geraRelatorio tipoRelatorio="hospedes"
 geraRelatorio tipoRelatorio="restaurante"
 geraRelatorio tipoRelatorio="transacoes"
+geraRelatorio tipoRelatorio="hotel"
 
 fechaSistema
