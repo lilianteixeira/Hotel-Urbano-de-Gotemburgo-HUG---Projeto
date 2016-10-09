@@ -20,8 +20,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="hospedagem.BancoDeRegistros" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospedagem/BancoDeRegistros.java" binary="false" 
+  <class id="3" language="java" name="registros.BancoDeRegistros" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/registros/BancoDeRegistros.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="537" y="917"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -187,8 +187,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="hospedagem.RegistroOperacoes" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospedagem/RegistroOperacoes.java" binary="false" 
+  <class id="20" language="java" name="registros.RegistroOperacoes" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/registros/RegistroOperacoes.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="241" width="286" x="0" y="1152"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -256,204 +256,244 @@
     </display>  
   </interface>  
   <association id="27">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="28" name="factoryHospede"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="31" name="componentes"/>      
-      <multiplicity id="32" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="33">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="18"/>  
-  </realization>  
-  <association id="34">    
     <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="35" name="bancoDeHospedagens"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="38" name="cartaoFidelidade"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="41" name="hospede"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="44" name="hopedesCadastrados"/>      
-      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="47" name="registroOperacoes"/>      
-      <multiplicity id="48" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="50" name="bancoDeHospedes"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="53" name="quarto"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="55">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="26"/>  
-  </realization>  
-  <association id="56">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="57" name="estadias"/>      
-      <multiplicity id="58" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="25" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="60" name="estadiaFactory"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="62">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="63" name="validador"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="65">    
-    <bendpoint x="1524" y="781"/>    
-    <bendpoint x="1524" y="1152"/>    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="66" name="validador"/>      
-      <multiplicity id="67" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="68">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="69" name="menu"/>      
-      <multiplicity id="70" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="71">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="72" name="quartos"/>      
-      <multiplicity id="73" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="74">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="75" name="instance"/>      
-      <multiplicity id="76" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="77">    
-    <bendpoint x="67" y="781"/>    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="18"/>  
-  </realization>  
-  <association id="78">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="79" name="tipoDeQuarto"/>      
-      <multiplicity id="80" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="81">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="82" name="restaurante"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="85" name="bancoDeRegistros"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+      <attribute id="28" name="bancoDeRegistros">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="87">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="88" name="controller"/>      
-      <multiplicity id="89" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="90">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="26"/>  
-  </realization>  
-  <realization id="91">    
+  <realization id="30">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="26"/>  
   </realization>  
-  <association id="92">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="93" name="tipoDeCartao"/>      
-      <multiplicity id="94" minimum="0" maximum="1"/>    
+  <realization id="31">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <realization id="32">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="26"/>  
+  </realization>  
+  <association id="33">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="34" name="estadias">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="95">    
+  <association id="36">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="37" name="menu">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="39">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="40" name="tipoDeQuarto">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="43" name="componentes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="46" name="quarto">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="96" name="quartoFactory"/>      
-      <multiplicity id="97" minimum="0" maximum="1"/>    
+      <attribute id="49" name="quartoFactory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="52" name="tipoDeCartao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="55" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="58" name="restaurante">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <bendpoint x="1524" y="781"/>    
+    <bendpoint x="1524" y="1152"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="61" name="validador">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="64" name="bancoDeHospedes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="67" name="quartos">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="70" name="registroOperacoes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="73" name="cartaoFidelidade">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="76" name="bancoDeHospedagens">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="77" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="78">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="79" name="hospede">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="80" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="82" name="hopedesCadastrados">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="18"/>  
+  </realization>  
+  <realization id="85">    
+    <bendpoint x="67" y="781"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="18"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

@@ -12,8 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-import hospedagem.RegistroOperacoes;
 import hospede.Hospede;
+import registros.RegistroOperacoes;
 import restaurante.Refeicao;
 
 public class GerenteRelatorios {

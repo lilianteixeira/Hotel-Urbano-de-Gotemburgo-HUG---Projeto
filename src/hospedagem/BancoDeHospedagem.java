@@ -12,7 +12,6 @@ import java.util.Set;
 import exceptions.CheckinException;
 import exceptions.HospedeNotFoundException;
 import exceptions.StringInvalidaException;
-import factorys.EstadiaFactory;
 import factorys.QuartoFactory;
 import hospede.Hospede;
 
@@ -24,12 +23,10 @@ public class BancoDeHospedagem {
 	private Set<Quarto> quartos;
 	private Map<Estadia, Hospede> estadias;
 	private QuartoFactory quartoFactory;
-	private EstadiaFactory estadiaFactory;
-
+	
 	public BancoDeHospedagem() {
 		this.quartos = new HashSet<>();
 		this.estadias = new LinkedHashMap<Estadia, Hospede>();
-		this.estadiaFactory = new EstadiaFactory();
 		this.quartoFactory = new QuartoFactory();
 	}
 	
@@ -42,14 +39,13 @@ public class BancoDeHospedagem {
 			throw new CheckinException("Quarto " + idQuarto + " ja esta ocupado.");
 		}
 		Quarto quarto = buscaQuarto(idQuarto);
-		Estadia estadia = estadiaFactory.criaEstadia(quarto, dias, hospede);
+		Estadia estadia = new Estadia(quarto, dias, hospede);
 		estadias.put(estadia, hospede);
 		quarto.setOcupadoState(); // Muda o estado do quarto pra ocupado
 	}
 
 	public String checkout(Hospede hospede, String idQuarto) throws Exception {
 		
-			//Hospede hospede = bancoDehospedes.buscaHospedePorEmail(email);
 		Estadia estadia = buscaEstadiaPorQuarto(idQuarto);
 		DecimalFormat df = new DecimalFormat("#0.00");
 		df.setRoundingMode(RoundingMode.UP);
@@ -66,7 +62,6 @@ public class BancoDeHospedagem {
 	public String getInfoHospedagem(Hospede hospede, String atributo) throws Exception {
 		
 		String retorno = "";
-		//Hospede hospede = bancoDehospedes.buscaHospedePorEmail(email);
 
 		if (!temEstadiasAtivas(hospede)) {
 			throw new HospedeNotFoundException("hospedagem. Hospede " + hospede.getNome()

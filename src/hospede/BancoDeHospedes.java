@@ -8,22 +8,21 @@ import java.util.Set;
 
 
 import exceptions.*;
-import factorys.HospedeFactory;
 
 public class BancoDeHospedes {
 
 	private Set<Hospede> hopedesCadastrados;
-	private HospedeFactory factoryHospede;
+
 
 	public BancoDeHospedes() {
 		hopedesCadastrados = new HashSet<>();
-		factoryHospede = new HospedeFactory();
+
 
 	}
 
 	public String cadastraHospede(String nome, String email, String dataDeNascimento) throws Exception {
 	
-		Hospede novoHospede = factoryHospede.criaHospede(nome, email, dataDeNascimento);
+		Hospede novoHospede = new Hospede(nome, email, dataDeNascimento);
 		hopedesCadastrados.add(novoHospede);
 		return novoHospede.getEmail();
 	}
@@ -51,8 +50,21 @@ public class BancoDeHospedes {
 	}
 
 	public void atualizaCadastro(String email, String atributo, String alteracao) throws Exception {
+		
+		Hospede h = buscaHospedePorEmail(email);//.setInfoCadastro(atributo, alteracao);
+		
+		if (atributo.equalsIgnoreCase("Nome")) {
+			h.setNome(alteracao);
 
-		buscaHospedePorEmail(email).setInfoCadastro(atributo, alteracao);
+		}
+		if (atributo.equalsIgnoreCase("Data de nascimento")) {
+			h.setDataNascimento(alteracao);
+
+		}
+		if (atributo.equalsIgnoreCase("Email")) {
+			h.setEmail(alteracao);
+
+		}
 
 	}
 
@@ -67,8 +79,6 @@ public class BancoDeHospedes {
 		Hospede hospede = buscaHospedePorEmail(email);
 		double valorComDesconto = valorRefeicao
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(valorRefeicao);
-
-		//registroOperacoes.add(registroFactory.criaRegistro(hospede.getNome(), itemMenu, valorComDesconto));
 
 		hospede.getCartaoFidelidade().adicionaPontos(valorRefeicao);
 		String retorno = "R$" + df.format(valorComDesconto);

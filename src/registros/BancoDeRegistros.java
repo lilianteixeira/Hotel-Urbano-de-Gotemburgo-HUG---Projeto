@@ -1,4 +1,4 @@
-package hospedagem;
+package registros;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;

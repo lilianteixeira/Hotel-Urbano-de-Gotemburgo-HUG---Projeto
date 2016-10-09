@@ -16,10 +16,6 @@ public class Restaurante {
 		this.tipoOrdenacao = "";
 	}
 
-	public static Restaurante getInstance() {
-		return instance;
-	}
-
 	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
 		Refeicao prato = new Prato(nome, preco, descricao);
 		addNoMenu(prato);
@@ -114,13 +110,9 @@ public class Restaurante {
 		}
 		
 	}
-	
-	
+
 	public List<Refeicao> getMenu() {
 		return menu;
 	}
-
-
-	private static final Restaurante instance = new Restaurante();
 
 }

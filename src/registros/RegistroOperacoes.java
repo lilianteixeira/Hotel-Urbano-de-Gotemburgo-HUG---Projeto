@@ -1,4 +1,4 @@
-package hospedagem;
+package registros;
 
 import java.time.LocalDate;
 
