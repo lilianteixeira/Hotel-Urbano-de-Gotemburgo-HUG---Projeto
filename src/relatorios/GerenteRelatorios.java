@@ -56,5 +56,32 @@ public class GerenteRelatorios {
 
 	}
 	
+	public void relatorioRegistros(List<RegistroOperacoes> registrosOperacoes) throws Exception {
+		PrintWriter arquivo = null;
+
+		try {
+			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/cad_transacoes.txt")));
+			String msgArquivo = "Historico de Transacoes:\n";
+			double total = 0;
+			for (RegistroOperacoes registro: registrosOperacoes) {
+				msgArquivo += "==> Nome " + registro.getNome() + " Gasto R$:"
+						+ registro.getTotalPago() + " Detalhes: " + registro.getId() + "\n";
+				total += registro.getTotalPago();
+			}
+			
+			msgArquivo +="\n===== Resumo de transacoes ====="
+						+ "\nLucro total:R$" + total
+						+ "\nTotal de transacoes:" + registrosOperacoes.size() 	
+						+ "\nLucro medio por transacao: R$" + (total/registrosOperacoes.size());
+			
+			arquivo.print(msgArquivo);
+		} finally {
+			if (arquivo != null)
+				arquivo.close();
+		}
+
+	}
+
+	
 
 }

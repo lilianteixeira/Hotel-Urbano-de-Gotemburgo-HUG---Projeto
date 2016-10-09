@@ -65,6 +65,10 @@ public class BancoDeRegistros {
 		}
 		return retorno;
 	}
-	
 
+	public ArrayList<RegistroOperacoes> getRegistroOperacoes() {
+		return registroOperacoes;
+	}
+	
+	
 }
