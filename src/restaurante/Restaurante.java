@@ -114,6 +114,12 @@ public class Restaurante {
 		}
 		
 	}
+	
+	
+	public List<Refeicao> getMenu() {
+		return menu;
+	}
+
 
 	private static final Restaurante instance = new Restaurante();
 

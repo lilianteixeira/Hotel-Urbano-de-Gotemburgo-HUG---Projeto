@@ -1,4 +1,6 @@
 iniciaSistema
+
 geraRelatorio tipoRelatorio="hospedes"
+geraRelatorio tipoRelatorio="restaurante"
 
 fechaSistema
