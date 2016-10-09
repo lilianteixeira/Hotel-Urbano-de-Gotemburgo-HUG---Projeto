@@ -4,7 +4,7 @@ import easyaccept.EasyAccept;
 
 public class Facade {
 	private Controller controller = new Controller();
-
+	
 	public Facade() {
 
 	}
@@ -80,6 +80,10 @@ public class Facade {
 		return controller.convertePontos(email, qtdPontos);
 	}
 	
+	public void geraRelatorio(String tipoRelatorio) throws Exception{
+		controller.geraGelatorio(tipoRelatorio);
+	}
+	
 	public static void main(String[] args) {
 		args = new String[] { "hotel.Facade", 
 							  "resources/acceptance_test/testes_uc1.txt",
@@ -92,7 +96,8 @@ public class Facade {
 							  "resources/acceptance_test/testes_uc4_exception.txt",
 							  "resources/acceptance_test/testes_uc5.txt",
 							  "resources/acceptance_test/testes_uc6.txt",
-							  "resources/acceptance_test/testes_uc7.txt"
+							  "resources/acceptance_test/testes_uc7.txt",
+							  "resources/acceptance_test/testes_ucMichele.txt"
 							  
 							  
 		};

@@ -93,6 +93,7 @@ public class BancoDeHospedes {
 		return null;
 	}
 
-
-
+	public Set<Hospede> getHospedesCadastrados(){
+		return hopedesCadastrados;
+	}
 }

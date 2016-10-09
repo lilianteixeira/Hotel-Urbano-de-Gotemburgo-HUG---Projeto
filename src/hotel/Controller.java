@@ -20,6 +20,7 @@ import hospedagem.RegistroOperacoes;
 import hospedagem.TipoDeQuarto;
 import hospede.BancoDeHospedes;
 import hospede.Hospede;
+import relatorios.GerenteRelatorios;
 import restaurante.Restaurante;
 import validador.Validador;
 
@@ -29,6 +30,8 @@ public class Controller {
 	private BancoDeRegistros bancoDeRegistros;
 	private Restaurante restaurante;
 	private Validador validador;
+	private GerenteRelatorios gerenteRelatorios = new GerenteRelatorios();
+
 	
 	public Controller(){
 		this.bancoDeHospedes = new BancoDeHospedes();
@@ -210,6 +213,12 @@ public class Controller {
 
 	public void ordenaMenu(String tipoOrdenacao) {
 		restaurante.ordenaMenu(tipoOrdenacao);
+	}
+
+	public void geraGelatorio(String tipoRelatorio) throws Exception {
+		if (tipoRelatorio.equalsIgnoreCase("hospedes"))
+			gerenteRelatorios.relatorioHospedes(bancoDeHospedes.getHospedesCadastrados());
+		
 	}
 	
 	

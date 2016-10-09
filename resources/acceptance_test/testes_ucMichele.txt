@@ -1,0 +1,4 @@
+iniciaSistema
+geraRelatorio tipoRelatorio="hospedes"
+
+fechaSistema
