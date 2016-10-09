@@ -1,8 +1,8 @@
 Cadastro de Hospedes: 4 hospedes registrados
 ==> Hospede 1:
-Email: agnetha@abba.se
-Nome: Agnetha Faltskog
-Data de nascimento: 1950-04-05
+Email: sven@sverige.se
+Nome: Sven Gudmar Svenson
+Data de nascimento: 1978-02-10
 
 ==> Hospede 2:
 Email: ines@brasil.com.br
@@ -10,9 +10,9 @@ Nome: Ines Brasil
 Data de nascimento: 1969-10-25
 
 ==> Hospede 3:
-Email: sven@sverige.se
-Nome: Sven Gudmar Svenson
-Data de nascimento: 1978-02-10
+Email: agnetha@abba.se
+Nome: Agnetha Faltskog
+Data de nascimento: 1950-04-05
 
 ==> Hospede 4:
 Email: nobel@got.se
