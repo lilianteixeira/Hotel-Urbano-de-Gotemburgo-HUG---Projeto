@@ -23,13 +23,8 @@ public class Estadia {
 	 * @param quarto
 	 * @param dias
 	 */
-	public Estadia(Quarto quarto, int dias, Hospede hospede) throws Exception{
-		// durante a validação dos argumentos, deve-se checar se o
-		// objeto Quarto, está ocupado, usando o método quarto.isOcupado()
-
-		if(dias <= 0){
-			throw new Exception();
-		}
+	public Estadia(Quarto quarto, int dias, Hospede hospede){
+	
 		this.quarto = quarto;
 		this.dias = dias;
 		this.hospede = hospede;

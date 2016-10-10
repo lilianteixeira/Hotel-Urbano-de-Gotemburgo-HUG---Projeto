@@ -9,7 +9,7 @@ public class Hospede {
 	private String dataNascimento;
 	private CartaoFidelidade cartaoFidelidade;
 
-	public Hospede(String nome, String email, String dataDeNascimento) throws Exception {
+	public Hospede(String nome, String email, String dataDeNascimento)  {
 
 		this.nome = nome;
 		this.email = email;
@@ -21,15 +21,15 @@ public class Hospede {
 		return nome;
 	}
 
-	public void setNome(String nome) throws Exception {
+	public void setNome(String nome) {
 				this.nome = nome;
 	}
 
-	public String getEmail() throws Exception {
+	public String getEmail()  {
 		return email;
 	}
 
-	public void setEmail(String email) throws Exception {
+	public void setEmail(String email){
 		this.email = email;
 	}
 
@@ -38,7 +38,7 @@ public class Hospede {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(String dataNascimento) throws Exception {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

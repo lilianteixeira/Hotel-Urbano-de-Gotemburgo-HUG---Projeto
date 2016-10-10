@@ -44,10 +44,7 @@ public class BancoDeRegistros {
 
 	
 	
-	public String consultaTransacoes(String atributo, int indice) throws Exception {
-		if (indice < 0)
-			throw new Exception("Erro na consulta de transacoes. Indice invalido.");
-
+	public String consultaTransacoes(String atributo, int indice) {
 		DecimalFormat df = new DecimalFormat("#0.00");
 		df.setRoundingMode(RoundingMode.UP);
 		String retorno = "";

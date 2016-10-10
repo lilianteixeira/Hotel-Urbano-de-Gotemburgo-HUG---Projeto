@@ -7,15 +7,6 @@ public class Prato implements Refeicao {
 	private String descricao;
 
 	public Prato(String nome, double preco, String descricao) {
-		if (nome == null)
-			throw new NullPointerException();
-		if (nome.trim().equals(""))
-			throw new IllegalArgumentException();
-		if (descricao == null)
-			throw new NullPointerException();
-		if (descricao.trim().equals(""))
-			throw new IllegalArgumentException();
-
 		this.nome = nome;
 		this.valor = preco;
 		this.descricao = descricao;

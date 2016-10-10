@@ -172,6 +172,8 @@ public class Controller {
 	}
 
 	public String consultaTransacoes(String atributo, int indice) throws Exception {
+		if (indice < 0)
+			throw new Exception("Erro na consulta de transacoes. Indice invalido.");
 		return bancoDeRegistros.consultaTransacoes(atributo, indice);
 	}
 

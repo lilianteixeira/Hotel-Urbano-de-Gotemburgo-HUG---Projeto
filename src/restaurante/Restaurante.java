@@ -16,7 +16,7 @@ public class Restaurante {
 		this.tipoOrdenacao = "";
 	}
 
-	public void cadastraPrato(String nome, double preco, String descricao) throws Exception {
+	public void cadastraPrato(String nome, double preco, String descricao)  {
 		Refeicao prato = new Prato(nome, preco, descricao);
 		addNoMenu(prato);
 		
@@ -44,7 +44,7 @@ public class Restaurante {
 		addNoMenu(refeicaoCompleta);
 	}
 
-	public String consultaRestaurante(String nome, String atributo) throws Exception {
+	public String consultaRestaurante(String nome, String atributo) {
 
 		if (atributo.equalsIgnoreCase("Preco")) {
 			for (Refeicao r : menu)
