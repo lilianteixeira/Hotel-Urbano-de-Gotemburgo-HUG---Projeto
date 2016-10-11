@@ -1,21 +1,21 @@
 ======================================================
 Cadastro de Hospedes: 4 hospedes registrados
 ==> Hospede 1:
-Email: ines@brasil.com.br
-Nome: Ines Brasil
-Data de nascimento: 1969-10-25
+Email: agnetha@abba.se
+Nome: Agnetha Faltskog
+Data de nascimento: 1950-04-05
 ==> Hospede 2:
 Email: sven@sverige.se
 Nome: Sven Gudmar Svenson
 Data de nascimento: 1978-02-10
 ==> Hospede 3:
-Email: agnetha@abba.se
-Nome: Agnetha Faltskog
-Data de nascimento: 1950-04-05
-==> Hospede 4:
 Email: nobel@got.se
 Nome: Alfred Nobel
 Data de nascimento: 1983-10-21
+==> Hospede 4:
+Email: ines@brasil.com.br
+Nome: Ines Brasil
+Data de nascimento: 1969-10-25
 
 ======================================================
 Menu do Restaurante: 17  itens no cardapio
@@ -57,19 +57,22 @@ Nome: Kotbullar com lingon Preco: R$38,50
 Descricao: Almondegas de carne feito no tradicional estilo sueco.
 ==> Item 13:
 Nome: Delicia da serra Preco: R$50,85
-Descricao: Uma selecao de pratos da culinaria regional nordestina. Serao servidos: (1) Tapioca, (2) Carne de sol com fritas, (3) Rapadura.
+Descricao: Uma selecao de pratos da culinaria regional nordestina.
+Pratos: (1) Tapioca, (2) Carne de sol com fritas, (3) Rapadura.
 ==> Item 14:
 Nome: Carne de sol com fritas Preco: R$53,00
 Descricao: Carne de sol saborosa servida com fritas como acompanhamento.
 ==> Item 15:
 Nome: Pasto italiano Preco: R$60,75
-Descricao: Varios pratos italianos para saborear. Serao servidos: (1) Bruschetta, (2) Bresaola com rucula e parmesao, (3) Penne ao pesto, (4) Tiramisu.
+Descricao: Varios pratos italianos para saborear.
+Pratos: (1) Bruschetta, (2) Bresaola com rucula e parmesao, (3) Penne ao pesto, (4) Tiramisu.
 ==> Item 16:
 Nome: Algkot com vegetais Preco: R$75,00
 Descricao: Carne de alce grelhada e servida com vegetais cozidos no vapor.
 ==> Item 17:
 Nome: Svensk mat Preco: R$97,65
-Descricao: Uma variedade de comidas populares na Suecia. Serao servidos: (1) Artsoppa com panquecas, (2) Algkot com vegetais, (3) Kanelbullar.
+Descricao: Uma variedade de comidas populares na Suecia.
+Pratos: (1) Artsoppa com panquecas, (2) Algkot com vegetais, (3) Kanelbullar.
 
 ======================================================
 Historico de Transacoes:

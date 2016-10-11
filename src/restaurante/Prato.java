@@ -11,10 +11,6 @@ public class Prato implements Refeicao {
 		this.valor = preco;
 		this.descricao = descricao;
 	}
-	
-	public static Refeicao novoPrato(String nome, double preco, String descricao) {
-		return new Prato(nome, preco, descricao);
-	}
 
 	@Override
 	public String getNome() {

@@ -16,10 +16,6 @@ public class RefeicaoCompleta implements Refeicao{
 		this.componentes = componentes;
 	}
 	
-	public static RefeicaoCompleta novaRefeicaoCompleta(String nome, String descricao, List<Prato> componentes) {
-		return new RefeicaoCompleta(nome, descricao, componentes);
-	}
-
 	public String getNome() {
 		return nome;
 	}

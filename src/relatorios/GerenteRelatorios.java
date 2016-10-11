@@ -56,6 +56,7 @@ public class GerenteRelatorios {
 						+ "\n\n";
 				contador++;
 			}
+			msgArquivo = msgArquivo.replace(" Serao servidos: ", "\nPratos: ");
 			arquivo.print(msgArquivo);
 		} finally {
 			if (arquivo != null)
