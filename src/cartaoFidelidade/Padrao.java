@@ -47,4 +47,9 @@ public class Padrao implements TipoDeCartao {
 		return str;
 	}
 
+	@Override
+	public String toString() {
+		return "Padrao";
+	}
+	
 }

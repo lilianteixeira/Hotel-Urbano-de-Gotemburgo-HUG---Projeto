@@ -26,4 +26,7 @@ public interface TipoDeCartao {
 	 * o metodo abaixo converte os pontos, recebendo como parametro um int que representa a quantidade de pontos
 	 */
 	String convertePontos(int qtdPontos);
+	
+	@Override
+	String toString();
 }

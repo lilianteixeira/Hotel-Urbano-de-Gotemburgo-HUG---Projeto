@@ -185,18 +185,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="20" language="java" name="cartaoFidelidade.TipoDeCartao" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/TipoDeCartao.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1008" y="1964"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="21" language="java" name="validador.Validador" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="20" language="java" name="validador.Validador" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/validador/Validador.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="151" width="163" x="672" y="959"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -205,7 +194,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="cartaoFidelidade.Padrao" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="21" language="java" name="cartaoFidelidade.Padrao" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Padrao.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1005" y="2150"/>    
@@ -215,7 +204,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="restaurante.RefeicaoComparatorByPrice" 
+  <class id="22" language="java" name="restaurante.RefeicaoComparatorByPrice" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/RefeicaoComparatorByPrice.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -226,7 +215,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="exceptions.CheckinException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="23" language="java" name="exceptions.CheckinException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CheckinException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1262" y="577"/>    
@@ -236,7 +225,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="exceptions.ConsultaMenuException" 
+  <class id="24" language="java" name="exceptions.ConsultaMenuException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/ConsultaMenuException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -247,7 +236,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="exceptions.HospedagemInfoException" 
+  <class id="25" language="java" name="exceptions.HospedagemInfoException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedagemInfoException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -258,7 +247,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="exceptions.CheckoutException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="26" language="java" name="exceptions.CheckoutException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CheckoutException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1898" y="577"/>    
@@ -268,7 +257,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="28" language="java" name="exceptions.NumeroInvalidoException" 
+  <class id="27" language="java" name="exceptions.NumeroInvalidoException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/NumeroInvalidoException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -279,7 +268,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="exceptions.AtualizaCadastroException" 
+  <class id="28" language="java" name="exceptions.AtualizaCadastroException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/AtualizaCadastroException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -290,7 +279,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="30" language="java" name="exceptions.HospedeNotFoundException" 
+  <class id="29" language="java" name="exceptions.HospedeNotFoundException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedeNotFoundException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -301,7 +290,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="exceptions.StringInvalidaException" 
+  <class id="30" language="java" name="exceptions.StringInvalidaException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/StringInvalidaException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -312,7 +301,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="32" language="java" name="exceptions.CadastroException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="31" language="java" name="exceptions.CadastroException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CadastroException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2994" y="568"/>    
@@ -322,7 +311,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="exceptions.RefeicaoCadastroException" 
+  <class id="32" language="java" name="exceptions.RefeicaoCadastroException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/RefeicaoCadastroException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -333,7 +322,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="34" language="java" name="exceptions.PratoCadastroException" 
+  <class id="33" language="java" name="exceptions.PratoCadastroException" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/PratoCadastroException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -344,189 +333,241 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="35">    
+  <association id="34">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="36" name="hospede"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
+      <attribute id="35" name="hospede">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <realization id="37">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
   <association id="38">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="39" name="tipoDeQuarto"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="39" name="estadias">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="41">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="42" name="controller"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="44">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="45" name="estadias"/>      
-      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="48" name="bancoDeHospedes"/>      
-      <multiplicity id="49" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="50">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="51" name="quartoFactory"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="53">    
-    <bendpoint x="1985" y="1387"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <realization id="54">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="20"/>  
-  </realization>  
-  <dependency id="55">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="23"/>  
-  </dependency>  
-  <association id="56">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="57" name="validador"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="60" name="menu"/>      
-      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
+      <attribute id="42" name="menu">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="62">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <association id="63">    
-    <bendpoint x="414" y="841"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="64" name="gerenteRelatorios"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
-    <bendpoint x="1551" y="932"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="67" name="restaurante"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="69">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="70" name="quarto"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="72">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="20"/>  
-  </realization>  
-  <association id="73">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="74" name="cartaoFidelidade"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="76">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="77" name="quartos"/>      
-      <multiplicity id="78" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="80" name="bancoDeRegistros"/>      
-      <multiplicity id="81" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="82">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="83" name="tipoDeCartao"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="85">    
+  <association id="44">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="86" name="componentes"/>      
-      <multiplicity id="87" minimum="0" maximum="2147483647"/>    
+      <attribute id="45" name="componentes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="88">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="89" name="registroOperacoes"/>      
-      <multiplicity id="90" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="91">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="92" name="bancoDeHospedagens"/>      
-      <multiplicity id="93" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="94">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="20"/>  
-  </realization>  
-  <association id="95">    
+  <association id="47">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="96" name="hopedesCadastrados"/>      
-      <multiplicity id="97" minimum="0" maximum="2147483647"/>    
+      <attribute id="48" name="hopedesCadastrados">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="98">    
-    <end type="SOURCE" refId="14"/>    
+  <association id="50">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="51" name="registroOperacoes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="54" name="tipoDeQuarto">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="55" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="56">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="57" name="quartos">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="59">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="60" name="bancoDeHospedagens">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="61" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="63" name="quarto">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="66" name="quartoFactory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="67" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="69" name="bancoDeRegistros">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="70" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="71">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="72" name="validador">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="73" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="74">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="75" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="76" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="77">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <realization id="79">    
+    <bendpoint x="1985" y="1387"/>    
+    <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
+  <association id="80">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="81" name="bancoDeHospedes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="82" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="84" name="cartaoFidelidade">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="85" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <bendpoint x="1551" y="932"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="87" name="restaurante">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="88" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="89">    
+    <bendpoint x="414" y="841"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="90" name="gerenteRelatorios">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="91" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

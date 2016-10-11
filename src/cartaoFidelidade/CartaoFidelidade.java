@@ -36,7 +36,7 @@ public class CartaoFidelidade {
 	 * metodo que muda a pontuacao do cartao
 	 * @param pontuacao
 	 */
-	public void setPontuacao(int pontuacao) {
+	private void setPontuacao(int pontuacao) {
 		this.pontuacao = pontuacao;
 		upgradeFidelidade();
 	}
@@ -48,7 +48,7 @@ public class CartaoFidelidade {
 	public TipoDeCartao getTipoDeCartao() {
 		return tipoDeCartao;
 	}
-
+	
 	/**
 	 * muda o tipo do cartao
 	 * @param tipoDeCartao

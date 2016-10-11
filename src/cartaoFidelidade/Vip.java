@@ -54,7 +54,11 @@ public class Vip implements TipoDeCartao{
 		return str;
 	}	
 	
-
+	@Override
+	public String toString() {
+		
+		return "Vip";
+	}
 	
 
 

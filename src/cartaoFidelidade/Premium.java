@@ -53,5 +53,11 @@ public class Premium implements TipoDeCartao {
 		str += "R$" + df.format(dinheiro);
 		return str;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Premium";
+	}
 
 }
