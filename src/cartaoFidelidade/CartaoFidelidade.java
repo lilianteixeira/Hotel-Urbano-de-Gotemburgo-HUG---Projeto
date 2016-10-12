@@ -1,13 +1,19 @@
 package cartaoFidelidade;
 
+import java.io.Serializable;
+
 /**
  * 
  * Classe Cartao Fidelidade, o cartao possui uma pontuação e um tipo
  * nessa classe usamos a interface TipoDeCartao 
  *
  */
-public class CartaoFidelidade {
+public class CartaoFidelidade  implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3511716196079794501L;
 	private int pontuacao;
 	private TipoDeCartao tipoDeCartao;
 	

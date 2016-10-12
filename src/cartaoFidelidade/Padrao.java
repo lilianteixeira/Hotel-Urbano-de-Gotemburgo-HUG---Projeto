@@ -1,5 +1,6 @@
 package cartaoFidelidade;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -10,8 +11,12 @@ import java.text.DecimalFormat;
  *e converte os pontos com 0,1
  * 
  */
-public class Padrao implements TipoDeCartao {
+public class Padrao implements TipoDeCartao, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5518560373867599198L;
 	private static final double BONUS_PADRAO = 0.1;
 	private static final double DESCONTO_PADRAO = 0;
 	private static final double CONVERTE_PONTOS = 0.1;

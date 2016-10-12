@@ -1,13 +1,18 @@
 package restaurante;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import exceptions.RefeicaoCadastroException;
 
-public class Restaurante {
+public class Restaurante  implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5360202397174661824L;
 	private List<Refeicao> menu;
 	private String tipoOrdenacao;
 

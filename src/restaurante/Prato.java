@@ -1,7 +1,13 @@
 package restaurante;
 
-public class Prato implements Refeicao {
+import java.io.Serializable;
 
+public class Prato implements Refeicao, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7557026691603222002L;
 	private String nome;
 	private double valor;
 	private String descricao;

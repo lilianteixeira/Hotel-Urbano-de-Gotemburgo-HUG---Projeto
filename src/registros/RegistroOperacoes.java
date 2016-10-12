@@ -1,9 +1,14 @@
 package registros;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class RegistroOperacoes {
+public class RegistroOperacoes  implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 431884271646673426L;
 	private LocalDate data;
 	private String nome;
 	private String id;

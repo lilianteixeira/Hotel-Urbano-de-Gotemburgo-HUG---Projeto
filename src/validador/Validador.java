@@ -1,11 +1,18 @@
 package validador;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Validador {
+public class Validador  implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3956698666978335612L;
+
+
 	public Validador() {
 		// TODO Auto-generated constructor stub
 	}

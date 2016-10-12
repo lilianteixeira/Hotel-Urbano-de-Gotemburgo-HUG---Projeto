@@ -1,11 +1,16 @@
 package registros;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
-public class BancoDeRegistros {
+public class BancoDeRegistros  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3972079058336960705L;
 	private ArrayList<RegistroOperacoes> registroOperacoes;
 
 	public BancoDeRegistros() {

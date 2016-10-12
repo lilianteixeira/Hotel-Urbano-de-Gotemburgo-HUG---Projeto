@@ -1,9 +1,15 @@
 package hospede;
 
+import java.io.Serializable;
+
 import cartaoFidelidade.CartaoFidelidade;
 
-public class Hospede {
+public class Hospede  implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8693578300178847976L;
 	private String nome;
 	private String email;
 	private String dataNascimento;

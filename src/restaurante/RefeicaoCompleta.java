@@ -1,10 +1,15 @@
 package restaurante;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RefeicaoCompleta implements Refeicao{
+public class RefeicaoCompleta implements Refeicao, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4128434609377357623L;
 	private String nome;
 	private String descricao;
 	private List<Prato> componentes;

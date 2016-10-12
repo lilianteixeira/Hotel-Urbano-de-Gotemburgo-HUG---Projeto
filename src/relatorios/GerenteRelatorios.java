@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
@@ -16,7 +17,12 @@ import hospede.Hospede;
 import registros.RegistroOperacoes;
 import restaurante.Refeicao;
 
-public class GerenteRelatorios {
+public class GerenteRelatorios  implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8236918611310575423L;
 
 	public GerenteRelatorios() {
 

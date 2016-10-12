@@ -1,5 +1,7 @@
 package hospedagem;
 
+import java.io.Serializable;
+
 import hospedagem.Quarto;
 import hospedagem.TipoDeQuarto;
 
@@ -14,7 +16,11 @@ import hospedagem.TipoDeQuarto;
  * E se o quarto esta ocupado
  * 
  */
-public class Quarto implements Comparable<Quarto> {
+public class Quarto implements Comparable<Quarto>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1824610590453029060L;
 	private String id;
 	private TipoDeQuarto tipoDeQuarto;
 	private boolean isOcupado;

@@ -1,5 +1,6 @@
 package hospede;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.HashSet;
@@ -9,8 +10,12 @@ import java.util.Set;
 
 import exceptions.*;
 
-public class BancoDeHospedes {
+public class BancoDeHospedes implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8202904444022076620L;
 	private Set<Hospede> hopedesCadastrados;
 
 

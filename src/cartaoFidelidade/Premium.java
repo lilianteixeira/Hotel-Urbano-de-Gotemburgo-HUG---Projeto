@@ -1,5 +1,6 @@
 package cartaoFidelidade;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -11,8 +12,12 @@ import java.text.DecimalFormat;
  * da tambem um bonus de 0,2 pela conversao de padrao para premium 
  * 
  */
-public class Premium implements TipoDeCartao {
+public class Premium implements TipoDeCartao, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6925422597208533232L;
 	private static final double BONUS_PADRAO = 0.3;
 	private static final double DESCONTO_PADRAO = 0.1;
 	private static final double CONVERTE_PONTOS = 0.3;

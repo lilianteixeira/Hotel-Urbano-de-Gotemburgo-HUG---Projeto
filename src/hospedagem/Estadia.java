@@ -1,5 +1,7 @@
 package hospedagem;
 
+import java.io.Serializable;
+
 import hospede.Hospede;
 
 /**
@@ -13,7 +15,11 @@ import hospede.Hospede;
  * A quantidade de dias que ele vai ficar hospedado
  *
  */
-public class Estadia {
+public class Estadia  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7417155128055389164L;
 	private Quarto quarto;
 	private int dias;
 	private final Hospede hospede;

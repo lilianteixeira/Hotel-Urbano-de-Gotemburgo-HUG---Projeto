@@ -1,20 +1,25 @@
 package hotel;
 
+import arquivo.Armazenamento;
 import easyaccept.EasyAccept;
 
 public class Facade {
-	private Controller controller = new Controller();
+	private Controller controller;
+	private Armazenamento armazenamento = new Armazenamento();
 	
 	public Facade() {
-
+		
 	}
 
-	public void iniciaSistema() {
-
+	public void iniciaSistema() throws ClassNotFoundException, Exception {
+		controller = (Controller) armazenamento.carregarDados();
+		if (controller == null){
+			controller = new Controller();
+		}
 	}
 
-	public void fechaSistema() {
-
+	public void fechaSistema() throws Exception {
+		armazenamento.salvarDados(controller);
 	}
 
 	public String cadastraHospede(String nome, String email, String dataDeNascimento) throws Exception {

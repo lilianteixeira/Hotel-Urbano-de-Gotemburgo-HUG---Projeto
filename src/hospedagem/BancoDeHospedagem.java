@@ -1,5 +1,6 @@
 package hospedagem;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.HashSet;
@@ -17,9 +18,13 @@ import hospede.Hospede;
 
 
 
-public class BancoDeHospedagem {
+public class BancoDeHospedagem implements Serializable {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8888710004525381449L;
 	private Set<Quarto> quartos;
 	private Map<Estadia, Hospede> estadias;
 	private QuartoFactory quartoFactory;
