@@ -2,572 +2,645 @@
 <class-diagram version="1.1.10" icons="true" automaticImage="JPEG" always-add-relationships="false" 
   generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
   router="FAN">  
-  <class id="1" language="java" name="hospedagem.Estadia" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospedagem/Estadia.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1327" y="1674"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="hospede.BancoDeHospedes" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospede/BancoDeHospedes.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1435" y="1076"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="3" language="java" name="cartaoFidelidade.Premium" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Premium.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1261" y="2156"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="4" language="java" name="factorys.QuartoFactory" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/factorys/QuartoFactory.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="755" y="1198"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="cartaoFidelidade.CartaoFidelidade" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/CartaoFidelidade.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1008" y="1733"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="hotel.Controller" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hotel/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="385" width="239" x="843" y="534"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="hotel.Facade" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="1" language="java" name="hotel.Facade" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hotel/Facade.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="457" width="239" x="843" y="37"/>    
+    <position height="-1" width="-1" x="723" y="240"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="restaurante.RefeicaoCompleta" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/RefeicaoCompleta.java" binary="false" 
+  <class id="2" language="java" name="arquivo.Armazenamento" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/arquivo/Armazenamento.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1062" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="hotel.Controller" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hotel/Controller.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1713" y="257"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="exceptions.HospedagemInfoException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedagemInfoException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2188" y="1445"/>    
+    <position height="-1" width="-1" x="2284" y="-138"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="relatorios.GerenteRelatorios" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="5" language="java" name="exceptions.RestauranteException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/RestauranteException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="946" y="-275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="exceptions.CheckoutException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CheckoutException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2495" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="exceptions.AtualizaCadastroException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/AtualizaCadastroException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1392" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="exceptions.EstadiaIvalidaException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/EstadiaIvalidaException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2698" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="exceptions.ValorInvalidoException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/ValorInvalidoException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="504" y="-139"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="exceptions.CadastroException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CadastroException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1603" y="-147"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="exceptions.RefeicaoCadastroException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/RefeicaoCadastroException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="726" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="exceptions.PratoCadastroException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/PratoCadastroException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="952" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="exceptions.RemoveHospedeException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/RemoveHospedeException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1814" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="exceptions.CheckinException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CheckinException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2898" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="exceptions.ConsultaMenuException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/ConsultaMenuException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1169" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="exceptions.HospedeException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedeException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1699" y="-275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="exceptions.HospedagemException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedagemException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2597" y="-275"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="exceptions.HospedeNotFoundException" 
+    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedeNotFoundException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2049" y="-138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="validador.Validador" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/validador/Validador.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="663" y="774"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="relatorios.GerenteRelatorios" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/relatorios/GerenteRelatorios.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="187" width="260" x="42" y="959"/>    
+    <position height="-1" width="-1" x="908" y="790"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="10" language="java" name="restaurante.Refeicao" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/Refeicao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1805" y="1366"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="11" language="java" name="registros.RegistroOperacoes" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/registros/RegistroOperacoes.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="241" width="286" x="342" y="1330"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="12" language="java" name="cartaoFidelidade.Vip" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Vip.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="758" y="2170"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="13" language="java" name="registros.BancoDeRegistros" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="21" language="java" name="registros.BancoDeRegistros" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/registros/BancoDeRegistros.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="151" width="290" x="342" y="959"/>    
+    <position height="-1" width="-1" x="1234" y="764"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="restaurante.Prato" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/Prato.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2102" y="1880"/>    
+  <class id="22" language="java" name="registros.RegistroOperacoes" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/registros/RegistroOperacoes.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1226" y="1069"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="hospedagem.BancoDeHospedagem" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="23" language="java" name="hospedagem.BancoDeHospedagem" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospedagem/BancoDeHospedagem.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="223" width="308" x="875" y="959"/>    
+    <position height="-1" width="-1" x="1572" y="799"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="hospedagem.Quarto" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="24" language="java" name="factorys.QuartoFactory" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/factorys/QuartoFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1747" y="1161"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="hospedagem.Quarto" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospedagem/Quarto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1330" y="1421"/>    
+    <position height="-1" width="-1" x="1526" y="1169"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="17" language="java" name="hospedagem.TipoDeQuarto" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <enumeration id="26" language="java" name="hospedagem.TipoDeQuarto" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospedagem/TipoDeQuarto.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1553" y="1679"/>    
+    <position height="-1" width="-1" x="1530" y="1407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="18" language="java" name="restaurante.Restaurante" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+  <class id="27" language="java" name="hospede.Hospede" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospede/Hospede.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2003" y="1186"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="hospede.BancoDeHospedes" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospede/BancoDeHospedes.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1932" y="799"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="restaurante.Restaurante" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/Restaurante.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1744" y="1091"/>    
+    <position height="-1" width="-1" x="2244" y="819"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="hospede.Hospede" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/hospede/Hospede.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1021" y="1421"/>    
+  <interface id="30" language="java" name="restaurante.Refeicao" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/Refeicao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2235" y="1118"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="31" language="java" name="restaurante.Prato" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/Prato.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2250" y="1388"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="validador.Validador" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/validador/Validador.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="151" width="163" x="672" y="959"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="21" language="java" name="cartaoFidelidade.Padrao" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Padrao.java" binary="false" 
+  <class id="32" language="java" name="restaurante.RefeicaoCompleta" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/RefeicaoCompleta.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1005" y="2150"/>    
+    <position height="-1" width="-1" x="2584" y="1183"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="restaurante.RefeicaoComparatorByPrice" 
+  <class id="33" language="java" name="restaurante.RefeicaoComparatorByPrice" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
     file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/restaurante/RefeicaoComparatorByPrice.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1609" y="1335"/>    
+    <position height="-1" width="-1" x="2562" y="957"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="exceptions.CheckinException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CheckinException.java" binary="false" 
+  <class id="34" language="java" name="cartaoFidelidade.Vip" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Vip.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1501" y="1779"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="cartaoFidelidade.Premium" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Premium.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1262" y="577"/>    
+    <position height="-1" width="-1" x="1716" y="1774"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="exceptions.ConsultaMenuException" 
+  <class id="36" language="java" name="cartaoFidelidade.CartaoFidelidade" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/ConsultaMenuException.java" binary="false" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/CartaoFidelidade.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1463" y="577"/>    
+    <position height="-1" width="-1" x="2022" y="1496"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="exceptions.HospedagemInfoException" 
+  <interface id="37" language="java" name="cartaoFidelidade.TipoDeCartao" 
     project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedagemInfoException.java" binary="false" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/TipoDeCartao.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1687" y="577"/>    
+    <position height="-1" width="-1" x="1742" y="1479"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="38" language="java" name="cartaoFidelidade.Padrao" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
+    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/cartaoFidelidade/Padrao.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1931" y="1765"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="exceptions.CheckoutException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CheckoutException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1898" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="27" language="java" name="exceptions.NumeroInvalidoException" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/NumeroInvalidoException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2106" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="28" language="java" name="exceptions.AtualizaCadastroException" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/AtualizaCadastroException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2332" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="29" language="java" name="exceptions.HospedeNotFoundException" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/HospedeNotFoundException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2566" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="30" language="java" name="exceptions.StringInvalidaException" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/StringInvalidaException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2792" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="31" language="java" name="exceptions.CadastroException" project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/CadastroException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2994" y="568"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="32" language="java" name="exceptions.RefeicaoCadastroException" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/RefeicaoCadastroException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3207" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="33" language="java" name="exceptions.PratoCadastroException" 
-    project="Hotel-Urbano-de-Gotemburgo-HUG---Projeto" 
-    file="/Hotel-Urbano-de-Gotemburgo-HUG---Projeto/src/exceptions/PratoCadastroException.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="3433" y="577"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <association id="34">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="35" name="hospede">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <association id="39">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="40" name="quartoFactory"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="24" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="37">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <association id="38">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="39" name="estadias">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="40" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="42" name="menu">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="43" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
   <association id="44">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="45" name="componentes">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="46" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="45" name="estadias"/>      
+      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="27" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="47">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="48" name="hopedesCadastrados">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="49" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <dependency id="47">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="49">    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="50" name="tipoDeCartao"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <realization id="53">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="30"/>  
+  </realization>  
+  <realization id="54">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="30"/>  
+  </realization>  
+  <association id="55">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="56" name="validador"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="50">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="51" name="registroOperacoes">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="52" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <association id="58">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="59" name="restaurante"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="29" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="53">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="54" name="tipoDeQuarto">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="55" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="56">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="57" name="quartos">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="58" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="59">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="60" name="bancoDeHospedagens">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="61" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <generalization id="61">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
   <association id="62">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="63" name="bancoDeHospedagens"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="65">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="66">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="67" name="menu"/>      
+      <multiplicity id="68" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <bendpoint x="837" y="144"/>    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="63" name="quarto">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="64" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="65">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="66" name="quartoFactory">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="67" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="68">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="69" name="bancoDeRegistros">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="70" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="71">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="72" name="validador">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="73" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="74">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="75" name="controller">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="76" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="77">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="78">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <realization id="79">    
-    <bendpoint x="1985" y="1387"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
-  <association id="80">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="81" name="bancoDeHospedes">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="82" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+      <attribute id="70" name="armazenamento"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="83">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="84" name="cartaoFidelidade">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="85" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <association id="72">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="73" name="componentes"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="31" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="86">    
-    <bendpoint x="1551" y="932"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="87" name="restaurante">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="88" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <dependency id="75">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="77">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="78">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="79" name="tipoDeQuarto"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="82" name="controller"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="84">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="37"/>  
+  </realization>  
+  <dependency id="85">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="86">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="87" name="bancoDeRegistros"/>      
+      <multiplicity id="88" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="89">    
-    <bendpoint x="414" y="841"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="90" name="gerenteRelatorios">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="91" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="90" name="registroOperacoes"/>      
+      <multiplicity id="91" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="22" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="92">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="93" name="gerenteRelatorios"/>      
+      <multiplicity id="94" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="95">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="96">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <generalization id="97">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="98">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="99" name="quartos"/>      
+      <multiplicity id="100" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="101">    
+    <bendpoint x="1591" y="-22"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <generalization id="102">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="103">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <realization id="104">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="37"/>  
+  </realization>  
+  <dependency id="105">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <association id="106">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="107" name="cartaoFidelidade"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="110" name="bancoDeHospedes"/>      
+      <multiplicity id="111" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="112">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="37"/>  
+  </realization>  
+  <dependency id="113">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="114">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="115">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="116" name="hopedesCadastrados"/>      
+      <multiplicity id="117" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="118">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <generalization id="119">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
