@@ -1,5 +1,6 @@
 package hotel;
 
+import java.io.Serializable;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -23,7 +24,11 @@ import relatorios.GerenteRelatorios;
 import restaurante.Restaurante;
 import validador.Validador;
 
-public class Controller {
+public class Controller implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8294980170572505354L;
 	private BancoDeHospedes bancoDeHospedes;
 	private BancoDeHospedagem bancoDeHospedagens;
 	private BancoDeRegistros bancoDeRegistros;
