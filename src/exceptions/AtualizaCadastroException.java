@@ -1,6 +1,6 @@
 package exceptions;
 
-public class AtualizaCadastroException extends Exception {
+public class AtualizaCadastroException extends HospedeException {
 
 	public AtualizaCadastroException() {
 		

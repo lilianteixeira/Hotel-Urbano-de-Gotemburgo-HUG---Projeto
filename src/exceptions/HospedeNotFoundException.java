@@ -1,6 +1,6 @@
 package exceptions;
 
-public class HospedeNotFoundException extends Exception {
+public class HospedeNotFoundException extends HospedeException {
 	
 	public HospedeNotFoundException() {
 		super();

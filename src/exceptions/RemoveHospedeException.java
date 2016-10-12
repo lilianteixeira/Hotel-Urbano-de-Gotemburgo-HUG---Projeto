@@ -1,6 +1,6 @@
 package exceptions;
 
-public class RemoveHospedeException extends Exception {
+public class RemoveHospedeException extends HospedeException {
 	public RemoveHospedeException() {
 		// TODO Auto-generated constructor stub
 	}

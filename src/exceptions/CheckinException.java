@@ -1,6 +1,6 @@
 package exceptions;
 
-public class CheckinException extends Exception {
+public class CheckinException extends HospedagemException {
 	
 	public CheckinException() {
 		
