@@ -1,6 +1,6 @@
 package exceptions;
 
-public class ConsultaMenuException extends Exception {
+public class ConsultaMenuException extends RestauranteException {
 	
 	public ConsultaMenuException() {
 	}

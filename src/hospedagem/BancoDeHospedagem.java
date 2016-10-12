@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Set;
 
 import exceptions.CheckinException;
+import exceptions.EstadiaIvalidaException;
 import exceptions.HospedeNotFoundException;
-import exceptions.StringInvalidaException;
 import factorys.QuartoFactory;
 import hospede.Hospede;
 
@@ -125,7 +125,7 @@ public class BancoDeHospedagem {
 				return estadia;
 			}
 		}
-		throw new StringInvalidaException();
+		throw new EstadiaIvalidaException();
 	}
 
 	private void removeEstadia(Estadia estadia) {

@@ -11,7 +11,7 @@ import exceptions.ConsultaMenuException;
 import exceptions.HospedagemInfoException;
 import exceptions.PratoCadastroException;
 import exceptions.RefeicaoCadastroException;
-import exceptions.StringInvalidaException;
+import exceptions.RemoveHospedeException;
 import hospedagem.BancoDeHospedagem;
 import hospedagem.Estadia;
 import hospedagem.TipoDeQuarto;
@@ -79,21 +79,21 @@ public class Controller {
 		}
 		if (atributo.equalsIgnoreCase("nome")){
 			if (alteracao == null || alteracao.trim().equals(""))
-				throw new StringInvalidaException(
-						"Erro na atualizacao do cadastro de Hospede. Nome do(a) hospede nao pode ser vazio.");
+				throw new AtualizaCadastroException(
+						"Nome do(a) hospede nao pode ser vazio.");
 			if (alteracao.contains("@"))
-				throw new StringInvalidaException(
-						"Erro na atualizacao do cadastro de Hospede. Nome do(a) hospede esta invalido.");
+				throw new AtualizaCadastroException(
+						"Nome do(a) hospede esta invalido.");
 
 		}
 		if (atributo.equalsIgnoreCase("email")) {
 			if (alteracao == null || alteracao.trim().equalsIgnoreCase("")) {
-				throw new StringInvalidaException(
-						"Erro na atualizacao do cadastro de Hospede. Email do(a) hospede nao pode ser vazio.");
+				throw new AtualizaCadastroException(
+						"Email do(a) hospede nao pode ser vazio.");
 			}
 			if (!validador.isEmailValid(alteracao)) {
-				throw new StringInvalidaException(
-						"Erro na atualizacao do cadastro de Hospede. Email do(a) hospede esta invalido.");
+				throw new AtualizaCadastroException(
+						"Email do(a) hospede esta invalido.");
 			}
 		}
 		if (atributo.equalsIgnoreCase("data de Nascimento")) {
@@ -107,7 +107,7 @@ public class Controller {
 
 	public void removeHospede(String email) throws Exception {
 		if (!validador.isEmailValid(email))
-			throw new StringInvalidaException("Erro na remocao do Hospede. Formato de email invalido.");
+			throw new RemoveHospedeException("Formato de email invalido.");
 
 		bancoDeHospedes.removeHospede(email);
 	}

@@ -1,6 +1,6 @@
 package exceptions;
 
-public class RefeicaoCadastroException extends Exception {
+public class RefeicaoCadastroException extends RestauranteException {
 
 	public RefeicaoCadastroException() {
 		

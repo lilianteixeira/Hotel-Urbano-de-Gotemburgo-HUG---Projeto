@@ -1,6 +1,6 @@
 package exceptions;
 
-public class PratoCadastroException extends Exception {
+public class PratoCadastroException extends RestauranteException {
 
 	public PratoCadastroException() {
 		

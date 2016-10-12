@@ -88,7 +88,7 @@ public class BancoDeHospedes {
 	public String convertePontos(String email, int qtdPontos) throws Exception {
 		Hospede hospede = buscaHospedePorEmail(email);
 		if (qtdPontos > hospede.getCartaoFidelidade().getPontuacao()) {
-			throw new NumeroInvalidoException("Quantidade de pontos menor do que a quantidade de pontos acumulada.");
+			throw new ValorInvalidoException("Quantidade de pontos menor do que a quantidade de pontos acumulada.");
 		}
 		String str = hospede.getCartaoFidelidade().getTipoDeCartao().convertePontos(qtdPontos);
 		hospede.getCartaoFidelidade().diminuiPontosConvertidos(qtdPontos);
