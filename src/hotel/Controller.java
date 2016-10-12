@@ -1,25 +1,11 @@
 package hotel;
 
 import java.io.Serializable;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
-import exceptions.AtualizaCadastroException;
-import exceptions.CadastroException;
-import exceptions.CheckinException;
-import exceptions.CheckoutException;
-import exceptions.ConsultaMenuException;
-import exceptions.HospedagemInfoException;
-import exceptions.PratoCadastroException;
-import exceptions.RefeicaoCadastroException;
-import exceptions.RemoveHospedeException;
-import hospedagem.BancoDeHospedagem;
-import hospedagem.Estadia;
-import hospedagem.TipoDeQuarto;
-import hospede.BancoDeHospedes;
-import hospede.Hospede;
-import registros.BancoDeRegistros;
-import registros.RegistroOperacoes;
+import exceptions.*;
+import hospedagem.*;
+import hospede.*;
+import registros.*;
 import relatorios.GerenteRelatorios;
 import restaurante.Restaurante;
 import validador.Validador;
@@ -152,8 +138,7 @@ public class Controller implements Serializable {
 		Hospede hospede = bancoDeHospedes.buscaHospedePorEmail(email);
 
 		Estadia estadia = bancoDeHospedagens.buscaEstadiaPorQuarto(idQuarto);
-		DecimalFormat df = new DecimalFormat("#0.00");
-		df.setRoundingMode(RoundingMode.UP);
+
 		double valorComDesconto = estadia.getPrecoTotal()
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(estadia.getPrecoTotal());
 
@@ -222,8 +207,7 @@ public class Controller implements Serializable {
 		double valorRefeicao = restaurante.buscaRefeicao(itemMenu).getValor();
 
 		Hospede hospede = bancoDeHospedes.buscaHospedePorEmail(email);
-		DecimalFormat df = new DecimalFormat("#0.00");
-		df.setRoundingMode(RoundingMode.UP);
+
 		double valorComDesconto = valorRefeicao
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(valorRefeicao);
 
@@ -233,6 +217,7 @@ public class Controller implements Serializable {
 	}
 
 	public String convertePontos(String email, int qtdPontos) throws Exception {
+		
 		return bancoDeHospedes.convertePontos(email, qtdPontos);
 	}
 
