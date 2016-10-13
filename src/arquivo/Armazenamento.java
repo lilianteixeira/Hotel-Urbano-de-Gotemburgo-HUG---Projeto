@@ -3,13 +3,23 @@ package arquivo;
 import hotel.Controller;
 
 import java.io.*;
-
-
+/**
+ *
+ * Classe Armazenamento, a classe e responsavel por armazenar os dados em um arquivo
+ *
+ */
 public class Armazenamento {
+	/**
+	 * String statica que indica o caminho onde esta o arquivo
+	 */
 	private static final String CAMINHO = "arquivos_sistema/hug.dat";
-	
-	
-
+		
+/**
+ * o metodo abaixo salva os dados
+ * @param controller
+ * @throws FileNotFoundException
+ * @throws IOException
+ */
 	public void salvarDados(Controller controller) throws FileNotFoundException, IOException{
 
 
@@ -35,6 +45,10 @@ public class Armazenamento {
 //		}
 //	}
 
+	/**
+	 * o metodo carrega os dados que estao no arquivo
+	 * @return um objeto 
+	 */
 	public Object carregarDados() {
 
 		Object resultado = null;
