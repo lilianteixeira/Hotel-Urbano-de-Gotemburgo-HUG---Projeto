@@ -23,6 +23,7 @@ public class GerenteRelatorios  implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 8236918611310575423L;
+	private static final String CAMINHO = "arquivos_sistema/relatorios/";
 
 	public GerenteRelatorios() {
 
@@ -32,7 +33,7 @@ public class GerenteRelatorios  implements Serializable{
 		PrintWriter arquivo = null;
 
 		try {
-			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/cad_hospedes.txt")));
+			arquivo = new PrintWriter(new BufferedWriter(new FileWriter(CAMINHO + "cad_hospedes.txt")));
 			String msgArquivo = "Cadastro de Hospedes: " + listaHospedes.size() + " hospedes registrados\n";
 			int contador = 1;
 			for (Hospede hospede : listaHospedes) {
@@ -53,7 +54,7 @@ public class GerenteRelatorios  implements Serializable{
 		PrintWriter arquivo = null;
 
 		try {
-			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/cad_restaurante.txt")));
+			arquivo = new PrintWriter(new BufferedWriter(new FileWriter(CAMINHO + "cad_restaurante.txt")));
 			String msgArquivo = "Menu do Restaurante: " + menu.size() + "  itens no cardapio\n";
 			int contador = 1;
 			for (Refeicao refeicao : menu) {
@@ -75,7 +76,7 @@ public class GerenteRelatorios  implements Serializable{
 		PrintWriter arquivo = null;
 
 		try {
-			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/cad_transacoes.txt")));
+			arquivo = new PrintWriter(new BufferedWriter(new FileWriter(CAMINHO + "cad_transacoes.txt")));
 			String msgArquivo = "Historico de Transacoes:\n";
 			double total = 0;
 			for (RegistroOperacoes registro : registrosOperacoes) {
@@ -99,13 +100,13 @@ public class GerenteRelatorios  implements Serializable{
 	public void relatorioHotel() throws Exception {
 
 		PrintWriter arquivo = null;
-		String dir = "resources/relatorios";
+		String dir = CAMINHO ;
 		String msgArquivo = "";
 		File file = new File(dir);
 		String[] listaArquivos = file.list();
 		Arrays.sort(listaArquivos);
 		try {
-			arquivo = new PrintWriter(new BufferedWriter(new FileWriter("resources/relatorios/hotel_principal.txt")));
+			arquivo = new PrintWriter(new BufferedWriter(new FileWriter(CAMINHO + "hotel_principal.txt")));
 			for (String arq : listaArquivos) {
 				if (arq.endsWith(".txt") && !arq.startsWith("hotel")) {
 					msgArquivo += "======================================================\n"
