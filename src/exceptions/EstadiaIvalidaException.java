@@ -1,13 +1,20 @@
 package exceptions;
 
+/**
+ * a classe abaixo e filha da classe hospedagemException
+ * ela e responsavel por lancar uma aviso/excecao
+ * se houver algum erro ao verificar uma estadia
+ *
+ */
 public class EstadiaIvalidaException extends HospedagemException{
-	public EstadiaIvalidaException(String message) {
-		super(message);
-		// TODO Auto-generated constructor stub
+	
+	public EstadiaIvalidaException(String messagem) {
+		super(messagem);
+		
 	}
 
 	public EstadiaIvalidaException() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 }

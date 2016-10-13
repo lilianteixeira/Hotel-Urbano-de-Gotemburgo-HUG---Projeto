@@ -1,13 +1,19 @@
 package exceptions;
 
+/**
+ * a classe abaixo e filha da classe Exception
+ * ela e responsavel por lancar um aviso/excecao
+ * se houver algum erro com algo ligado ao restaurante
+ *
+ */
 public class RestauranteException extends Exception {
 
 	public RestauranteException() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
-	public RestauranteException(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	public RestauranteException(String mensagem) {
+		super(mensagem);
+		
 	}
 }

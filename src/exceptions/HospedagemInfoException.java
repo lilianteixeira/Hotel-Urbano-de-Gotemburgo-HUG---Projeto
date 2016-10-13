@@ -1,9 +1,15 @@
 package exceptions;
 
+/**
+ * a classe abaixo e filha da classe hospedagemException
+ * ela e responsavel por lancar uma aviso/excecao
+ * se houver algum erro relacionado a hospedagemm
+ *
+ */
 public class HospedagemInfoException extends HospedagemException {
 
 	public HospedagemInfoException() {
-		//ver mensagem que fica aqui
+		super();
 	}
 
 	public HospedagemInfoException(String mensagem) {

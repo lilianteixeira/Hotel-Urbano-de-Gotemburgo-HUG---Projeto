@@ -1,13 +1,19 @@
 package exceptions;
 
+/**
+ * a classe abaixo e filha da classe Exception
+ * ela e responsavel por lancar uma aviso/excecao
+ * se houver algum erro relacionado a informacoes da hospedagem
+ *
+ */
 public class HospedagemException extends Exception{
 
 	public HospedagemException() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
-	public HospedagemException(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	public HospedagemException(String mensagem) {
+		super(mensagem);
+		
 	}
 }
