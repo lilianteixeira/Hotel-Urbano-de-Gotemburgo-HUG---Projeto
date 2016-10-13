@@ -15,6 +15,7 @@ import java.text.DecimalFormat;
 public class Premium implements TipoDeCartao, Serializable {
 
 	/**
+	 * atributos da classe
 	 * 
 	 */
 	private static final long serialVersionUID = -6925422597208533232L;

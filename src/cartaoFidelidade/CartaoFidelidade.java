@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class CartaoFidelidade  implements Serializable {
 
 	/**
-	 * 
+	 * atributos da classe
 	 */
 	private static final long serialVersionUID = 3511716196079794501L;
 	private int pontuacao;

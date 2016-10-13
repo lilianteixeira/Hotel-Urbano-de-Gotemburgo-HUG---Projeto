@@ -14,7 +14,8 @@ import java.text.DecimalFormat;
 public class Padrao implements TipoDeCartao, Serializable {
 
 	/**
-	 * 
+	 * atributos da classe
+	 *
 	 */
 	private static final long serialVersionUID = -5518560373867599198L;
 	private static final double BONUS_PADRAO = 0.1;
