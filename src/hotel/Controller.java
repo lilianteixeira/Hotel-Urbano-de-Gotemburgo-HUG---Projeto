@@ -68,23 +68,19 @@ public class Controller implements Serializable {
 			if (atributo.equalsIgnoreCase("data de nascimento"))
 				throw new AtualizaCadastroException("Data de Nascimento do(a) hospede nao pode ser vazio.");
 		}
-		if (atributo.equalsIgnoreCase("nome")){
+		if (atributo.equalsIgnoreCase("nome")) {
 			if (alteracao == null || alteracao.trim().equals(""))
-				throw new AtualizaCadastroException(
-						"Nome do(a) hospede nao pode ser vazio.");
+				throw new AtualizaCadastroException("Nome do(a) hospede nao pode ser vazio.");
 			if (alteracao.contains("@"))
-				throw new AtualizaCadastroException(
-						"Nome do(a) hospede esta invalido.");
+				throw new AtualizaCadastroException("Nome do(a) hospede esta invalido.");
 
 		}
 		if (atributo.equalsIgnoreCase("email")) {
 			if (alteracao == null || alteracao.trim().equalsIgnoreCase("")) {
-				throw new AtualizaCadastroException(
-						"Email do(a) hospede nao pode ser vazio.");
+				throw new AtualizaCadastroException("Email do(a) hospede nao pode ser vazio.");
 			}
 			if (!validador.isEmailValid(alteracao)) {
-				throw new AtualizaCadastroException(
-						"Email do(a) hospede esta invalido.");
+				throw new AtualizaCadastroException("Email do(a) hospede esta invalido.");
 			}
 		}
 		if (atributo.equalsIgnoreCase("data de Nascimento")) {
@@ -211,13 +207,17 @@ public class Controller implements Serializable {
 		double valorComDesconto = valorRefeicao
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(valorRefeicao);
 
+		valorComDesconto = valorComDesconto * 100;
+		valorComDesconto = Math.round(valorComDesconto);
+		valorComDesconto = valorComDesconto / 100;
+
 		bancoDeRegistros.addRegistro(new RegistroOperacoes(hospede.getNome(), itemMenu, valorComDesconto));
 
 		return bancoDeHospedes.realizaPedido(email, itemMenu, valorRefeicao);
 	}
 
 	public String convertePontos(String email, int qtdPontos) throws Exception {
-		
+
 		return bancoDeHospedes.convertePontos(email, qtdPontos);
 	}
 

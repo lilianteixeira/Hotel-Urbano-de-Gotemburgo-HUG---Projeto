@@ -36,6 +36,7 @@ public class BancoDeRegistros  implements Serializable {
 			for (RegistroOperacoes registro : registroOperacoes) {
 				total += registro.getTotalPago();
 			}
+			
 			return "R$" + df.format(total);
 		}
 		if (atributo.equalsIgnoreCase("Nome")) {
@@ -56,7 +57,6 @@ public class BancoDeRegistros  implements Serializable {
 
 		if (atributo.equalsIgnoreCase("Total")) {
 			double total = registroOperacoes.get(indice).getTotalPago();
-
 			return "R$" + df.format(total);
 		}
 		if (atributo.equalsIgnoreCase("Nome")) {

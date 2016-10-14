@@ -5,17 +5,17 @@ Email: agnetha@abba.se
 Nome: Agnetha Faltskog
 Data de nascimento: 1950-04-05
 ==> Hospede 2:
-Email: sven@sverige.se
-Nome: Sven Gudmar Svenson
-Data de nascimento: 1978-02-10
-==> Hospede 3:
-Email: ines@brasil.com.br
-Nome: Ines Brasil
-Data de nascimento: 1969-10-25
-==> Hospede 4:
 Email: nobel@got.se
 Nome: Alfred Nobel
 Data de nascimento: 1983-10-21
+==> Hospede 3:
+Email: sven@sverige.se
+Nome: Sven Gudmar Svenson
+Data de nascimento: 1978-02-10
+==> Hospede 4:
+Email: ines@brasil.com.br
+Nome: Ines Brasil
+Data de nascimento: 1969-10-25
 
 ======================================================
 Menu do Restaurante: 17  itens no cardapio
@@ -98,7 +98,7 @@ Historico de Transacoes:
 ==> Nome: Ines Brasil Gasto: R$50,85 Detalhes: Delicia da serra
 ==> Nome: Sven Gudmar Svenson Gasto: R$45,77 Detalhes: Delicia da serra
 ===== Resumo de transacoes =====
-Lucro total:R$11688,05
+Lucro total:R$11688,07
 Total de transacoes:21
 Lucro medio por transacao: R$556,57
 

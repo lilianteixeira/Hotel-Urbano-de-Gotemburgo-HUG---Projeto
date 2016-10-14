@@ -22,6 +22,6 @@ Historico de Transacoes:
 ==> Nome: Sven Gudmar Svenson Gasto: R$45,77 Detalhes: Delicia da serra
 
 ===== Resumo de transacoes =====
-Lucro total:R$11688,05
+Lucro total:R$11688,07
 Total de transacoes:21
 Lucro medio por transacao: R$556,57

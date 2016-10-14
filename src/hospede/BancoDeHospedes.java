@@ -84,7 +84,6 @@ public class BancoDeHospedes implements Serializable {
 		Hospede hospede = buscaHospedePorEmail(email);
 		double valorComDesconto = valorRefeicao
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(valorRefeicao);
-
 		hospede.getCartaoFidelidade().adicionaPontos(valorRefeicao);
 		String retorno = "R$" + df.format(valorComDesconto);
 		return retorno;
