@@ -1,7 +1,6 @@
 package registros;
 
 import java.io.Serializable;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -24,7 +23,6 @@ public class BancoDeRegistros  implements Serializable {
 
 	public String consultaTransacoes(String atributo) {
 		DecimalFormat df = new DecimalFormat("#0.00");
-		df.setRoundingMode(RoundingMode.UP);
 		String retorno = "";
 
 		if (atributo.equalsIgnoreCase("Quantidade")) {
@@ -52,7 +50,6 @@ public class BancoDeRegistros  implements Serializable {
 	
 	public String consultaTransacoes(String atributo, int indice) {
 		DecimalFormat df = new DecimalFormat("#0.00");
-		df.setRoundingMode(RoundingMode.UP);
 		String retorno = "";
 
 		if (atributo.equalsIgnoreCase("Total")) {

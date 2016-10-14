@@ -208,7 +208,7 @@ public class Controller implements Serializable {
 				- hospede.getCartaoFidelidade().getTipoDeCartao().calculaDesconto(valorRefeicao);
 
 		valorComDesconto = valorComDesconto * 100;
-		valorComDesconto = Math.round(valorComDesconto);
+		valorComDesconto = Math.ceil(valorComDesconto);
 		valorComDesconto = valorComDesconto / 100;
 
 		bancoDeRegistros.addRegistro(new RegistroOperacoes(hospede.getNome(), itemMenu, valorComDesconto));
