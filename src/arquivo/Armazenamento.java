@@ -21,8 +21,12 @@ public class Armazenamento {
  * @throws IOException
  */
 	public void salvarDados(Controller controller) throws FileNotFoundException, IOException{
+		
+		File arquivo = new File(CAMINHO);
 
-
+		if (arquivo.exists()) {
+			arquivo.delete();
+		}
 		ObjectOutputStream arqObjectos = null;
 		try{
 			arqObjectos = new ObjectOutputStream(new FileOutputStream(CAMINHO));
@@ -32,18 +36,7 @@ public class Armazenamento {
 				arqObjectos.close();
 		}
 	}
-//	public int salvarDados(Controller controller) {
-//		try {
-//			FileOutputStream fs = new FileOutputStream(CAMINHO);
-//			ObjectOutputStream os = new ObjectOutputStream(fs);
-//			os.writeObject(controller);
-//			os.close();
-//			return 0;
-//		} catch (Exception ex) {
-//			return -1;
-//
-//		}
-//	}
+
 
 	/**
 	 * o metodo carrega os dados que estao no arquivo
